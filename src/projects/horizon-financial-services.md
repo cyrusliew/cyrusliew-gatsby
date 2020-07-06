@@ -1,16 +1,17 @@
 ---
 templateKey: project
-title: Horizon Financial Services
-date: 2020-07-06T10:28:15.677Z
 completionDate: 2020-07-06T10:28:15.710Z
+featuredimage: /img/hfs.png
+title: Horizon Financial Services
 platform:
   - Drupal
   - Credit Sense
 icon: fab fa-drupal
-featuredimage: /img/hfs.png
 tags:
   - Web Development
   - Web Design
+date: 2020-07-06T10:28:15.677Z
+onGoing: true
 ---
 Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.
 
