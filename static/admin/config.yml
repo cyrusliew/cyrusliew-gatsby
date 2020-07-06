@@ -33,13 +33,14 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "project"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Completion Date", name: "completionDate", widget: "datetime"}
       - {label: "Platform", name: "platform", widget: "list"}
       - {label: "Icon", name: "icon", widget: "string"}
-      - {label: "Featured Image", name: "featuredimage", widget: image}
+      - {label: "Thumbnail", name: "thumbnail", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "On going", name: "onGoing", widget: "boolean"}
+      - {label: "Completion Date", name: "completionDate", widget: "date"}
   - name: "pages"
     label: "Pages"
     files:
