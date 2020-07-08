@@ -28,7 +28,7 @@ collections:
       - {label: "Tags", name: "tags", widget: "list"}
   - name: "project"
     label: "Project"
-    folder: "src/projects"
+    folder: "src/pages/projects"
     create: true
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "project"}
