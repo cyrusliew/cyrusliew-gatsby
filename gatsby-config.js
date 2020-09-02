@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
+    title: 'The "Full Stack" | Cyrus Liew',
     description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+      'A self-claimed "Full Stack Developer" based in Auckland, New Zealand. Find out if the claim is true.',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
