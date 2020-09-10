@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import ReactFullPage from '@fullpage/react-fullpage';
+import { gsap } from 'gsap';
 
 import Layout from '../components/Layout'
 import Features from '../components/Features'
@@ -40,22 +41,116 @@ export const IndexPageTemplate = ({
   description,
   intro,
 }) => {
+  const indexPage = React.createRef();
+  const ball = React.createRef();
+  const logoRef = React.createRef();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [initialized, setInitialized] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const logoWrapperSize = window.innerHeight;
+  const animationSpeed = 0.5;
+
+  useEffect(() => {
+    gsap.to(
+      ball.current,
+      {
+        background: 'linear-gradient(140.49deg, #0748A5 8.5%, #8A1851 87.98%)',
+        marginLeft: 0,
+        left: '-5%',
+        height: logoWrapperSize,
+        width: logoWrapperSize,
+        duration: 2,
+        delay: 2,
+      }
+    )
+
+    gsap.to(
+      logoRef.current,
+      {
+        marginLeft: 0,
+        left: '-5%',
+        height: logoWrapperSize,
+        width: logoWrapperSize,
+        duration: 2,
+        delay: 2,
+      }
+    );
+    setMounted(true);
+  }, [indexPage])
+
+  useEffect(() => {
+    console.log('Current Index', currentIndex);
+
+    if (currentIndex === 0 && initialized) {
+      gsap.to(
+        ball.current,
+        {
+          background: 'linear-gradient(140.49deg, #0748A5 8.5%, #8A1851 87.98%)',
+          marginLeft: 0,
+          left: '-5%',
+          height: logoWrapperSize,
+          width: logoWrapperSize,
+          duration: animationSpeed,
+        }
+      )
+    }
+
+    if (currentIndex !== 0) {
+      gsap.to(
+        logoRef.current,
+        {
+          borderRadius: 0,
+          height: 150,
+          width: 150,
+          duration: animationSpeed,
+        }
+      );
+    }
+
+    if (currentIndex === 1) {
+        gsap.to(
+          ball.current,
+          {
+            background: 'linear-gradient(-90deg, #24077E 0%, #4134FD 100%), #FFFFFF',
+            left: 'calc(95% - 200px)',
+            right: '10%',
+            height: '200px',
+            width: '200px',
+            duration: animationSpeed,
+          }
+        )
+    }
+
+    if (currentIndex === 2) {
+        gsap.to(
+          ball.current,
+          {
+            background: 'linear-gradient(316.7deg, #0748A5 10.85%, #A60E40 85.41%)',
+            left: '5%',
+            right: '0',
+            height: '200px',
+            width: '200px',
+            duration: animationSpeed,
+          }
+        )
+    }
+  }, [currentIndex])
 
   return (
     <div
       style={{
         background: "black",
       }}
+      ref={indexPage}
     >
       {
         backgroundColors.map((bg, index) => (
-          <BackgroundColors background={bg} opacity={currentIndex === index ? 1 : 0} />
+          <BackgroundColors key={bg} background={bg} opacity={currentIndex === index ? 1 : 0} />
         ))
       }
       
       <div
-        class="logo-name"
+        className="logo-name"
         style={{
           bottom: 0,
           left: 0,
@@ -64,14 +159,18 @@ export const IndexPageTemplate = ({
           top: 0,
         }}
       >
-        <Ball />
-        <Logo />
+        <Ball mounted={mounted} ref={ball} />
+        <Logo ref={logoRef} />
       </div>
 
       <ReactFullPage
         navigation
         onLeave={(origin, destination, direction) => {
           console.log("onLeave event", { origin, destination, direction });
+          if (!initialized) {
+            setInitialized(true);
+            console.log('Finished Initialized')
+          }
         }}
         render={({ state, fullpageApi }) => {
           const { destination } = state;

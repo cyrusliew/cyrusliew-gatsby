@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const NameWrapper = styled.div`
   color: white;
   margin-left: auto;
+  margin-right: 2rem;
   position: relative;
   text-align: right;
   z-index: 1;
@@ -24,7 +25,7 @@ const NameWrapper = styled.div`
 
 const Name = () => {
     return (
-    <NameWrapper class="name">
+    <NameWrapper className="name">
         <h2>Cyrus Liew</h2>
         <h4>"full stack" developer</h4>
     </NameWrapper>

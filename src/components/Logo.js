@@ -1,38 +1,61 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { gsap } from 'gsap';
 import styled from 'styled-components';
 import logo from '../img/logo.svg';
 
 const LogoWrapper = styled.div`
   align-items: center;
   bottom: 0;
+  border-radius: 100%;
   display: flex;
-  height: ${props => props.height}px;
+  height: 100px;
   justify-content: center;
-  left: -5%;
+  left: 0;
   margin: auto;
+  overflow: hidden;
   position: absolute;
+  right: 0;
   top: 0;
-  width: ${props => props.width}px;
+  width: 100px;
 
   img {
-    border-radius: 100%;
-    height: 100%;
+    height: 200px;
+    width: 0;
+    right: -100%;
     position: relative;
-    transition: all 1s ease;
+    transition: unset;
   }
 `;
 
-const Logo = () => {
-    const logoWrapperSize = window.innerHeight;
+const Logo = React.forwardRef(({ backToHome }, ref) => {
+  const imgRef = React.createRef(); 
+  const logoWrapperSize = window.innerHeight;
 
-    return (
-        <LogoWrapper
-            height={logoWrapperSize}
-            width={logoWrapperSize}
-        >
-            <img src={logo} alt="logo" />
-        </LogoWrapper>
+  useEffect(() => {
+    gsap.to(
+      imgRef.current,
+      {
+        right: 0,
+        height: logoWrapperSize,
+        width: logoWrapperSize,
+        duration: 2,
+        delay: 2,
+      }
     )
-};
+  }, [])
+
+  return (
+      <LogoWrapper
+        ref={ref}
+        tabIndex={0}
+        type="button"
+        height={logoWrapperSize}
+        width={logoWrapperSize}
+        onClick={backToHome}
+      >
+          <img src={logo} alt="logo" ref={imgRef} />
+      </LogoWrapper>
+  )
+});
 
 export default Logo;
