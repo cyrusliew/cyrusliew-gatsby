@@ -1,36 +1,40 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import ReactFullPage from '@fullpage/react-fullpage';
-import { gsap } from 'gsap';
+import styled from 'styled-components';
 
 import Layout from '../components/Layout'
-import Features from '../components/Features'
-import BlogRoll from '../components/BlogRoll'
+// import Features from '../components/Features'
+// import BlogRoll from '../components/BlogRoll'
 
-import Name from '../components/Name';
 import Logo from '../components/Logo';
 import Ball from '../components/Ball';
+import useAnimation from '../hooks/useAnimation';
 
-const backgroundColors = [
-  'linear-gradient(116.82deg, #000000 0%, #24077E 100%)',
-  'linear-gradient(250.2deg, #24077E 1.43%, #000000 98.06%)',
-  'linear-gradient(289.58deg, #4134fd 2.98%, #000000 95.49%)',
-  'linear-gradient(252.68deg, #24077e 5.04%, #000000 101.11%), #24077e',
-  '#1a055e',
-];
+import Home from '../sections/Home';
+import About from '../sections/About';
+import PastPresent from '../sections/PastPresent';
+import Creation from '../sections/Creation';
 
-const BackgroundColors = (props) => (
-  <div style={{
-    ...props,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-    right: 0,
-    top: 0,
-    transition: 'all 1s ease',
-  }} />
-)
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+const Sections = styled.div`
+    bottom: 0;
+    display: flex;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    > div,
+    .section,
+    section {
+        margin: auto;
+        width: 100%;
+    }
+`;
 
 export const IndexPageTemplate = ({
   image,
@@ -43,98 +47,19 @@ export const IndexPageTemplate = ({
 }) => {
   const indexPage = React.createRef();
   const ball = React.createRef();
-  const logoRef = React.createRef();
+  const logo = React.createRef();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [initialized, setInitialized] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  const logoWrapperSize = window.innerHeight;
-  const animationSpeed = 0.5;
+  // const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    gsap.to(
-      ball.current,
-      {
-        background: 'linear-gradient(140.49deg, #0748A5 8.5%, #8A1851 87.98%)',
-        marginLeft: 0,
-        left: '-5%',
-        height: logoWrapperSize,
-        width: logoWrapperSize,
-        duration: 2,
-        delay: 2,
-      }
-    )
+  useAnimation(ball, logo, currentIndex, initialized, indexPage);
 
-    gsap.to(
-      logoRef.current,
-      {
-        marginLeft: 0,
-        left: '-5%',
-        height: logoWrapperSize,
-        width: logoWrapperSize,
-        duration: 2,
-        delay: 2,
-      }
-    );
-    setMounted(true);
-  }, [indexPage])
-
-  useEffect(() => {
-    console.log('Current Index', currentIndex);
-
-    if (currentIndex === 0 && initialized) {
-      gsap.to(
-        ball.current,
-        {
-          background: 'linear-gradient(140.49deg, #0748A5 8.5%, #8A1851 87.98%)',
-          marginLeft: 0,
-          left: '-5%',
-          height: logoWrapperSize,
-          width: logoWrapperSize,
-          duration: animationSpeed,
-        }
-      )
-    }
-
-    if (currentIndex !== 0) {
-      gsap.to(
-        logoRef.current,
-        {
-          borderRadius: 0,
-          height: 150,
-          width: 150,
-          duration: animationSpeed,
-        }
-      );
-    }
-
-    if (currentIndex === 1) {
-        gsap.to(
-          ball.current,
-          {
-            background: 'linear-gradient(-90deg, #24077E 0%, #4134FD 100%), #FFFFFF',
-            left: 'calc(95% - 200px)',
-            right: '10%',
-            height: '200px',
-            width: '200px',
-            duration: animationSpeed,
-          }
-        )
-    }
-
-    if (currentIndex === 2) {
-        gsap.to(
-          ball.current,
-          {
-            background: 'linear-gradient(316.7deg, #0748A5 10.85%, #A60E40 85.41%)',
-            left: '5%',
-            right: '0',
-            height: '200px',
-            width: '200px',
-            duration: animationSpeed,
-          }
-        )
-    }
-  }, [currentIndex])
+  const sections = [
+    <Home />,
+    <About />,
+    <PastPresent />,
+    <Creation />,
+  ];
 
   return (
     <div
@@ -143,12 +68,6 @@ export const IndexPageTemplate = ({
       }}
       ref={indexPage}
     >
-      {
-        backgroundColors.map((bg, index) => (
-          <BackgroundColors key={bg} background={bg} opacity={currentIndex === index ? 1 : 0} />
-        ))
-      }
-      
       <div
         className="logo-name"
         style={{
@@ -159,10 +78,9 @@ export const IndexPageTemplate = ({
           top: 0,
         }}
       >
-        <Ball mounted={mounted} ref={ball} />
-        <Logo ref={logoRef} />
+        <Ball ref={ball} />
+        <Logo ref={logo} />
       </div>
-
       <ReactFullPage
         navigation
         onLeave={(origin, destination, direction) => {
@@ -183,13 +101,8 @@ export const IndexPageTemplate = ({
 
           return (
             <ReactFullPage.Wrapper>
-              <section className="section section--gradient">
-                <Name />
-              </section>
-              <section className="section section--gradient">
-                Section 2
-              </section>
-              <section className="section section--gradient">
+              { sections.map(section => <div key="section" className="section" />) }
+              {/* <section className="section section--gradient">
                 Section 3
               </section>
               <section className="section section--gradient">
@@ -244,11 +157,17 @@ export const IndexPageTemplate = ({
                     </div>
                   </div>
                 </div>
-              </section>
+              </section> */}
             </ReactFullPage.Wrapper>
           )
         }}
       />
+      
+
+      <Sections>
+        {sections[currentIndex]}
+      </Sections>
+
     </div>
   )
 }
