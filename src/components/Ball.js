@@ -23,6 +23,7 @@ const Ball = React.forwardRef((props, ref) => {
 
     return (
         <BallWrapper
+            className="ball"
             {...props}
             height={logoWrapperSize}
             width={logoWrapperSize}

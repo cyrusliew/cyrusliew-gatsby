@@ -11,7 +11,7 @@ const backgroundColors = [
   '#1a055e',
 ];
 
-const useAnimation = (ball, logo, currentIndex, initialized, indexPage) => {
+const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPage) => {
     const logoWrapperSize = useWindowSize();
     const animationSpeed = 0.5;
 
@@ -79,14 +79,22 @@ const useAnimation = (ball, logo, currentIndex, initialized, indexPage) => {
       }
   
       if (currentIndex !== 0) {
-          gsap.to(
-              ball.current,
-              {
-                  height: '265px',
-                  width: '265px',
-                  duration: animationSpeed,
-              }
-          )
+        gsap.to(
+          copyright.current,
+          {
+            left: '-4rem',
+            bottom: '11rem',
+          }
+        );
+
+        gsap.to(
+            ball.current,
+            {
+                height: '265px',
+                width: '265px',
+                duration: animationSpeed,
+            }
+        );
       
         gsap.to(
           logo.current,
@@ -115,17 +123,45 @@ const useAnimation = (ball, logo, currentIndex, initialized, indexPage) => {
   
       if (currentIndex === 2) {
           const yearSpan = document.querySelector('.year span');
+          const ballElement = ball.current;
+          const {
+            top: yearSpanTop,
+            left: yearSpanLeft,
+            width: yearSpanWidth,
+            height: yearSpanHeight, 
+          } = yearSpan.getBoundingClientRect();
+
+          const {
+            width: ballHalfWidth,
+            height: ballHalfHeight,
+          } = ballElement.getBoundingClientRect();
+
+          const centerLeft = yearSpanLeft - (ballHalfWidth / 2) + (yearSpanWidth / 2);
+          const centerTop = yearSpanTop - (ballHalfHeight / 2) + (yearSpanHeight / 2);
 
           gsap.to(
               ball.current,
               {
                   background: 'linear-gradient(316.7deg, #0748A5 10.85%, #A60E40 85.41%)',
-                  left: yearSpan.getBoundingClientRect().left,
-                  marginTop: yearSpan.getBoundingClientRect().top,
+                  left: centerLeft,
+                  marginTop: centerTop,
                   right: '0',
                   duration: animationSpeed,
               }
           )
+      }
+
+      if (currentIndex === 3) {
+        gsap.to(
+          ball.current,
+          {
+              background: 'linear-gradient(316.7deg, #0748A5 10.85%, #A60E40 85.41%)',
+              left: '95%',
+              // marginTop: '30vh',
+              right: '0',
+              duration: animationSpeed,
+          }
+        )
       }
     }, [currentIndex])
 }

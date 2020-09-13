@@ -36,6 +36,15 @@ const Sections = styled.div`
     }
 `;
 
+const Copyright = styled.div`
+    color: white;
+    font-size: 12px;
+    left: -4rem;
+    position: absolute;
+    bottom: -100%;
+    transform: rotate(-90deg);
+`;
+
 export const IndexPageTemplate = ({
   image,
   title,
@@ -48,11 +57,12 @@ export const IndexPageTemplate = ({
   const indexPage = React.createRef();
   const ball = React.createRef();
   const logo = React.createRef();
+  const copyright = React.createRef();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [initialized, setInitialized] = useState(false);
   // const [mounted, setMounted] = useState(false);
 
-  useAnimation(ball, logo, currentIndex, initialized, indexPage);
+  useAnimation(ball, logo, copyright, currentIndex, initialized, indexPage);
 
   const sections = [
     <Home />,
@@ -167,7 +177,12 @@ export const IndexPageTemplate = ({
       <Sections>
         {sections[currentIndex]}
       </Sections>
-
+      <Copyright
+        className="copyright"
+        ref={copyright}
+      >
+        &copy; 2020 Cyrus Liew. All Rights Reserved.
+      </Copyright>
     </div>
   )
 }

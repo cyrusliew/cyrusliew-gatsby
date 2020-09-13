@@ -38,6 +38,9 @@ const TemplateWrapper = ({ children }) => {
           href={`${withPrefix('/')}img/safari-pinned-tab.svg`}
           color="#ff4400"
         />
+
+        <script src="https://kit.fontawesome.com/b04f015872.js" crossorigin="anonymous" />
+
         <meta name="theme-color" content="#fff" />
 
         <meta property="og:type" content="business.business" />
