@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { gsap } from 'gsap';
+import useWindowSize from '../hooks/useWindowSize';
 
 const BallWrapper = styled.div`
     background: linear-gradient(180deg, #0748A5 8.5%, #8A1851 87.98%);
@@ -19,7 +19,7 @@ const BallWrapper = styled.div`
 `;
 
 const Ball = React.forwardRef((props, ref) => {
-    const logoWrapperSize = window.innerHeight;
+    const logoWrapperSize = useWindowSize();
 
     return (
         <BallWrapper

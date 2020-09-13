@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { gsap } from 'gsap';
+import useWindowSize from '../hooks/useWindowSize';
 
 const backgroundColors = [
   'linear-gradient(116.82deg, #000000 0%, #24077E 100%)',
@@ -11,7 +12,7 @@ const backgroundColors = [
 ];
 
 const useAnimation = (ball, logo, currentIndex, initialized, indexPage) => {
-    const logoWrapperSize = window.innerHeight;
+    const logoWrapperSize = useWindowSize();
     const animationSpeed = 0.5;
 
     useEffect(() => {

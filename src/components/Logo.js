@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import styled from 'styled-components';
+import useWindowSize from '../hooks/useWindowSize';
 import logo from '../img/logo.svg';
 
 const LogoWrapper = styled.div`
@@ -29,7 +30,7 @@ const LogoWrapper = styled.div`
 
 const Logo = React.forwardRef(({ backToHome }, ref) => {
   const imgRef = React.createRef(); 
-  const logoWrapperSize = window.innerHeight;
+  const logoWrapperSize = useWindowSize();
 
   useEffect(() => {
     gsap.to(

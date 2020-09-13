@@ -16,19 +16,19 @@ const Creation = () => (
             slidesToShow={4}
         >
             <div className="portfolio">
-                <img src="https://picsum.photos/408/266" />
+                <img alt="picsum" src="https://picsum.photos/408/266" />
             </div>
             <div className="portfolio">
-                <img src="https://picsum.photos/408/266" />
+                <img alt="picsum" src="https://picsum.photos/408/266" />
             </div>
             <div className="portfolio">
-                <img src="https://picsum.photos/408/266" />
+                <img alt="picsum" src="https://picsum.photos/408/266" />
             </div>
             <div className="portfolio">
-                <img src="https://picsum.photos/408/266" />
+                <img alt="picsum" src="https://picsum.photos/408/266" />
             </div>
             <div className="portfolio">
-                <img src="https://picsum.photos/408/266" />
+                <img alt="picsum" src="https://picsum.photos/408/266" />
             </div>
         </Slider>   
     </Wrapper> 
