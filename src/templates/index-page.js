@@ -16,9 +16,13 @@ import Home from '../sections/Home';
 import About from '../sections/About';
 import PastPresent from '../sections/PastPresent';
 import Creation from '../sections/Creation';
+import Get from '../sections/Get';
+
+import TopRight from '../components/TopRight';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import BottomRight from '../components/BottomRight';
 
 const Sections = styled.div`
     bottom: 0;
@@ -69,6 +73,7 @@ export const IndexPageTemplate = ({
     <About />,
     <PastPresent />,
     <Creation />,
+    <Get />,
   ];
 
   return (
@@ -100,6 +105,7 @@ export const IndexPageTemplate = ({
             console.log('Finished Initialized')
           }
         }}
+        anchors={['home', 'about', 'past-and-present', 'creation', 'get']}
         render={({ state, fullpageApi }) => {
           const { destination } = state;
           console.log('State', state);
@@ -177,6 +183,12 @@ export const IndexPageTemplate = ({
       <Sections>
         {sections[currentIndex]}
       </Sections>
+      <TopRight currentIndex={currentIndex} />
+      {
+        currentIndex < sections.length - 1 && (
+          <BottomRight currentIndex={currentIndex + 1} />
+        )
+      }
       <Copyright
         className="copyright"
         ref={copyright}

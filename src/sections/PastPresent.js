@@ -7,7 +7,22 @@ const Section = styled.div`
     display: flex;
 
     .slick-slider {
+        margin: auto;
+        max-width: calc(100% - 35rem);
         width: 100%;
+
+
+        .slick-slide {
+            transition: all .25s ease;
+
+            &:not(.slick-current) {
+                opacity: .1;
+            }
+        }
+    }
+
+    .slick-list {
+        overflow: visible;
     }
 `;
 
@@ -36,7 +51,8 @@ const Story = styled.div`
     grid-column-gap: 2rem;
     grid-row-gap: 2rem;
     margin: auto;
-    width: 40rem !important;
+    width: 100% !important;
+    max-width: 40rem;
 `;
 
 const PastPresent = () => (
@@ -49,22 +65,54 @@ const PastPresent = () => (
         slidesToScroll={1}
         centerMode
     >
-    <Story>
-        <Year className="year">
-            <span>2015</span>
-        </Year>
-        <div />
-        <Company>Geometry<br/>Global</Company>
-        <Position>
-            as<br/>
-            Interface Developer,<br/>
-            Front End Web Programmer
-        </Position>
-        <div />
-        <div>
-            When I fell in love in programming, flash banner, facebook social campaign page, interactive website were the best companion during that time.
-        </div>
-    </Story>
+        <Story>
+            <Year className="year">
+                <span>2020</span>
+            </Year>
+            <div />
+            <Company>Geometry<br/>Global</Company>
+            <Position>
+                as<br/>
+                Interface Developer,<br/>
+                Front End Web Programmer
+            </Position>
+            <div />
+            <div>
+                When I fell in love in programming, flash banner, facebook social campaign page, interactive website were the best companion during that time.
+            </div>
+        </Story>
+        <Story>
+            <Year className="year">
+                <span>2019</span>
+            </Year>
+            <div />
+            <Company>Geometry<br/>Global</Company>
+            <Position>
+                as<br/>
+                Interface Developer,<br/>
+                Front End Web Programmer
+            </Position>
+            <div />
+            <div>
+                When I fell in love in programming, flash banner, facebook social campaign page, interactive website were the best companion during that time.
+            </div>
+        </Story>
+        <Story>
+            <Year className="year">
+                <span>2014</span>
+            </Year>
+            <div />
+            <Company>Geometry<br/>Global</Company>
+            <Position>
+                as<br/>
+                Interface Developer,<br/>
+                Front End Web Programmer
+            </Position>
+            <div />
+            <div>
+                When I fell in love in programming, flash banner, facebook social campaign page, interactive website were the best companion during that time.
+            </div>
+        </Story>
     </Slider>
   </Section>
 );

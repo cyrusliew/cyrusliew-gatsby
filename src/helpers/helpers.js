@@ -5,3 +5,11 @@ export const getWindowHeight = () => {
 
     return window.outerHeight;
 };
+
+export const sections = [
+    'Home',
+    'About',
+    'Past & Present',
+    'Creation',
+    'Get',
+];

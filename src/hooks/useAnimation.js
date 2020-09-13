@@ -5,10 +5,10 @@ import useWindowSize from '../hooks/useWindowSize';
 const backgroundColors = [
   'linear-gradient(116.82deg, #000000 0%, #24077E 100%)',
   // 'linear-gradient(116.82deg, #000000 0%, #24077E 100%)',
-  'linear-gradient(250.2deg, #24077E 1.43%, #000000 98.06%)',
+  'linear-gradient(227.2deg, rgb(36, 7, 126) 5.43%, rgb(0, 0, 0) 41.06%)',
   'linear-gradient(289.58deg, #4134fd 2.98%, #000000 95.49%)',
-  'linear-gradient(252.68deg, #24077e 5.04%, #000000 101.11%), #24077e',
-  '#1a055e',
+  'linear-gradient(252.68deg, #24077e 5.04%, #000000 101.11%)',
+  'linear-gradient(252.68deg, #1a055e 5.04%, #1a055e 101.11%)',
 ];
 
 const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPage) => {
@@ -58,7 +58,7 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
           {
             background: 'linear-gradient(140.49deg, #0748A5 8.5%, #8A1851 87.98%)',
             marginLeft: 0,
-            left: '-5%',
+            left: '-10%',
             height: logoWrapperSize,
             width: logoWrapperSize,
             duration: animationSpeed,
@@ -69,8 +69,10 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
         gsap.to(
           logo.current,
           {
+            marginTop: 'auto',
             marginLeft: 0,
-            left: '-5%',
+            borderRadius: '100%',
+            left: '-10%',
             height: logoWrapperSize,
             width: logoWrapperSize,
             duration: animationSpeed,
@@ -114,15 +116,14 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
             ball.current,
             {
               background: 'linear-gradient(-90deg, #24077E 0%, #4134FD 100%), #FFFFFF',
-              left: 'calc(95% - 200px)',
-              right: '10%',
+              left: 'calc(75% - 200px)',
               duration: animationSpeed,
             }
           )
       }
   
       if (currentIndex === 2) {
-          const yearSpan = document.querySelector('.year span');
+          const yearSpan = document.querySelector('.slick-current .year span');
           const ballElement = ball.current;
           const {
             top: yearSpanTop,
@@ -145,7 +146,7 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
                   background: 'linear-gradient(316.7deg, #0748A5 10.85%, #A60E40 85.41%)',
                   left: centerLeft,
                   marginTop: centerTop,
-                  right: '0',
+                  right: 'unset',
                   duration: animationSpeed,
               }
           )
@@ -160,6 +161,20 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
               // marginTop: '30vh',
               right: '0',
               duration: animationSpeed,
+          }
+        )
+      }
+
+      if (currentIndex === 4) {
+        gsap.to(
+          ball.current,
+          {
+            background: 'linear-gradient(137.8deg, #4134FD 8.25%, #24077E 90.93%), #F9F9F9',
+            left: 0,
+            margin: 'auto',
+            right: 0,
+            height: logoWrapperSize * 1.2,
+            width: logoWrapperSize * 1.2,
           }
         )
       }
