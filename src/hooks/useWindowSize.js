@@ -1,29 +1,11 @@
-import { useEffect, useState } from 'react';
+import window from 'global/window';
 
 const useWindowSize = () => {
-    const [hasRan, setHasRan] = useState(false);
-    const [screenSize, setScreenSize] = useState({
-        height: 0,
-        width: 0,
-    })
-
-    const updateScreenSize = () => {
-        setScreenSize({ width: window.innerWidth, height: window.innerHeight });
+    if (!window) {
+        return document.querySelector('body').offsetHeight;
     }
 
-    useEffect(() => {
-        if(!hasRan) {
-            setHasRan(true);
-            updateScreenSize()
-        }
-        window.addEventListener('resize', updateScreenSize);
-
-        return () => {
-            window.removeEventListener('resize', updateScreenSize);
-        }
-    }, [screenSize])
-
-    return screenSize.height;
+    return window.outerHeight;
 }
 
 export default useWindowSize;
