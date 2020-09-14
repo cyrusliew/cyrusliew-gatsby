@@ -4,7 +4,7 @@ title: AdvisoryApps
 platform:
   - Wordpress
   - Gutenberg
-icon: fab fa-drupal
+icon: fab fa-wordpress
 thumbnail: /img/advisoryapps.jpg
 tags:
   - Wordress
