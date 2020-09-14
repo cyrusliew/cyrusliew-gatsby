@@ -4,7 +4,7 @@ title: Zagga
 platform:
   - Drupal
 icon: fab fa-drupal
-thumbnail: /img/zagga.png
+thumbnail: /img/zagga.jpg
 tags:
   - Front End Web Development
 date: 2020-07-06T10:41:06.458Z
