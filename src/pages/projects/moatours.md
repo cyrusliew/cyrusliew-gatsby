@@ -9,9 +9,9 @@ thumbnail: /img/moatours.jpg
 tags:
   - Drupal
   - React
-date: 2020-09-14T10:20:07.311Z
+date: 2020-06-14T10:20:00.000Z
 onGoing: true
-completionDate: 2020-09-14T10:20:07.325Z
+completionDate: 2020-06-13T12:00:00.000Z
 featuredimage: /img/hfs.png
 ---
 Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.
