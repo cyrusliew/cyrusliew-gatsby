@@ -9,6 +9,7 @@ thumbnail: /img/horizon-finance.jpg
 tags:
   - Web Development
   - Web Design
+url: https://www.horizonfinance.nz
 date: 2020-07-06T10:28:15.677Z
 onGoing: true
 completionDate: 2020-07-06T10:28:15.710Z
