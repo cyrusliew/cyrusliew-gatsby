@@ -7,6 +7,7 @@ icon: fab fa-drupal
 thumbnail: /img/zagga.jpg
 tags:
   - Front End Web Development
+url: https://www.zagga.com.au/
 date: 2020-07-06T10:41:06.458Z
 onGoing: true
 completionDate: 2018-07-05T12:00:00.000Z
