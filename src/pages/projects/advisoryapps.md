@@ -9,6 +9,7 @@ thumbnail: /img/moatours.jpg
 tags:
   - Wordress
   - Gutenberg
+url: http://moatours.co.nz/
 date: 2020-09-14T10:21:07.313Z
 onGoing: true
 completionDate: 2018-10-13T11:00:00.000Z
