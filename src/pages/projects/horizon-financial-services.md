@@ -5,7 +5,7 @@ platform:
   - Drupal
   - Credit Sense
 icon: fab fa-drupal
-thumbnail: /img/hfs.png
+thumbnail: /img/horizon-finance.jpg
 tags:
   - Web Development
   - Web Design
