@@ -35,9 +35,10 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Platform", name: "platform", widget: "list"}
       - {label: "Icon", name: "icon", widget: "string"}
-      - {label: "Thumbnail", name: "thumbnail", widget: "image", required: false}
+      - {label: "Thumbnail", name: "thumbnail", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Url", name: "url", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "On going", name: "onGoing", widget: "boolean"}
       - {label: "Completion Date", name: "completionDate", widget: "date"}

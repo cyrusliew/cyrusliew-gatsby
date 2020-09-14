@@ -25,8 +25,8 @@ const Title = styled.h2`
 const About = () => (
     <Section className="section section--gradient">
         <AboutContent>
-            <Title>Hello</Title>
-            <p>This is Cyrus - A full stack developer with a solid 7 years of experience in Web Design & Development</p>
+            <Title>Hello.</Title>
+            <p>This is Cyrus - A full stack developer with a solid 7 years of experience in Web Design & Development.</p>
             <p>I have been living in New Zealand for 4 years.</p>
             <p>I am passionate about my life, always have fun in getting the biggest satisfaction when doing any design works.</p>
         </AboutContent>

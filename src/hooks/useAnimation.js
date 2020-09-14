@@ -4,7 +4,6 @@ import useWindowSize from '../hooks/useWindowSize';
 
 const backgroundColors = [
   'linear-gradient(116.82deg, #000000 0%, #24077E 100%)',
-  // 'linear-gradient(116.82deg, #000000 0%, #24077E 100%)',
   'linear-gradient(227.2deg, rgb(36, 7, 126) 5.43%, rgb(0, 0, 0) 41.06%)',
   'linear-gradient(289.58deg, #4134fd 2.98%, #000000 95.49%)',
   'linear-gradient(252.68deg, #24077e 5.04%, #000000 101.11%)',
@@ -78,13 +77,19 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
             duration: animationSpeed,
           }
         );
+
+        gsap.to(
+          copyright.current,
+          {
+            bottom: '-100%',
+          }
+        );
       }
   
       if (currentIndex !== 0) {
         gsap.to(
           copyright.current,
           {
-            left: '-4rem',
             bottom: '11rem',
           }
         );
