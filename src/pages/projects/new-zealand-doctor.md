@@ -1,17 +1,17 @@
 ---
 templateKey: project
-title: New Zealand Doctor
+title: Orchid Systems
 platform:
   - Drupal
 icon: fab fa-drupal
-thumbnail: /img/horizon-finance.jpg
+thumbnail: /img/orchid-systems.jpg
 tags:
   - Drupal
   - Design
 url: https://www.nzdoctor.co.nz/
-date: 2018-09-15T10:51:00.000Z
+date: 2018-08-24T10:51:00.000Z
 onGoing: true
-completionDate: 2020-09-15T10:51:03.448Z
+completionDate: 2020-08-23T12:00:00.000Z
 featuredimage: /img/hfs.png
 ---
 Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.
