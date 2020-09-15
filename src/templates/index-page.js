@@ -94,7 +94,11 @@ export const IndexPageTemplate = ({
         }}
       >
         <Ball ref={ball} />
-        <Logo ref={logo} />
+        <Logo
+          ref={logo}
+          currentIndex={currentIndex}
+          initialized={initialized}
+        />
       </div>
       <ReactFullPage
         navigation

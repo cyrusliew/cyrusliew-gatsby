@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import useWindowSize from '../hooks/useWindowSize';
 
 const BallWrapper = styled.div`
-    background: linear-gradient(180deg, #0748A5 8.5%, #8A1851 87.98%);
+    background: linear-gradient(0deg, #0748A5 8.5%, #8A1851 87.98%);
     border-radius: 100%;
     bottom: 0;
     content: '';

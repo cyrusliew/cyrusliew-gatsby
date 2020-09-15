@@ -1,6 +1,10 @@
 import React from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
+import PropTypes from 'prop-types'
+import {  graphql, StaticQuery } from 'gatsby'
+import Project from '../components/Project';
+// import ProjectRoll from '../components/ProjectRoll';
 
 const Wrapper = styled.div`
     .slick-list {
@@ -25,28 +29,6 @@ const Wrapper = styled.div`
         > div {
             padding: 1rem;
             transition: all .25s ease;
-
-            > div {
-                color: white;
-                transition: all .25s ease;
-
-                img {
-                    margin-bottom: 1rem;
-                    width: 100%;
-                }
-
-                h4 {
-                    font-family: 'Lato';
-                    font-size: 24px;
-                    margin-bottom: 0.5rem;
-                }
-
-                p {
-                    > *:not(:last-child) {
-                        margin-right: 1rem;
-                    }
-                }
-            }
         }
 
         &:not(.slick-current) {
@@ -67,70 +49,76 @@ const addActiveClass = () => {
     });
 }
 
-const Creation = () => (
-    <Wrapper className="section">
-        <Slider
-            slidesToShow={4}
-            infinite={true}
-            afterChange={addActiveClass}
-            onInit={addActiveClass}
-        >
-            <div className="portfolio">
-                <img alt="picsum" src="https://picsum.photos/408/266" />
-                <h4>Horizon Finance</h4>
-                <p>
-                    <i className="fab fa-drupal" />
-                    <i className="fab fa-figma" />
-                    <i className="fab fa-dev" />
-                </p>
-            </div>
-            <div className="portfolio">
-                <img alt="picsum" src="https://picsum.photos/408/266" />
-                <h4>Horizon Finance</h4>
-                <p>
-                    <i className="fab fa-drupal" />
-                    <i className="fab fa-figma" />
-                    <i className="fab fa-dev" />
-                </p>
-            </div>
-            <div className="portfolio">
-                <img alt="picsum" src="https://picsum.photos/408/266" />
-                <h4>Horizon Finance</h4>
-                <p>
-                    <i className="fab fa-drupal" />
-                    <i className="fab fa-figma" />
-                    <i className="fab fa-dev" />
-                </p>
-            </div>
-            <div className="portfolio">
-                <img alt="picsum" src="https://picsum.photos/408/266" />
-                <h4>Horizon Finance</h4>
-                <p>
-                    <i className="fab fa-drupal" />
-                    <i className="fab fa-figma" />
-                    <i className="fab fa-dev" />
-                </p>
-            </div>
-            <div className="portfolio">
-                <img alt="picsum" src="https://picsum.photos/408/266" />
-                <h4>Horizon Finance</h4>
-                <p>
-                    <i className="fab fa-drupal" />
-                    <i className="fab fa-figma" />
-                    <i className="fab fa-dev" />
-                </p>
-            </div>
-            <div className="portfolio">
-                <img alt="picsum" src="https://picsum.photos/408/266" />
-                <h4>Horizon Finance</h4>
-                <p>
-                    <i className="fab fa-drupal" />
-                    <i className="fab fa-figma" />
-                    <i className="fab fa-dev" />
-                </p>
-            </div>
-        </Slider>   
-    </Wrapper> 
-);
+class Creation extends React.Component {
+    render() {
+        const { data } = this.props
+        const { edges: posts } = data.allMarkdownRemark
 
-export default Creation;
+        window.posts = posts;
+
+        return (
+            <Wrapper className="section">
+                {
+                    posts && (
+                        <Slider
+                            slidesToShow={4}
+                            infinite={true}
+                            afterChange={addActiveClass}
+                            onInit={addActiveClass}
+                        >
+                            { posts.map(({ node: post }) => (
+                                <Project key={post.frontmatter.title} {...post} />
+                            )) }
+                        </Slider>  
+                    )
+                } 
+            </Wrapper> 
+        )
+    }
+};
+
+Creation.propTypes = {
+    data: PropTypes.shape({
+      allMarkdownRemark: PropTypes.shape({
+        edges: PropTypes.array,
+      }),
+    }),
+  }
+  
+  export default () => (
+    <StaticQuery
+      query={graphql`
+        query ProjectRollQuery {
+          allMarkdownRemark(
+            sort: { order: DESC, fields: [frontmatter___date] }
+            filter: { frontmatter: { templateKey: { eq: "project" } } }
+          ) {
+            edges {
+              node {
+                excerpt(pruneLength: 400)
+                id
+                fields {
+                  slug
+                }
+                frontmatter {
+                  title
+                  templateKey
+                  date(formatString: "MMMM DD, YYYY")
+                  featuredpost
+                  thumbnail {
+                    childImageSharp {
+                      fluid(quality: 100) {
+                        ...GatsbyImageSharpFluid
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      `}
+      render={(data, count) => <Creation data={data} count={count} />}
+    />
+  )
+  

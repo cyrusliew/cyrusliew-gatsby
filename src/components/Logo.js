@@ -23,27 +23,41 @@ const LogoWrapper = styled.div`
     height: 200px;
     width: 0;
     right: -100%;
+    bottom: -100%;
     position: relative;
     transition: unset;
+    transform: rotate(90deg);
   }
 `;
 
-const Logo = React.forwardRef(({ backToHome }, ref) => {
+const Logo = React.forwardRef(
+  (
+    {
+      backToHome,
+      currentIndex,
+      initialized
+    },
+    ref,
+  ) => {
   const imgRef = React.createRef(); 
   const logoWrapperSize = useWindowSize();
 
   useEffect(() => {
-    gsap.to(
-      imgRef.current,
-      {
-        right: 0,
-        height: logoWrapperSize,
-        width: logoWrapperSize,
-        duration: 2,
-        delay: 2,
-      }
-    )
-  }, [])
+    if (currentIndex === 0 && !initialized) {
+      gsap.to(
+        imgRef.current,
+        {
+          right: 0,
+          bottom: 0,
+          height: logoWrapperSize,
+          width: logoWrapperSize,
+          duration: 2,
+          transform: 'rotate(0deg)',
+          delay: 1,
+        }
+      )
+    }
+  }, [currentIndex, initialized])
 
   return (
       <LogoWrapper

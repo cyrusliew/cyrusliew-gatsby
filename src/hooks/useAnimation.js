@@ -23,6 +23,8 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
       )
 
       if (currentIndex === 0 && !initialized) {
+        ball.current.style.background = 'linear-gradient(140.49deg, #0748A5 8.5%, #8A1851 87.98%)';
+
         gsap.to(
           ball.current,
           {
@@ -32,8 +34,8 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
             height: logoWrapperSize,
             width: logoWrapperSize,
             duration: 2,
-            delay: 2,
-          }
+            delay: 0.8,
+          },
         )
   
         gsap.to(
@@ -44,14 +46,17 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
             height: logoWrapperSize,
             width: logoWrapperSize,
             duration: 2,
-            delay: 2,
-          }
+            delay: 0.8,
+          },
         );
       }
     }, [currentIndex])
     
     useEffect(() => {
       if (currentIndex === 0 && initialized) {
+        ball.current.style.marginTop = 'auto';
+        logo.current.style.marginTop = 'auto';
+
         gsap.to(
           ball.current,
           {
@@ -61,20 +66,20 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
             height: logoWrapperSize,
             width: logoWrapperSize,
             duration: animationSpeed,
-            margin: 'auto',
+            startAt: 0,
           }
         )
   
         gsap.to(
           logo.current,
           {
-            marginTop: 'auto',
             marginLeft: 0,
             borderRadius: '100%',
             left: '-10%',
             height: logoWrapperSize,
             width: logoWrapperSize,
             duration: animationSpeed,
+            startAt: 0,
           }
         );
 
@@ -171,12 +176,13 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
       }
 
       if (currentIndex === 4) {
+        ball.current.style.marginTop = 'auto';
+
         gsap.to(
           ball.current,
           {
             background: 'linear-gradient(137.8deg, #4134FD 8.25%, #24077E 90.93%), #F9F9F9',
             left: 0,
-            margin: 'auto',
             right: 0,
             height: logoWrapperSize * 1.2,
             width: logoWrapperSize * 1.2,
