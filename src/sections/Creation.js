@@ -52,10 +52,8 @@ const addActiveClass = () => {
 class Creation extends React.Component {
     render() {
         const { data } = this.props
-        const { edges: posts } = data.allMarkdownRemark
-
-        window.posts = posts;
-
+        const { edges: posts } = data.allMarkdownRemark;
+        
         return (
             <Wrapper className="section">
                 {
