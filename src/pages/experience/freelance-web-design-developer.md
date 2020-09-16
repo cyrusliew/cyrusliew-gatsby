@@ -1,7 +1,7 @@
 ---
 templateKey: experience
 title: Freelance Web Design & Developer
-position: ""
+position: Full Stack Developer
 period: 2020-09-17T12:00:00.000Z
 tags:
   - ""
