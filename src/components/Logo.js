@@ -22,13 +22,10 @@ const LogoWrapper = styled.div`
   width: 100px;
 
   img {
-    height: 200px;
-    width: 0;
-    // right: -100%;
-    // bottom: -100%;
+    height: 100%;
+    width: 100%;
     position: relative;
     transition: unset;
-    // transform: rotate(90deg);
   }
 `;
 
@@ -46,18 +43,21 @@ const Logo = React.forwardRef(
 
   useEffect(() => {
     if (currentIndex === 0 && !initialized) {
-      gsap.to(
-        imgRef.current,
-        {
-          right: 0,
-          bottom: 0,
-          height: logoWrapperSize,
-          width: logoWrapperSize,
-          duration: 2,
-          // transform: 'rotate(0deg)',
-          delay: 1,
-        }
-      )
+      // gsap.to(
+      //   imgRef.current,
+      //   {
+      //     right: 0,
+      //     bottom: 0,
+      //     height: logoWrapperSize,
+      //     width: logoWrapperSize,
+      //     duration: 2,
+      //     delay: 1,
+      //   }
+      // )
+    }
+
+    if (currentIndex !== 0) {
+      // gsap.killTweensOf(imgRef.current);
     }
   }, [currentIndex, initialized])
 

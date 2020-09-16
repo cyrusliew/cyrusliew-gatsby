@@ -75,7 +75,6 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
           logo.current,
           {
             marginLeft: 0,
-            // borderRadius: '100%',
             left: '-10%',
             height: logoWrapperSize,
             width: logoWrapperSize,
@@ -93,6 +92,18 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
       }
   
       if (currentIndex !== 0) {
+        gsap.killTweensOf(logo.current);
+        gsap.killTweensOf(ball.current);
+
+        gsap.set(
+          logo.current,
+          {
+            marginLeft: 0,
+            marginTop: 50,
+            transform: 'rotate(0deg) scale(1)',
+          }
+        )
+
         gsap.to(
           copyright.current,
           {
@@ -134,33 +145,49 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
       }
   
       if (currentIndex === 2) {
+        gsap.to(
+          ball.current,
+          {
+            transform: 'scale(0)',
+            duration: 0.5,
+          }
+        );
+
+        clearTimeout(timeout);
+        const timeout = setTimeout(function() {
           const yearSpan = document.querySelector('.slick-current .year span');
-          const ballElement = ball.current;
+          const ball = document.querySelector('.ball');
+
           const {
-            top: yearSpanTop,
-            left: yearSpanLeft,
+            y: yearSpanTop,
+            x: yearSpanLeft,
             width: yearSpanWidth,
             height: yearSpanHeight, 
           } = yearSpan.getBoundingClientRect();
 
-          const {
-            width: ballHalfWidth,
-            height: ballHalfHeight,
-          } = ballElement.getBoundingClientRect();
+          const centerLeft = yearSpanLeft - 132.5 + (yearSpanWidth / 2);
+          const centerTop = yearSpanTop - 132.5 + (yearSpanHeight / 2);
 
-          const centerLeft = yearSpanLeft - (ballHalfWidth / 2) + (yearSpanWidth / 2);
-          const centerTop = yearSpanTop - (ballHalfHeight / 2) + (yearSpanHeight / 2);
+          console.log(ball.getBoundingClientRect());
+
+          gsap.set(
+            ball,
+            {
+              left: centerLeft,
+              marginTop: centerTop,
+              right: 'unset',
+            }
+          );
 
           gsap.to(
-              ball.current,
+              ball,
               {
                   background: 'linear-gradient(316.7deg, #0748A5 10.85%, #A60E40 85.41%)',
-                  left: centerLeft,
-                  marginTop: centerTop,
-                  right: 'unset',
+                  transform: 'scale(1)',
                   duration: animationSpeed,
               }
           )
+        }, 1000);
       }
 
       if (currentIndex === 3) {

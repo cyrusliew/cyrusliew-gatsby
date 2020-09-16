@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import { gsap } from 'gsap';
 import ReactFullPage from '@fullpage/react-fullpage';
 import styled from 'styled-components';
 
@@ -103,17 +104,16 @@ export const IndexPageTemplate = ({
       <ReactFullPage
         navigation
         onLeave={(origin, destination, direction) => {
-          console.log("onLeave event", { origin, destination, direction });
+          // console.log("onLeave event", { origin, destination, direction });
           if (!initialized) {
             setInitialized(true);
-            console.log('Finished Initialized')
           }
         }}
         anchors={['home', 'about', 'past-and-present', 'creation', 'get']}
         render={({ state, fullpageApi }) => {
           const { destination } = state;
-          console.log('State', state);
-          console.log('Api', fullpageApi);
+          // console.log('State', state);
+          // console.log('Api', fullpageApi);
           if (destination) {
             const { index } = destination;  
             setCurrentIndex(index);
@@ -126,6 +126,7 @@ export const IndexPageTemplate = ({
               <Home />
               <About />
               <PastPresent />
+              {/* <div className="section" /> */}
               <Creation />
               <Get />
             </ReactFullPage.Wrapper>
@@ -133,10 +134,13 @@ export const IndexPageTemplate = ({
         }}
       />
       
-
-      {/* <Sections>
-        {sections[currentIndex]}
-      </Sections> */}
+      {/* {
+        currentIndex === 3 && (
+          <Sections>
+            {sections[currentIndex]}
+          </Sections>
+        )
+      } */}
       <TopRight currentIndex={currentIndex} />
       {
         currentIndex < sections.length - 1 && (

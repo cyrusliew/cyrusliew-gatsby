@@ -32,8 +32,6 @@ const Section = styled.div`
 const PastPresent = ({data}) => {
     const { edges: posts } = data.allMarkdownRemark
 
-    console.log('[Post from past present]', posts);
-
     return (
         <Section className="section">
             <Slider
