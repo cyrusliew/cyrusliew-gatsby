@@ -23,8 +23,8 @@ const ScrollHint = styled.div`
     animation: scrollDown 2s infinite;
     background: white;
     border-radius: 5px;
-    height: 7px;
-    width: 7px;
+    height: 5px;
+    width: 5px;
 
     @keyframes scrollDown {
         0% {

@@ -42,6 +42,19 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "On going", name: "onGoing", widget: "boolean"}
       - {label: "Completion Date", name: "completionDate", widget: "date"}
+  - name: "experience"
+    label: "Experience"
+    folder: "src/pages/experience"
+    create: true
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "experience"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Position", name: "position", widget: "string", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Period", name: "period", widget: "date"}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
+      - {label: "Url", name: "url", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "date"}
   - name: "pages"
     label: "Pages"
     files:

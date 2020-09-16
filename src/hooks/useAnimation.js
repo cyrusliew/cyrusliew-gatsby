@@ -23,7 +23,7 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
       )
 
       if (currentIndex === 0 && !initialized) {
-        ball.current.style.background = 'linear-gradient(140.49deg, #0748A5 8.5%, #8A1851 87.98%)';
+        ball.current.style.background = 'linear-gradient(140.49deg, #8A1851 8.5%, #0748A5 87.98%)';
 
         gsap.to(
           ball.current,
@@ -45,6 +45,7 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
             left: '-5%',
             height: logoWrapperSize,
             width: logoWrapperSize,
+            transform: 'rotate(0deg) scaleX(1)',
             duration: 2,
             delay: 0.8,
           },
@@ -74,7 +75,7 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
           logo.current,
           {
             marginLeft: 0,
-            borderRadius: '100%',
+            // borderRadius: '100%',
             left: '-10%',
             height: logoWrapperSize,
             width: logoWrapperSize,
