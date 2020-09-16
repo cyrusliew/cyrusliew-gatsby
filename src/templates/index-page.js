@@ -121,16 +121,22 @@ export const IndexPageTemplate = ({
 
           return (
             <ReactFullPage.Wrapper>
-              { sections.map(section => <div key="section" className="section" />) }
+              {/* { sections.map(section => <div key="section" className="section" />) } */}
+              
+              <Home />
+              <About />
+              <PastPresent />
+              <Creation />
+              <Get />
             </ReactFullPage.Wrapper>
           )
         }}
       />
       
 
-      <Sections>
+      {/* <Sections>
         {sections[currentIndex]}
-      </Sections>
+      </Sections> */}
       <TopRight currentIndex={currentIndex} />
       {
         currentIndex < sections.length - 1 && (

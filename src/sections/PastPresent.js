@@ -69,7 +69,7 @@ PastPresent.propTypes = {
       query={graphql`
       query ExperienceRollQuery {
         allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___period] }
+          sort: { order: DESC, fields: [frontmatter___date] }
           filter: { frontmatter: { templateKey: { eq: "experience" } } }
         ) {
           edges {
@@ -80,8 +80,8 @@ PastPresent.propTypes = {
               frontmatter {
                 title
                 templateKey
-                period
-                position,
+                date(formatString: "YYYY")
+                position
               }
             }
           }

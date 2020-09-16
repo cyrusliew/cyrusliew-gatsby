@@ -34,14 +34,14 @@ const Story = ({
     frontmatter: {
         title,
         position,
-        period,
+        date,
     },
     rawMarkdownBody,
 }) => {
     return (
         <Wrapper>
             <Year className="year">
-                <span>{period}</span>
+                <span>{date}</span>
             </Year>
             <div />
             <Company>{title}</Company>
