@@ -1,7 +1,7 @@
 ---
 templateKey: experience
 title: Freelance Web Design & Developer
-position: Freelance Web Design & Developer
+position: ""
 period: 16 09 2020
 tags:
   - ""
