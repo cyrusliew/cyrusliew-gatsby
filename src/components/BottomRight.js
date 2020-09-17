@@ -7,6 +7,11 @@ const Wrapper = styled.div`
     display: flex;
     position: absolute;
     right: 50px;
+    
+    @media (max-width: 541px) {
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
 `;
 
 const NextPage = styled.button`
@@ -17,6 +22,10 @@ const NextPage = styled.button`
     font-size: 20px;
     letter-spacing: 0.05em;
     outline: none;
+    
+    @media (max-width: 541px) {
+        bottom: 1.5rem;
+    }
 `;
 
 const ScrollHint = styled.div`

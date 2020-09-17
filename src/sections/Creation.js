@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
+import { withResizeDetector } from 'react-resize-detector';
 import PropTypes from 'prop-types'
 import {  graphql, StaticQuery } from 'gatsby'
 import Project from '../components/Project';
@@ -49,30 +50,44 @@ const addActiveClass = () => {
     });
 }
 
-class Creation extends React.Component {
-    render() {
-        const { data } = this.props
-        const { edges: posts } = data.allMarkdownRemark;
-        
-        return (
-            <Wrapper className="section">
-                {
-                    posts && (
-                        <Slider
-                            slidesToShow={4}
-                            infinite={true}
-                            afterChange={addActiveClass}
-                            onInit={addActiveClass}
-                        >
-                            { posts.map(({ node: post }) => (
-                                <Project key={post.frontmatter.title} {...post} />
-                            )) }
-                        </Slider>  
-                    )
-                } 
-            </Wrapper> 
-        )
-    }
+const settings = {
+  slidesToShow: 4,
+  infinite: true,
+  afterChange: addActiveClass,
+  onInit: addActiveClass,
+  responsive: [
+    {
+      breakpoint: 1199,
+      settings: {
+        slidesToShow: 3,
+      },
+    },
+    {
+      breakpoint: 991,
+      settings: {
+        slidesToShow: 2,
+      },
+    },
+  ],
+};
+
+const Creation = (props) => {
+    const { data } = props
+    const { edges: posts } = data.allMarkdownRemark;
+    
+    return (
+        <Wrapper className="section">
+            {
+                posts && (
+                    <Slider {...settings}>
+                        { posts.map(({ node: post }) => (
+                            <Project key={post.frontmatter.title} {...post} />
+                        )) }
+                    </Slider>  
+                )
+            } 
+        </Wrapper> 
+    )
 };
 
 Creation.propTypes = {

@@ -7,6 +7,11 @@ const Wrapper = styled.div`
     position: absolute;
     top: 50px;
     right: 50px;
+    
+    @media (max-width: 541px) {
+        right: 1.5rem;
+        top: 1.5rem;
+    }
 `;
 
 const Button = styled.button`

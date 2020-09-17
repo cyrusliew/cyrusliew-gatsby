@@ -7,6 +7,7 @@ const NameWrapper = styled.div`
   margin-right: 2rem;
   position: relative;
   text-align: right;
+  text-shadow: 0.15rem 0.15rem 0.25rem rgba(0,0,0, 1);
   z-index: 1;
 
   h2 {
@@ -20,6 +21,18 @@ const NameWrapper = styled.div`
       font-family: 'Lato', san-serif;
       font-weight: 100;
       letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 541px) {
+      margin-top: 5rem;
+
+      h2 {
+          font-size: 2.375rem;
+      }
+
+      h4 {
+          font-size: 1.25rem;
+      }
   }
 `;
 

@@ -1,16 +1,12 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { gsap } from 'gsap';
 import ReactFullPage from '@fullpage/react-fullpage';
 import styled from 'styled-components';
 
 import Layout from '../components/Layout'
-// import Features from '../components/Features'
-// import BlogRoll from '../components/BlogRoll'
 
-import Logo from '../components/Logo';
-import Ball from '../components/Ball';
+import LogoName from '../components/LogoName';
 import useAnimation from '../hooks/useAnimation';
 
 import Home from '../sections/Home';
@@ -25,21 +21,21 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import BottomRight from '../components/BottomRight';
 
-const Sections = styled.div`
-    bottom: 0;
-    display: flex;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
+// const Sections = styled.div`
+//     bottom: 0;
+//     display: flex;
+//     left: 0;
+//     position: absolute;
+//     right: 0;
+//     top: 0;
 
-    > div,
-    .section,
-    section {
-        margin: auto;
-        width: 100%;
-    }
-`;
+//     > div,
+//     .section,
+//     section {
+//         margin: auto;
+//         width: 100%;
+//     }
+// `;
 
 const Copyright = styled.div`
     color: white;
@@ -48,6 +44,12 @@ const Copyright = styled.div`
     position: absolute;
     bottom: -100%;
     transform: rotate(-90deg);
+
+    @media (max-width: 541px) {
+      bottom: 1.5rem !important;
+      left: 1.5rem !important;
+      transform: unset !important;
+    }
 `;
 
 export const IndexPageTemplate = ({
@@ -62,6 +64,7 @@ export const IndexPageTemplate = ({
   const indexPage = React.createRef();
   const ball = React.createRef();
   const logo = React.createRef();
+  const logoName = React.createRef();
   const copyright = React.createRef();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [initialized, setInitialized] = useState(false);
@@ -84,23 +87,13 @@ export const IndexPageTemplate = ({
       }}
       ref={indexPage}
     >
-      <div
-        className="logo-name"
-        style={{
-          bottom: 0,
-          left: 0,
-          position: 'absolute',
-          right: 0,
-          top: 0,
-        }}
-      >
-        <Ball ref={ball} />
-        <Logo
-          ref={logo}
-          currentIndex={currentIndex}
-          initialized={initialized}
-        />
-      </div>
+      <LogoName
+        ball={ball}
+        logo={logo}
+        initialized={initialized}
+        currentIndex={currentIndex}
+        logoName={logoName}
+      />
       <ReactFullPage
         navigation
         onLeave={(origin, destination, direction) => {
@@ -121,26 +114,15 @@ export const IndexPageTemplate = ({
 
           return (
             <ReactFullPage.Wrapper>
-              {/* { sections.map(section => <div key="section" className="section" />) } */}
-              
               <Home />
               <About />
               <PastPresent />
-              {/* <div className="section" /> */}
               <Creation />
               <Get />
             </ReactFullPage.Wrapper>
           )
         }}
       />
-      
-      {/* {
-        currentIndex === 3 && (
-          <Sections>
-            {sections[currentIndex]}
-          </Sections>
-        )
-      } */}
       <TopRight currentIndex={currentIndex} />
       {
         currentIndex < sections.length - 1 && (

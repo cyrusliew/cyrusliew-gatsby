@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import useWindowSize from '../hooks/useWindowSize';
+import window from 'global';
 
 const backgroundColors = [
   'linear-gradient(116.82deg, #000000 0%, #24077E 100%)',
@@ -10,7 +11,11 @@ const backgroundColors = [
   'linear-gradient(252.68deg, #1a055e 5.04%, #1a055e 101.11%)',
 ];
 
+const logoSpace = () => window.outerWidth > 540 ? '50px' : '1.5rem';
+const logoBallLeft = () => window.outerWidth > 540 ? '-5%' : '0';
+
 const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPage) => {
+    // const [windowSize, setWindowSize] = useState(useWindowSize());
     const logoWrapperSize = useWindowSize();
     const animationSpeed = 0.5;
 
@@ -30,7 +35,7 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
           {
             background: 'linear-gradient(140.49deg, #0748A5 8.5%, #8A1851 87.98%)',
             marginLeft: 0,
-            left: '-5%',
+            left: logoBallLeft(),
             height: logoWrapperSize,
             width: logoWrapperSize,
             duration: 2,
@@ -42,7 +47,7 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
           logo.current,
           {
             marginLeft: 0,
-            left: '-5%',
+            left: logoBallLeft(),
             height: logoWrapperSize,
             width: logoWrapperSize,
             transform: 'rotate(0deg) scaleX(1)',
@@ -63,7 +68,7 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
           {
             background: 'linear-gradient(140.49deg, #0748A5 8.5%, #8A1851 87.98%)',
             marginLeft: 0,
-            left: '-10%',
+            left: logoBallLeft(),
             height: logoWrapperSize,
             width: logoWrapperSize,
             duration: animationSpeed,
@@ -75,7 +80,7 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
           logo.current,
           {
             marginLeft: 0,
-            left: '-10%',
+            left: logoBallLeft(),
             height: logoWrapperSize,
             width: logoWrapperSize,
             duration: animationSpeed,
@@ -99,7 +104,7 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
           logo.current,
           {
             marginLeft: 0,
-            marginTop: 50,
+            marginTop: logoSpace(),
             transform: 'rotate(0deg) scale(1)',
           }
         )
@@ -117,6 +122,7 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
                 height: '265px',
                 width: '265px',
                 duration: animationSpeed,
+                transform: 'scale(1)',
             }
         );
       
@@ -126,8 +132,8 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
             borderRadius: 0,
             duration: animationSpeed,
             height: 85,
-            left: 50,
-            marginTop: 50,
+            left: logoSpace(),
+            marginTop: logoSpace(),
             width: 85,
           }
         );
@@ -217,7 +223,14 @@ const useAnimation = (ball, logo, copyright, currentIndex, initialized, indexPag
           }
         )
       }
-    }, [currentIndex])
+    }, [currentIndex]);
+
+//     window.addEventListener('resize', () => {
+//       clearTimeout(resizeTimer);
+//       const resizeTimer = setTimeout(() => {
+//         setWindowSize(useWindowSize());
+//       }, 250)
+//     });
 }
 
 export default useAnimation;

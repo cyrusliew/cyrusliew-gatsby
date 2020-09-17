@@ -11,9 +11,16 @@ const Section = styled.div`
 
     .slick-slider {
         margin: auto;
-        max-width: calc(100% - 35rem);
+        max-width: 70%;
         width: 100%;
 
+        @media (max-width: 767px) {
+          max-width: 90%;
+        }
+
+        @media (max-width: 541px) {
+          max-width: 100%;
+        }
 
         .slick-slide {
             transition: all .25s ease;
@@ -25,7 +32,13 @@ const Section = styled.div`
     }
 
     .slick-list {
-        overflow: visible;
+        // @media (max-width: 541px) {
+        //   padding: 0 !important;
+        // }
+
+        @media (min-width: 540px) {
+          overflow: visible;
+        }
     }
 `;
 
@@ -35,7 +48,7 @@ const PastPresent = ({data}) => {
     return (
         <Section className="section">
             <Slider
-                dots
+                dots={false}
                 infinite
                 speed={500}
                 slidesToShow={1}
