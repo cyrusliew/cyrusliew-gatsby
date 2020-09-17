@@ -35,6 +35,10 @@ const ScrollHint = styled.div`
     height: 5px;
     width: 5px;
 
+    @media (max-width: 541px) {
+        animation: scrollUp 2s infinite;
+    }
+
     @keyframes scrollDown {
         0% {
             margin-top: 0;
@@ -47,6 +51,22 @@ const ScrollHint = styled.div`
 
         100% {
             margin-top: 15px;
+            opacity: 0;
+        }
+    }
+
+    @keyframes scrollUp {
+        0% {
+            margin-top: 15px;
+        }
+
+        70% {
+            margin-top: 0;
+            opacity: 0;
+        }
+
+        100% {
+            margin-top: 0;
             opacity: 0;
         }
     }

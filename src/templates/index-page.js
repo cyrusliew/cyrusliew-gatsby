@@ -66,11 +66,12 @@ export const IndexPageTemplate = ({
   const logo = React.createRef();
   const logoName = React.createRef();
   const copyright = React.createRef();
+  const name = React.createRef();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [initialized, setInitialized] = useState(false);
   // const [mounted, setMounted] = useState(false);
 
-  useAnimation(ball, logo, copyright, currentIndex, initialized, indexPage);
+  useAnimation(ball, logo, copyright, name, currentIndex, initialized, indexPage);
 
   const sections = [
     <Home />,
@@ -114,7 +115,7 @@ export const IndexPageTemplate = ({
 
           return (
             <ReactFullPage.Wrapper>
-              <Home />
+              <Home name={name} />
               <About />
               <PastPresent />
               <Creation />

@@ -5,6 +5,7 @@ const NameWrapper = styled.div`
   color: white;
   margin-left: auto;
   margin-right: 2rem;
+  opacity: 0;
   position: relative;
   text-align: right;
   text-shadow: 0.15rem 0.15rem 0.25rem rgba(0,0,0, 1);
@@ -36,13 +37,13 @@ const NameWrapper = styled.div`
   }
 `;
 
-const Name = () => {
-    return (
-    <NameWrapper className="name">
+const Name = ({
+    name,
+}) => (
+    <NameWrapper className="name" ref={name}>
         <h2>Cyrus Liew</h2>
         <h4>"full stack" developer</h4>
     </NameWrapper>
-    )
-};
+);
 
 export default Name;

@@ -5,9 +5,11 @@ import Name from '../components/Name';
 const Wrapper = styled.div`
 `;
 
-const Home = () => (
+const Home = ({
+  name,
+}) => (
     <Wrapper className="section section--gradient">
-      <Name />
+      <Name name={name} />
     </Wrapper>
 );
 

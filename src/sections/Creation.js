@@ -38,6 +38,15 @@ const Wrapper = styled.div`
                 margin-top: -3rem;
             }
         }
+
+        @media (max-width: 541px) {
+          &:not(.slick-current) {
+              > div {
+                  padding: 3rem 1rem 3rem 2rem;
+                  margin-top: -2rem;
+              }
+          }
+        }
     }
 `;
 
