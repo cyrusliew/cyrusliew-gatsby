@@ -13,6 +13,7 @@ const backgroundColors = [
 
 const logoSpace = () => window.outerWidth > 540 ? '50px' : '1.5rem';
 const logoBallLeft = () => window.outerWidth > 540 ? '-5%' : '0';
+const logoSizeTopLeft = () => window.outerWidth > 540 ? 85 : '12vw';
 
 const useAnimation = (ball, logo, copyright, name, currentIndex, initialized, indexPage) => {
     const logoWrapperSize = useWindowSize();
@@ -183,10 +184,10 @@ const useAnimation = (ball, logo, copyright, name, currentIndex, initialized, in
           {
             borderRadius: 0,
             duration: animationSpeed,
-            height: 85,
+            height: logoSizeTopLeft(),
             left: logoSpace(),
             marginTop: logoSpace(),
-            width: 85,
+            width: logoSizeTopLeft(),
           }
         );
       }
