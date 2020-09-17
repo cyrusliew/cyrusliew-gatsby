@@ -22,7 +22,9 @@ const Button = styled.button`
 `;
 
 const Burger = styled(Button)`
+    display: none;
     font-size: 24px;
+    margin-left: 2rem;
 `;
 
 const CurrentPage = styled(Button)`
@@ -30,7 +32,6 @@ const CurrentPage = styled(Button)`
     font-size: 20px;
     font-weight: normal;
     letter-spacing: 0.05em;
-    margin-right: 2rem;
 `;
 
 const TopRight = ({
