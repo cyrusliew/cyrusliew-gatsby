@@ -5,12 +5,12 @@ import useSiteMetadata from './SiteMetadata'
 import { withPrefix } from 'gatsby'
 // import Navbar from '../components/Navbar';
 
-const TemplateWrapper = ({ children }) => {
+const TemplateWrapper = ({ className, children }) => {
   const { title, description } = useSiteMetadata()
   return (
     <div>
       <Helmet>
-        <html lang="en" />
+        <html lang="en" className={className} />
         <title>{title}</title>
         <meta name="description" content={description} />
 
@@ -49,6 +49,8 @@ const TemplateWrapper = ({ children }) => {
           property="og:image"
           content={`${withPrefix('/')}img/og-image.jpg`}
         />
+
+        <body className={className} />
       </Helmet>
       {/* <Navbar /> */}
       <div>{children}</div>

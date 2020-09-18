@@ -60,6 +60,7 @@ const addActiveClass = () => {
 }
 
 const settings = {
+  arrows: false,
   slidesToShow: 4,
   infinite: true,
   afterChange: addActiveClass,

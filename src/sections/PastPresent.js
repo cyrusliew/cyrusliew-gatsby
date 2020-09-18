@@ -8,6 +8,8 @@ import Story from '../components/Story';
 const Section = styled.div`
     color: white;
     display: flex;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 
     .slick-slider {
         margin: auto;

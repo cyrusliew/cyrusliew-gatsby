@@ -2,9 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Year = styled.h3`
-    font-size: 3.1rem;
+    font-size: 2.1rem;
 
     @media (min-width: 540px) {
+        font-size: 3.1rem;
         margin-bottom: -2rem;
         text-align: right;
     }
@@ -12,26 +13,29 @@ const Year = styled.h3`
 
 const Company = styled.h4`
     font-family: 'Lato';
-    font-size: 1.9rem;
+    font-size: 1.2rem;
     font-weight: 300;
 
     @media (min-width: 540px) {
+        font-size: 1.9rem;
         text-align: right;
     }
 `;
 
 const Position = styled.div`
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 300;
     letter-spacing: 0.05rem;
 
     @media (max-width: 541px) {
+        font-size: 20px;
         margin-bottom: 2rem;
     }
 `;
 
 const Wrapper = styled.div`
     @media (max-width: 541px) {
+        font-size: 16px;
         text-align: center;
     }
 

@@ -54,10 +54,16 @@ const Slick = styled(Slider)`
              align-items: center;
              display: flex;
              height: 100vh;
+             overflow-y: auto;
 
+             > section,
              > div {
                margin: auto;
                width: 100%;
+
+               @media (max-width: 541px) {
+                 padding: 6rem 1.5rem;
+               }
              }
            }
          }
@@ -121,7 +127,7 @@ export const IndexPageTemplate = ({
         verticalSwiping
         slidesToShow={1}
         dots={false}
-        touchThreshold={30}
+        touchThreshold={5}
         beforeChange={(oldIndex, newIndex) => {
           setIsSliding(true);
 
@@ -173,7 +179,7 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <Layout>
+    <Layout className="scroll-lock">
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
