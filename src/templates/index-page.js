@@ -31,6 +31,7 @@ const Copyright = styled.div`
     transform: rotate(-90deg);
 
     @media (max-width: 541px) {
+      ${props => !props.display ? 'display: none;' : '' }
       bottom: 1.5rem !important;
       left: 1.5rem !important;
       transform: unset !important;
@@ -48,7 +49,7 @@ const Slick = styled(Slider)`
        > .slick-track {
          > .slick-slide {
            min-height: 100vh;
-          //  min-height: -webkit-fill-available;
+           position: relative;
 
            > div {
              align-items: center;
@@ -156,6 +157,7 @@ export const IndexPageTemplate = ({
       <Copyright
         className="copyright"
         ref={copyright}
+        display={currentIndex === 4}
       >
         &copy; 2020 Cyrus Liew. All Rights Reserved.
       </Copyright>
