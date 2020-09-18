@@ -46,7 +46,7 @@ const PastPresent = ({data}) => {
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-        <Section className="section">
+        <Section id="past-present" className="section">
             <Slider
                 dots={false}
                 infinite

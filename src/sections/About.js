@@ -9,7 +9,7 @@ const Section = styled.section`
 
 const AboutContent = styled.div`
     margin: auto 10%;
-    max-width: 28.75rem;
+    max-width: 44.75rem;
 
     p:not(:last-child) {
         margin-bottom: 2rem;

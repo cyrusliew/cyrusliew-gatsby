@@ -207,6 +207,8 @@ const useAnimation = (ball, logo, copyright, name, currentIndex, initialized, in
         gsap.to(
           ball.current,
           {
+            height: '265px',
+            width: '265px',
             transform: 'scale(0)',
             duration: 0.5,
           }
@@ -214,7 +216,7 @@ const useAnimation = (ball, logo, copyright, name, currentIndex, initialized, in
 
         clearTimeout(timeout);
         const timeout = setTimeout(function() {
-          const yearSpan = document.querySelector('.slick-current .year span');
+          const yearSpan = document.querySelector('#past-present .slick-current .year span');
           const ball = document.querySelector('.ball');
 
           const {

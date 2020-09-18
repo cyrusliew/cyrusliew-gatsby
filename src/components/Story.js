@@ -31,7 +31,9 @@ const Position = styled.div`
 `;
 
 const Wrapper = styled.div`
-    text-align: center;
+    @media (max-width: 541px) {
+        text-align: center;
+    }
 
     @media (min-width: 540px) {
         display: grid !important;
