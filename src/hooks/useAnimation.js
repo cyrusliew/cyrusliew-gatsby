@@ -83,7 +83,7 @@ const useAnimation = (ball, logo, copyright, name, currentIndex, initialized, in
             name.current,
             {
               position: 'absolute',
-              bottom: '15%',
+              bottom: '20%',
               right: '1.5rem',
             }
           )
@@ -142,7 +142,7 @@ const useAnimation = (ball, logo, copyright, name, currentIndex, initialized, in
             name.current,
             {
               position: 'absolute',
-              bottom: '15%',
+              bottom: '20%',
               right: '1.5rem',
             }
           )
