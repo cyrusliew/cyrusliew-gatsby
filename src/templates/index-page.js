@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import ReactFullPage from '@fullpage/react-fullpage';
+import Slider from 'react-slick';
 import styled from 'styled-components';
 
 import Layout from '../components/Layout'
@@ -52,6 +53,33 @@ const Copyright = styled.div`
     }
 `;
 
+const Slick = styled(Slider)`
+    height: 100vh;
+
+    > .slick-list {
+      height: 100vh !important;
+
+       > .slick-track {
+        //  height: 100%;
+
+         > .slick-slide {
+           min-height: 100vh;
+
+           > div {
+             align-items: center;
+             display: flex;
+             height: 100vh;
+
+             > div {
+               margin: auto;
+               width: 100%;
+             }
+           }
+         }
+       }
+    }
+`;
+
 export const IndexPageTemplate = ({
   image,
   title,
@@ -95,7 +123,7 @@ export const IndexPageTemplate = ({
         currentIndex={currentIndex}
         logoName={logoName}
       />
-      <ReactFullPage
+      {/* <ReactFullPage
         navigation
         onLeave={(origin, destination, direction) => {
           // console.log("onLeave event", { origin, destination, direction });
@@ -123,7 +151,26 @@ export const IndexPageTemplate = ({
             </ReactFullPage.Wrapper>
           )
         }}
-      />
+      /> */}
+      <Slick
+        infinite={false}
+        vertical
+        verticalSwiping
+        slidesToShow={1}
+        beforeChange={(oldIndex, newIndex) => {
+          if (!initialized) {
+            setInitialized(true);
+          }
+          
+          setCurrentIndex(newIndex);
+        }}
+      >
+        <Home name={name} />
+        <About />
+        <PastPresent />
+        <Creation />
+        <Get />
+      </Slick>
       <TopRight currentIndex={currentIndex} />
       {
         currentIndex < sections.length - 1 && (
