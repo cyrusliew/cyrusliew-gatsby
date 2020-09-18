@@ -138,11 +138,16 @@ $menu-label-color: $white-ter
 
 @import "~bulma"
 
+html,
 body
-  font-size: 18px;
-  letter-spacing: 0.05em;
   overflow: hidden;
 
+
+body
+  font-size: 18px;
+  height: 100vh;
+  height: -webkit-fill-available;
+  letter-spacing: 0.05em;
 
 // responsiveness
 +tablet-only

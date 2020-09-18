@@ -75,6 +75,7 @@ const settings = {
       breakpoint: 991,
       settings: {
         slidesToShow: 2,
+        rows: 2,
       },
     },
   ],

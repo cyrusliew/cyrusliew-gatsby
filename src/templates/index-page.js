@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, createRef } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import ReactFullPage from '@fullpage/react-fullpage';
 import Slider from 'react-slick';
 import styled from 'styled-components';
 
@@ -9,6 +8,7 @@ import Layout from '../components/Layout'
 
 import LogoName from '../components/LogoName';
 import useAnimation from '../hooks/useAnimation';
+import useScrollWheel from '../hooks/useScrollWheel';
 
 import Home from '../sections/Home';
 import About from '../sections/About';
@@ -21,22 +21,6 @@ import TopRight from '../components/TopRight';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import BottomRight from '../components/BottomRight';
-
-// const Sections = styled.div`
-//     bottom: 0;
-//     display: flex;
-//     left: 0;
-//     position: absolute;
-//     right: 0;
-//     top: 0;
-
-//     > div,
-//     .section,
-//     section {
-//         margin: auto;
-//         width: 100%;
-//     }
-// `;
 
 const Copyright = styled.div`
     color: white;
@@ -54,16 +38,17 @@ const Copyright = styled.div`
 `;
 
 const Slick = styled(Slider)`
+    display: flex;
     height: 100vh;
+    height: -webkit-fill-available;
 
     > .slick-list {
-      height: 100vh !important;
+      height: 100vh;
 
        > .slick-track {
-        //  height: 100%;
-
          > .slick-slide {
            min-height: 100vh;
+          //  min-height: -webkit-fill-available;
 
            > div {
              align-items: center;
@@ -89,17 +74,22 @@ export const IndexPageTemplate = ({
   description,
   intro,
 }) => {
-  const indexPage = React.createRef();
-  const ball = React.createRef();
-  const logo = React.createRef();
-  const logoName = React.createRef();
-  const copyright = React.createRef();
-  const name = React.createRef();
+  const indexPage = createRef();
+  const ball = createRef();
+  const logo = createRef();
+  const logoName = createRef();
+  const copyright = createRef();
+  const name = createRef();
+  const mainSlider = React.useRef();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [initialized, setInitialized] = useState(false);
+  const [isSliding, setIsSliding] = useState(false);
   // const [mounted, setMounted] = useState(false);
 
   useAnimation(ball, logo, copyright, name, currentIndex, initialized, indexPage);
+  useScrollWheel(
+    isSliding, mainSlider,
+  );
 
   const sections = [
     <Home />,
@@ -123,48 +113,26 @@ export const IndexPageTemplate = ({
         currentIndex={currentIndex}
         logoName={logoName}
       />
-      {/* <ReactFullPage
-        navigation
-        onLeave={(origin, destination, direction) => {
-          // console.log("onLeave event", { origin, destination, direction });
-          if (!initialized) {
-            setInitialized(true);
-          }
-        }}
-        anchors={['home', 'about', 'past-and-present', 'creation', 'get']}
-        render={({ state, fullpageApi }) => {
-          const { destination } = state;
-          // console.log('State', state);
-          // console.log('Api', fullpageApi);
-          if (destination) {
-            const { index } = destination;  
-            setCurrentIndex(index);
-          }
-
-          return (
-            <ReactFullPage.Wrapper>
-              <Home name={name} />
-              <About />
-              <PastPresent />
-              <Creation />
-              <Get />
-            </ReactFullPage.Wrapper>
-          )
-        }}
-      /> */}
       <Slick
+        id="main-slider"
+        ref={mainSlider}
         infinite={false}
         vertical
         verticalSwiping
         slidesToShow={1}
         dots={false}
-        touchThreshold={15}
+        touchThreshold={30}
         beforeChange={(oldIndex, newIndex) => {
+          setIsSliding(true);
+
           if (!initialized) {
             setInitialized(true);
           }
 
           setCurrentIndex(newIndex);
+        }}
+        afterChange={() => {
+          setIsSliding(false);
         }}
       >
         <Home name={name} />
