@@ -157,11 +157,13 @@ export const IndexPageTemplate = ({
         vertical
         verticalSwiping
         slidesToShow={1}
+        dots={false}
+        touchThreshold={15}
         beforeChange={(oldIndex, newIndex) => {
           if (!initialized) {
             setInitialized(true);
           }
-          
+
           setCurrentIndex(newIndex);
         }}
       >
