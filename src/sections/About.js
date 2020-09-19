@@ -9,7 +9,7 @@ const Section = styled.section`
 
 const AboutContent = styled.div`
     margin: auto 10%;
-    max-width: 44.75rem;
+    max-width: 28.75rem;
 
     p:not(:last-child) {
         margin-bottom: 2rem;
@@ -28,7 +28,7 @@ const About = () => (
             <Title>Hello.</Title>
             <p>This is Cyrus - A full stack developer with a solid 7 years of experience in Web Design & Development.</p>
             <p>I have been living in New Zealand for 4 years.</p>
-            <p>I am passionate about my life, always have fun in getting the biggest satisfaction when doing any design works.</p>
+            <p>I am passionate about my life, always have fun in getting the highest satisfaction when delivering quality works.</p>
         </AboutContent>
     </Section>
 )

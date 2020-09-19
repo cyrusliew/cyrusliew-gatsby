@@ -31,6 +31,11 @@ const Position = styled.div`
         font-size: 20px;
         margin-bottom: 2rem;
     }
+
+    @media (min-width: 540px) {
+        align-items: flex-end;
+        display: flex;
+    }
 `;
 
 const Wrapper = styled.div`

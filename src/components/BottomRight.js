@@ -45,20 +45,25 @@ const ScrollHint = styled.div`
         }
 
         70% {
-            margin-top: 15px;
+            margin-top: 20px;
             opacity: 0;
         }
 
         100% {
-            margin-top: 15px;
+            margin-top: 20px;
             opacity: 0;
         }
     }
 
     @keyframes scrollUp {
         0% {
-            margin-top: 15px;
+            margin-top: 20px;
         }
+
+        10% {
+            margin-top: 20px;
+        }
+
 
         70% {
             margin-top: 0;

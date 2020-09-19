@@ -131,6 +131,7 @@ Creation.propTypes = {
                   date(formatString: "MMMM DD, YYYY")
                   featuredpost
                   tags
+                  url
                   thumbnail {
                     childImageSharp {
                       fluid(quality: 100) {
