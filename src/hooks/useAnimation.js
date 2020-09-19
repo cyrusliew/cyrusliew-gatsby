@@ -193,12 +193,20 @@ const useAnimation = (ball, logo, copyright, name, currentIndex, initialized, in
       }
   
       if (currentIndex === 1) {
+          gsap.set(
+            ball.current,
+            {
+              marginTop: 'auto',
+            }
+          )
+
           gsap.to(
             ball.current,
             {
               background: 'linear-gradient(-90deg, #24077E 0%, #4134FD 100%), #FFFFFF',
               left: 'calc(75% - 200px)',
               duration: animationSpeed,
+              transform: 'scale(1)',
             }
           )
       }

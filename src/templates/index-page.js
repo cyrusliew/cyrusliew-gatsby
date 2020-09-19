@@ -1,8 +1,9 @@
-import React, { useState, createRef } from 'react'
+import React, { useState, createRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Slider from 'react-slick';
 import styled from 'styled-components';
+import { window } from 'global';
 
 import Layout from '../components/Layout'
 
@@ -60,6 +61,7 @@ const Slick = styled(Slider)`
              > section,
              > div {
                margin: auto;
+               overflow-x: hidden;
                width: 100%;
 
                @media (max-width: 541px) {
@@ -91,12 +93,16 @@ export const IndexPageTemplate = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [initialized, setInitialized] = useState(false);
   const [isSliding, setIsSliding] = useState(false);
-  // const [mounted, setMounted] = useState(false);
+  const [init, setInit] = useState(false);
+  const [anchorJump, setAnchorJump] = useState(false);
 
-  useAnimation(ball, logo, copyright, name, currentIndex, initialized, indexPage);
-  useScrollWheel(
-    isSliding, mainSlider,
-  );
+  const anchors = [
+    'home',
+    'about',
+    'past-present',
+    'creation',
+    'get',
+  ];
 
   const sections = [
     <Home />,
@@ -105,6 +111,25 @@ export const IndexPageTemplate = ({
     <Creation />,
     <Get />,
   ];
+
+  useAnimation(ball, logo, copyright, name, currentIndex, initialized, indexPage);
+  useScrollWheel(
+    isSliding, mainSlider,
+  );
+
+  useEffect(() => {
+    if (init && !anchorJump) {
+      const { hash } = window.location;
+
+      if (hash) {
+        const targetIndex = anchors.findIndex((anchor) => anchor === hash.split('#')[1]);
+  
+        console.log('Going to index', targetIndex);
+        mainSlider.current.slickGoTo(targetIndex);
+        setAnchorJump(true);
+      }
+    }
+  }, [init]);
 
   return (
     <div
@@ -129,6 +154,8 @@ export const IndexPageTemplate = ({
         slidesToShow={1}
         dots={false}
         touchThreshold={5}
+        onInit={() => setInit(true)}
+        // onReInit={() => {console.log('Reinit')}}
         beforeChange={(oldIndex, newIndex) => {
           setIsSliding(true);
 
@@ -137,6 +164,7 @@ export const IndexPageTemplate = ({
           }
 
           setCurrentIndex(newIndex);
+          window.history.pushState(null, null, '#' + anchors[newIndex]);
         }}
         afterChange={() => {
           setIsSliding(false);
