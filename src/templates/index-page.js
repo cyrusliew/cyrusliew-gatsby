@@ -123,8 +123,6 @@ export const IndexPageTemplate = ({
 
       if (hash) {
         const targetIndex = anchors.findIndex((anchor) => anchor === hash.split('#')[1]);
-  
-        console.log('Going to index', targetIndex);
         mainSlider.current.slickGoTo(targetIndex);
         setAnchorJump(true);
       }
@@ -155,7 +153,6 @@ export const IndexPageTemplate = ({
         dots={false}
         touchThreshold={5}
         onInit={() => setInit(true)}
-        // onReInit={() => {console.log('Reinit')}}
         beforeChange={(oldIndex, newIndex) => {
           setIsSliding(true);
 
