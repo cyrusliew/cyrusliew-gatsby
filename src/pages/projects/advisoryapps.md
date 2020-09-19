@@ -7,7 +7,7 @@ platform:
 icon: fab fa-wordpress
 thumbnail: /img/advisoryapps.jpg
 tags:
-  - Wordress
+  - Wordpress
   - Gutenberg
 url: http://advisoryapps.com/
 date: 2020-09-14T10:21:07.313Z
