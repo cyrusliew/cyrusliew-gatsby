@@ -7,8 +7,8 @@ platform:
 icon: fab fa-drupal
 thumbnail: /img/horizon-finance.jpg
 tags:
-  - Web Development
-  - Web Design
+  - Drupal
+  - Dev
 url: https://www.horizonfinance.nz
 date: 2020-07-06T10:28:15.677Z
 onGoing: true
