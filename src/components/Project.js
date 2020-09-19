@@ -37,6 +37,7 @@ const Project = (props) => {
         frontmatter: {
             thumbnail,
             title,
+            tags,
         },
         fields: {
             slug,
@@ -51,9 +52,17 @@ const Project = (props) => {
         <Img alt={title} fluid={thumbnail.childImageSharp.fluid} />
         <h4>{title}</h4>
         <p>
-            <i className="fab fa-drupal" />
-            <i className="fab fa-figma" />
-            <i className="fab fa-dev" />
+            {
+                tags && (
+                    tags.map(tag => {
+                        const classes = tag.replace(' ', '-').toLowerCase();
+
+                        return (
+                            <i className={`fab fa-${classes}`} />
+                        )
+                    })
+                )
+            }
         </p>
     </Wrapper>
 )};

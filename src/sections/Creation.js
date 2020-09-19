@@ -65,6 +65,7 @@ const settings = {
   infinite: true,
   afterChange: addActiveClass,
   onInit: addActiveClass,
+  swipeToSlide: true,
   responsive: [
     {
       breakpoint: 1199,
@@ -129,6 +130,7 @@ Creation.propTypes = {
                   templateKey
                   date(formatString: "MMMM DD, YYYY")
                   featuredpost
+                  tags
                   thumbnail {
                     childImageSharp {
                       fluid(quality: 100) {

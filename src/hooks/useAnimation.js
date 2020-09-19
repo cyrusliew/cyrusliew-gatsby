@@ -256,7 +256,7 @@ const useAnimation = (ball, logo, copyright, name, currentIndex, initialized, in
                   duration: animationSpeed,
               }
           )
-        }, 1000);
+        }, 500);
       }
 
       if (currentIndex === 3) {

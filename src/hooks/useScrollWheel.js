@@ -6,16 +6,18 @@ const useScrollWheel = (isSliding, slider) => {
     useEffect(() => {
         if (!eventAdded) {
             window.addEventListener('wheel', (e) => {
-                const direction = Math.sign(e.deltaY) === -1 ? 'up' : 'down';
-                console.log('[Scrolling]', direction);
-                if (!isSliding) {
-                    if (direction === 'up') {
-                        slider.current.slickPrev();
-                        return console.log('[Slider will go UP]');
+                const isScrollLock = document.querySelector('body').classList.contains('scroll-lock');
+                if (isScrollLock && slider.current) {
+                    console.log('scroll lock?', isScrollLock);
+                    const direction = Math.sign(e.deltaY) === -1 ? 'up' : 'down';
+                
+                    if (!isSliding) {
+                        if (direction === 'up') {
+                            slider.current.slickPrev();
+                        }
+            
+                        slider.current.slickNext();
                     }
-        
-                    slider.current.slickNext();
-                    console.log('[Slider will go DOWN]');
                 }
             });
 
