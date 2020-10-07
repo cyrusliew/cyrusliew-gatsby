@@ -112,7 +112,7 @@ export const IndexPageTemplate = ({
     <Get />,
   ];
 
-  useAnimation(ball, logo, copyright, name, currentIndex, initialized, indexPage);
+  useAnimation(ball, logo, logoName, copyright, name, currentIndex, initialized, indexPage);
   useScrollWheel(
     isSliding, mainSlider,
   );
@@ -130,19 +130,17 @@ export const IndexPageTemplate = ({
   }, [init]);
 
   return (
-    <div
+    <Layout className="scroll-lock"
       style={{
         background: "black",
       }}
+      logo={logo}
+      ball={ball}
+      initialized={initialized}
+      currentIndex={currentIndex}
+      logoName={logoName}
       ref={indexPage}
     >
-      <LogoName
-        ball={ball}
-        logo={logo}
-        initialized={initialized}
-        currentIndex={currentIndex}
-        logoName={logoName}
-      />
       <Slick
         id="main-slider"
         ref={mainSlider}
@@ -186,7 +184,7 @@ export const IndexPageTemplate = ({
       >
         &copy; 2020 Cyrus Liew. All Rights Reserved.
       </Copyright>
-    </div>
+    </Layout>
   )
 }
 
@@ -206,17 +204,15 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <Layout className="scroll-lock">
-      <IndexPageTemplate
-        image={frontmatter.image}
-        title={frontmatter.title}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
-      />
-    </Layout>
+    <IndexPageTemplate
+      image={frontmatter.image}
+      title={frontmatter.title}
+      heading={frontmatter.heading}
+      subheading={frontmatter.subheading}
+      mainpitch={frontmatter.mainpitch}
+      description={frontmatter.description}
+      intro={frontmatter.intro}
+    />
   )
 }
 

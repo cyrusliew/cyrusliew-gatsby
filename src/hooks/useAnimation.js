@@ -15,7 +15,7 @@ const logoSpace = () => window.outerWidth > 540 ? '50px' : '1.5rem';
 const logoBallLeft = () => window.outerWidth > 540 ? '-5%' : '0';
 const logoSizeTopLeft = () => window.outerWidth > 540 ? 85 : '12vw';
 
-const useAnimation = (ball, logo, copyright, name, currentIndex, initialized, indexPage) => {
+const useAnimation = (ball, logo, logoName, copyright, name, currentIndex, initialized, indexPage) => {
     const logoWrapperSize = useWindowSize();
     const animationSpeed = 0.5;
     const ballFirstPage = {
@@ -34,12 +34,12 @@ const useAnimation = (ball, logo, copyright, name, currentIndex, initialized, in
     };
 
     useEffect(() => {
-      gsap.to(
-        indexPage.current,
-        {
-          background: backgroundColors[currentIndex], 
-        }
-      )
+      // gsap.to(
+      //   indexPage.current,
+      //   {
+      //     background: backgroundColors[currentIndex], 
+      //   }
+      // )
 
       if (currentIndex === 0 && !initialized) {
         ball.current.style.background = 'linear-gradient(140.49deg, #8A1851 8.5%, #0748A5 87.98%)';
@@ -159,6 +159,7 @@ const useAnimation = (ball, logo, copyright, name, currentIndex, initialized, in
             marginLeft: 0,
             marginTop: logoSpace(),
             transform: 'rotate(0deg) scale(1)',
+            zIndex: 1,
           }
         )
 
@@ -190,6 +191,14 @@ const useAnimation = (ball, logo, copyright, name, currentIndex, initialized, in
             width: logoSizeTopLeft(),
           }
         );
+
+        // gsap.to(
+        //   logoName.current.querySelector('img'),
+        //   {
+        //     transform: 'scale(32.5) translate(-45.75%, -36%)',
+        //     duration: 2,
+        //   }
+        // )
       }
   
       if (currentIndex === 1) {

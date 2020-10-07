@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 import github from '../img/github-icon.svg'
 import logo from '../img/logo.svg'
+import LogoName from '../components/LogoName'
+import TopRight from '../components/TopRight'
 
 const Navbar = class extends React.Component {
   constructor(props) {
@@ -33,59 +35,19 @@ const Navbar = class extends React.Component {
   }
 
   render() {
+    const { ball, currentIndex, logo, logoName, initialized } = this.props;
+
     return (
-      <nav
-        className="navbar is-transparent"
-        role="navigation"
-        aria-label="main-navigation"
-        style={{
-          background: 'transparent',
-          color: 'white',
-          position: 'fixed',
-          width: '100%',
-          top: 0,
-        }}
-      >
-        <div className="container">
-          <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
-            </Link>
-            {/* Hamburger menu */}
-            <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-              data-target="navMenu"
-              onClick={() => this.toggleHamburger()}
-            >
-              <span />
-              <span />
-              <span />
-            </div>
-          </div>
-          <div
-            id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
-          >
-            <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/about">
-                About
-              </Link>
-              <Link className="navbar-item" to="/products">
-                Products
-              </Link>
-              <Link className="navbar-item" to="/blog">
-                Blog
-              </Link>
-              <Link className="navbar-item" to="/contact">
-                Contact
-              </Link>
-              <Link className="navbar-item" to="/contact/examples">
-                Form Examples
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <div>
+        <LogoName
+          ball={ball}
+          logo={logo}
+          initialized={initialized}
+          currentIndex={currentIndex}
+          logoName={logoName}
+        />
+        <TopRight currentIndex={currentIndex} />
+      </div>
     )
   }
 }

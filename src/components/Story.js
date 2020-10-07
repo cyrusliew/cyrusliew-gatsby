@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Year = styled.h3`
     font-size: 2.1rem;
 
-    @media (min-width: 540px) {
+    @media (min-width: 767px) {
         font-size: 3.1rem;
         margin-bottom: -2rem;
         text-align: right;
@@ -16,7 +16,7 @@ const Company = styled.h4`
     font-size: 1.2rem;
     font-weight: 300;
 
-    @media (min-width: 540px) {
+    @media (min-width: 767px) {
         font-size: 1.9rem;
         text-align: right;
     }
@@ -27,24 +27,24 @@ const Position = styled.div`
     font-weight: 300;
     letter-spacing: 0.05rem;
 
-    @media (max-width: 541px) {
+    @media (max-width: 768px) {
         font-size: 20px;
         margin-bottom: 2rem;
     }
 
-    @media (min-width: 540px) {
+    @media (min-width: 767px) {
         align-items: flex-end;
         display: flex;
     }
 `;
 
 const Wrapper = styled.div`
-    @media (max-width: 541px) {
+    @media (max-width: 768px) {
         font-size: 16px;
         text-align: center;
     }
 
-    @media (min-width: 540px) {
+    @media (min-width: 767px) {
         display: grid !important;
         grid-template-columns: auto auto;
         grid-column-gap: 2rem;

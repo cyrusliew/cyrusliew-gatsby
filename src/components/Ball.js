@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import useWindowSize from '../hooks/useWindowSize';
+// import worldMap from '../img/world.svg';
+import worldMap from '../img/world-white.svg';
 
 const BallWrapper = styled.div`
     background: linear-gradient(0deg, #0748A5 8.5%, #8A1851 87.98%);
@@ -8,14 +10,15 @@ const BallWrapper = styled.div`
     bottom: 0;
     content: '';
     display: inline-block;
-    position: absolute;
-    margin: auto;
-    right: 0;
     left: 0;
-    top: 0; 
     height: 100px;
-    width: 100px;
+    margin: auto;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0; 
     transition: unset;
+    width: 100px;
 `;
 
 const Ball = React.forwardRef((props, ref) => {
@@ -28,7 +31,9 @@ const Ball = React.forwardRef((props, ref) => {
             height={logoWrapperSize}
             width={logoWrapperSize}
             ref={ref}
-        />
+        >
+            {/* <img src={worldMap} /> */}
+        </BallWrapper>
     )
 })
 

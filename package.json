@@ -34,6 +34,7 @@
     "react-dom": "^16.8.4",
     "react-helmet": "^6.0.0",
     "react-resize-detector": "^5.2.0",
+    "react-scrollmagic": "^2.2.0",
     "react-slick": "^0.27.11",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.2.0",

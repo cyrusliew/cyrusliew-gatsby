@@ -31,17 +31,32 @@ exports.createPages = ({ actions, graphql }) => {
 
     const posts = result.data.allMarkdownRemark.edges
 
-    posts.forEach((edge) => {
-      const id = edge.node.id
+    console.log('[Posts]', posts);
+
+    posts.forEach((edge, index) => {
+      const {
+        node: {
+          id,
+          fields: {
+            slug
+          },
+          frontmatter: {
+            tags
+          },
+        },
+      } = edge;
       createPage({
-        path: edge.node.fields.slug,
-        tags: edge.node.frontmatter.tags,
+        path: slug,
+        tags: tags,
         component: path.resolve(
           `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
         ),
         // additional data can be passed via context
         context: {
           id,
+          tags,
+          prev: index === 0 ? null : posts[index - 1].node.id,
+          next: index === (posts.length - 1) ? null : posts[index + 1].node.id,
         },
       })
     })

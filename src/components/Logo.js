@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 import useWindowSize from '../hooks/useWindowSize';
 import logo from '../img/logo.svg';
 
-const LogoWrapper = styled.div`
+const LogoWrapper = styled.a`
   align-items: center;
   bottom: 0;
   // border-radius: 100%;
@@ -64,11 +65,13 @@ const Logo = React.forwardRef(
   return (
       <LogoWrapper
         ref={ref}
+        href="/"
         tabIndex={0}
         type="button"
         height={logoWrapperSize}
         width={logoWrapperSize}
         onClick={backToHome}
+        className="logo"
       >
           <img src={logo} alt="logo" ref={imgRef} />
       </LogoWrapper>

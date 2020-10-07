@@ -16,7 +16,7 @@ const Section = styled.div`
         max-width: 70%;
         width: 100%;
 
-        @media (max-width: 767px) {
+        @media (max-width: 991px) {
           max-width: 90%;
         }
 
