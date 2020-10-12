@@ -29,7 +29,8 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    const posts = result.data.allMarkdownRemark.edges
+    const posts = result.data.allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.templateKey !== 'project')
+    const projects = result.data.allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.templateKey === 'project')
 
     console.log('[Posts]', posts);
 
@@ -55,8 +56,34 @@ exports.createPages = ({ actions, graphql }) => {
         context: {
           id,
           tags,
-          prev: index === 0 ? null : posts[index - 1].node.id,
-          next: index === (posts.length - 1) ? null : posts[index + 1].node.id,
+        },
+      })
+    })
+
+    projects.forEach((edge, index) => {
+      const {
+        node: {
+          id,
+          fields: {
+            slug
+          },
+          frontmatter: {
+            tags
+          },
+        },
+      } = edge;
+      createPage({
+        path: slug,
+        tags: tags,
+        component: path.resolve(
+          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
+        ),
+        // additional data can be passed via context
+        context: {
+          id,
+          tags,
+          prev: index === 0 ? null : projects[index - 1].node.id,
+          next: index === (projects.length - 1) ? null : projects[index + 1].node.id,
         },
       })
     })

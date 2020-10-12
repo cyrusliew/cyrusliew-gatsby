@@ -9,7 +9,7 @@ thumbnail: /img/moatours.jpg
 tags:
   - Drupal
   - React
-url: http://moatours.co.nz/
+url: https://www.moatours.co.nz/
 date: 2020-06-14T10:20:00.000Z
 onGoing: true
 completionDate: 2020-06-13T12:00:00.000Z

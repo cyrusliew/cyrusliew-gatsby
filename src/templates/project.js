@@ -10,6 +10,8 @@ import Img from 'gatsby-image';
 import useWindowSize from '../hooks/useWindowSize';
 import styled from 'styled-components';
 import window from 'global';
+import Specifications from '../components/Project/Specifications';
+import Screenshots from '../components/Project/Screenshots';
 
 const Wrapper = styled.section`
   color: white;
@@ -26,6 +28,20 @@ const Wrapper = styled.section`
   }
 `;
 
+const Btn = styled(Link)`
+  background: #a60e40;
+  border-radius: 5px;
+  color: white !important;
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+
+  &:hover {
+    background: darken(#a60e40, 10);
+  }
+`;
+
 const Tag = styled(Link)`
   background: white;
   border-radius: 2px;
@@ -34,7 +50,18 @@ const Tag = styled(Link)`
 `;
 
 const ContentWrapper = styled.div`
-  max-width: 50rem;
+  display: flex;
+  justify-content: space-between;
+  
+  > *:first-child {
+    flex-basis: 30%;
+    margin: -3rem;
+    position: relative;
+  }
+  
+  > *:last-child {
+    flex-basis: 70%
+  }
 `;
 
 const Projects = styled.div`
@@ -94,6 +121,7 @@ export const ProjectTemplate = ({
   moreLikeThis,
   next,
   prev,
+  url,
 }) => {
   const PostContent = contentComponent || Content
 
@@ -120,55 +148,64 @@ export const ProjectTemplate = ({
             <p>{description}</p>
             <Img alt="" fluid={{ ...fluid, aspectRatio: 3 }} />
             <ContentWrapper>
+              <Specifications />
               <PostContent content={content} />
             </ContentWrapper>
-            <Projects>
-              <h4>Previous | Next</h4>
-              <ProjectsInnerWrapper>
-                {
-                  prev && (
-                    <Link to={prev.fields.slug}>
-                      <Img alt={prev.frontmatter.title} fluid={prev.frontmatter.thumbnail.childImageSharp.fluid} />
-                    </Link>
-                  )
-                }
-                {
-                  next && (
-                    <Link to={next.fields.slug}>
-                      <Img alt={next.frontmatter.title} fluid={next.frontmatter.thumbnail.childImageSharp.fluid} />
-                    </Link>
-                  )
-                }
-              </ProjectsInnerWrapper>
-            </Projects>
-            <Projects>
-              <h4>More like this</h4>
-              <ProjectsInnerWrapper>
-                {
-                  moreLikeThis.length > 0
-                  && moreLikeThis.map(({
-                    node: {
-                      fields: {
-                        slug,
-                      },
-                      frontmatter: {
-                        title,
-                        thumbnail: {
-                          childImageSharp: {
-                            fluid,
+            <Screenshots />
+            <div className="footer">
+              <Btn className="btn btn-primary" to={url} target="_blank">
+                Why don't you see it yourself?
+                {' '}
+                <i className="fas fa-eye" />
+              </Btn>
+              <Projects>
+                <h4>Previous | Next</h4>
+                <ProjectsInnerWrapper>
+                  {
+                    prev && (
+                      <Link to={prev.fields.slug}>
+                        <Img alt={prev.frontmatter.title} fluid={prev.frontmatter.thumbnail.childImageSharp.fluid} />
+                      </Link>
+                    )
+                  }
+                  {
+                    next && (
+                      <Link to={next.fields.slug}>
+                        <Img alt={next.frontmatter.title} fluid={next.frontmatter.thumbnail.childImageSharp.fluid} />
+                      </Link>
+                    )
+                  }
+                </ProjectsInnerWrapper>
+              </Projects>
+              <Projects>
+                <h4>More like this</h4>
+                <ProjectsInnerWrapper>
+                  {
+                    moreLikeThis.length > 0
+                    && moreLikeThis.map(({
+                      node: {
+                        fields: {
+                          slug,
+                        },
+                        frontmatter: {
+                          title,
+                          thumbnail: {
+                            childImageSharp: {
+                              fluid,
+                            }
                           }
-                        }
-                      },
-                    }
-                  }) => (
-                    <Link to={slug}>
-                      <Img alt={title} fluid={fluid} />
-                      <p>{title}</p>
-                    </Link>
-                  ))
-                }
-              </ProjectsInnerWrapper>
-            </Projects>
+                        },
+                      }
+                    }) => (
+                      <Link to={slug}>
+                        <Img alt={title} fluid={fluid} />
+                        <p>{title}</p>
+                      </Link>
+                    ))
+                  }
+                </ProjectsInnerWrapper>
+              </Projects>
+            </div>
           </div>
         </div>
       </div>
@@ -198,6 +235,7 @@ const BlogPost = ({ data }) => {
       tags,
       description,
       thumbnail,
+      url,
     }
   } = currentProject;
   const logoSpace = () => window.outerWidth > 540 ? '50px' : '1.5rem';
@@ -272,6 +310,7 @@ const BlogPost = ({ data }) => {
         tags={tags}
         title={title}
         fluid={thumbnail.childImageSharp.fluid}
+        url={url}
         moreLikeThis={moreLikeThis.edges}
         next={next}
         prev={prev}
@@ -295,8 +334,8 @@ export const pageQuery = graphql`
   query ProjectByID(
     $id: String!
     $tags: [String!]
-    $next: String!
-    $prev: String!
+    $next: String
+    $prev: String
   ) {
     currentProject: markdownRemark(id: { eq: $id }) {
       id
@@ -309,6 +348,7 @@ export const pageQuery = graphql`
         platform
         onGoing
         completionDate
+        url
         thumbnail {
           childImageSharp {
             fluid(
