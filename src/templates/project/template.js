@@ -65,12 +65,18 @@ const ProjectTemplate = ({
               <KillerFeatures />
               <Footer>
                 <Btn className="btn btn-primary" to={url} target="_blank">
-                  Why don't you see it yourself?
+                  Why don't you go experience it?
                   {' '}
                   <i className="fas fa-eye" />
                 </Btn>
                 <Projects>
-                  <h4>Previous | Next</h4>
+                  <h4>
+                    { prev && 'Previous'}
+                    {' '}
+                    { prev && next && '|' }
+                    {' '}
+                    { next && 'Next'}
+                    </h4>
                   <ProjectsInnerWrapper>
                     {
                       prev && (
