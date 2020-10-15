@@ -29,7 +29,7 @@ Orchid Systems is a fun project which allows me to dive more into improving know
 
 **Role & Key Responsibilities**
 
-* Monitor progress on front end deliveries
-* Monitor qualify of code produced
+* Monitor the progress on front end deliveries
+* Monitor the quality of code produced
 * Mentor and assist on Front End development
 * Building and create Gutenberg custom blocks
