@@ -4,6 +4,7 @@ title: AdvisoryApps
 platform:
   - Wordpress
   - Gutenberg
+  - React
 icon: fab fa-wordpress
 thumbnail: /img/advisoryapps.jpg
 screenshot:
@@ -16,9 +17,18 @@ featuredimage: /img/hfs.png
 tags:
   - Wordpress
   - React
+  - Gutenberg
 date: 2020-09-14T10:21:07.313Z
 onGoing: true
 ---
-Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.
+AdvisoryApps is one of the digital company that offers variety of digital solutions, which includes Web/ App development, fully customised system, game development and etc. I was in charge of building their brand new revamped website entirely in WordPress, from the front and back end. It was a great opportunity to adopt and implement one of the powerful drag and drop editor WordPress has released that time - the [Gutenberg Editor](https://wordpress.org/gutenberg/).
 
-Curabitur blandit tempus porttitor. Maecenas sed diam eget risus varius blandit sit amet non magna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo.
+**Key features**
+
+* Early adoption of WordPress Gutenberg Editor
+* Custom React components 
+* Making call to WordPress built in REST API
+
+**Role and Key repsonsibilities**
+
+* Full site build from front to back
