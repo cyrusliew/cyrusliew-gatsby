@@ -6,14 +6,18 @@ platform:
   - React
 icon: fab fa-drupal
 thumbnail: /img/moatours.jpg
+screenshot:
+  - image: /img/tour-dates-and-live-availability-moatrek-nz-tours.png
+  - image: /img/kakapo-21-day-tour-gallery-moatrek-new-zealand-tours.png
+  - image: /img/kakapo-21-day-tour-gallery-moatrek-new-zealand-tours-lightbox.png
+url: http://moatours.co.nz/
+completionDate: 2020-06-13T12:00:00.000Z
+featuredimage: /img/hfs.png
 tags:
   - Drupal
   - React
-url: http://moatours.co.nz/
 date: 2020-06-14T10:20:00.000Z
 onGoing: true
-completionDate: 2020-06-13T12:00:00.000Z
-featuredimage: /img/hfs.png
 ---
 Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.
 
