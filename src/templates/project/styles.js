@@ -75,7 +75,7 @@ export const Footer = styled.div`
 export const FooterBall = styled.div`
     background: linear-gradient(137.8deg, #4134FD 8.25%, #24077E 90.93%);
     border-radius: 100%;
-    bottom: -30%;
+    bottom: max(-45vw, -50rem);
     content: '';
     display: block;
     left: -50%;
@@ -83,6 +83,8 @@ export const FooterBall = styled.div`
     position: absolute;
     right: -50%;
     height: 100vw;
+    max-width: 100rem;
+    max-height: 100rem;
     width: 100vw;
     z-index: 0;
 `;

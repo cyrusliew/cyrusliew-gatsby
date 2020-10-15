@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { gsap } from 'gsap';
 import useWindowSize from '../hooks/useWindowSize';
 import window from 'global';
@@ -34,12 +34,12 @@ const useAnimation = (ball, logo, logoName, copyright, name, currentIndex, initi
     };
 
     useEffect(() => {
-      // gsap.to(
-      //   indexPage.current,
-      //   {
-      //     background: backgroundColors[currentIndex], 
-      //   }
-      // )
+      gsap.to(
+        indexPage.current,
+        {
+          background: backgroundColors[currentIndex], 
+        }
+      )
 
       if (currentIndex === 0 && !initialized) {
         ball.current.style.background = 'linear-gradient(140.49deg, #8A1851 8.5%, #0748A5 87.98%)';

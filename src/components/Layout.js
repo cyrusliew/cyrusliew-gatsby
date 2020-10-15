@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { Helmet } from 'react-helmet'
 import './all.sass'
 import useSiteMetadata from './SiteMetadata'
@@ -6,19 +6,22 @@ import { withPrefix } from 'gatsby'
 import Navbar from '../components/Navbar';
 import { StateProvider } from '../store'
 
-const TemplateWrapper = ({
-  className,
-  children,
-  ball,
-  logo,
-  initialized,
-  currentIndex,
-  logoName,
-}) => {
+const TemplateWrapper = forwardRef((
+  {
+    className,
+    children,
+    ball,
+    logo,
+    initialized,
+    currentIndex,
+    logoName,
+  },
+  ref
+) => {
   const { title, description } = useSiteMetadata()
   return (
     <StateProvider>
-      <div>
+      <div ref={ref}>
         <Helmet>
           <html lang="en" className={className} />
           <title>{title}</title>
@@ -73,6 +76,6 @@ const TemplateWrapper = ({
       </div>
     </StateProvider>
   )
-}
+});
 
 export default TemplateWrapper

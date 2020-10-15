@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { gsap } from 'gsap';
-import { Link } from 'gatsby';
+// import { gsap } from 'gsap';
+// import { Link } from 'gatsby';
 import styled from 'styled-components';
 import useWindowSize from '../hooks/useWindowSize';
 import logo from '../img/logo.svg';
@@ -21,7 +21,6 @@ const LogoWrapper = styled.a`
   transform: rotate(90deg) scaleX(0);
   transform-origin: 80% 100%;
   width: 100px;
-  z-index: 2;
 
   img {
     height: 100%;

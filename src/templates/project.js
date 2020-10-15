@@ -23,9 +23,12 @@ const Project = ({ data }) => {
       tags,
       description,
       thumbnail,
+      screenshot,
       url,
     }
   } = currentProject;
+  console.log('[Current Project]', currentProject);
+
   const logoSpace = () => window.outerWidth > 540 ? '50px' : '1.5rem';
   const logoBallLeft = () => window.outerWidth > 540 ? '-5%' : '0';
   const logoSizeTopLeft = () => window.outerWidth > 540 ? 85 : '12vw';
@@ -98,6 +101,7 @@ const Project = ({ data }) => {
         tags={tags}
         title={title}
         fluid={thumbnail.childImageSharp.fluid}
+        screenshot={screenshot}
         url={url}
         moreLikeThis={moreLikeThis.edges}
         next={next}
@@ -143,6 +147,22 @@ query ProjectByID(
             quality: 100
           ) {
             ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      screenshot {
+        image {
+          id,
+          childImageSharp {
+            thumbnail: fluid(
+              maxHeight: 597
+              maxWidth: 787
+            ) {
+              ...GatsbyImageSharpFluid
+            }
+            full: fluid {
+              src
+            }
           }
         }
       }

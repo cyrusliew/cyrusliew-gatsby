@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import Img from 'gatsby-image';
+import Lightbox  from 'react-image-lightbox';
 import { Header } from '../styles';
+import 'react-image-lightbox/style.css';
 
 const Wrapper = styled.div`
     margin-bottom: 6rem;
@@ -27,7 +30,26 @@ const Side = styled.div`
     }
 `;
 
-const Screenshots = () => {
+const Btn = styled.div`
+    background: transparent;
+    width: 100%;
+`;
+
+const Screenshots = ({ data }) => {
+    const [ isOpen, setIsOpen ] = useState(false);
+    const [ currentIndex, setCurrentIndex ] = useState(0)
+
+    console.log('[Data]', data);
+
+    function openLightbox(index) {
+        setCurrentIndex(index);
+        setIsOpen(true);
+    }
+
+    const getPhotoSrc = (index) => {
+        return data[index].image.childImageSharp.full.src;
+    }
+
     return (
         <Wrapper>
             <Header>
@@ -35,13 +57,45 @@ const Screenshots = () => {
             </Header>
             <ImageWrapper>
                 <Hero>
-                    <img src="https://picsum.photos/787/597" alt="Screenshot" />
+                    <Btn onClick={() => openLightbox(0)}>
+                        <Img
+                            alt=""
+                            fluid={{ ...data[0].image.childImageSharp.thumbnail }}
+                        />
+                    </Btn>
                 </Hero>
-                <Side className="">
-                    <img src="https://picsum.photos/382/290" alt="Screenshot" />
-                    <img src="https://picsum.photos/382/290" alt="Screenshot" />
+                <Side>
+                    {
+                        data.map(({ image }, index) => {
+                            if (index === 0) {
+                                return;
+                            }
+
+                            return (
+                                <Btn onClick={() => openLightbox(index)}>
+                                    <Img
+                                        key={image.id}
+                                        alt=""
+                                        fluid={{ ...image.childImageSharp.thumbnail }}
+                                    />
+                                </Btn>
+                            )
+                        })
+                    }
                 </Side>
             </ImageWrapper>
+            {
+                isOpen && (
+                    <Lightbox
+                        mainSrc={getPhotoSrc(currentIndex)}
+                        nextSrc={getPhotoSrc((currentIndex + 1) % data.length)}
+                        prevSrc={getPhotoSrc((currentIndex + data.length - 1) % data.length)}
+                        onCloseRequest={() => setIsOpen(false)}
+                        onMovePrevRequest={() => setCurrentIndex((currentIndex + data.length - 1) % data.length)}
+                        onMoveNextRequest={() => setCurrentIndex((currentIndex + 1) % data.length)}
+                    />
+                )
+            }
         </Wrapper>
     )
 }

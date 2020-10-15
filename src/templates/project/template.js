@@ -28,10 +28,12 @@ const ProjectTemplate = ({
     helmet,
     fluid,
     moreLikeThis,
+    screenshot,
     next,
     prev,
     url,
   }) => {
+    console.log('Project screenshots', screenshot);
     const PostContent = contentComponent || Content
   
     return (
@@ -61,8 +63,12 @@ const ProjectTemplate = ({
                 <Specifications />
                 <PostContent content={content} />
               </ContentWrapper>
-              <Screenshots />
-              <KillerFeatures />
+              {
+                screenshot && (
+                  <Screenshots data={screenshot} />
+                )
+              }
+              {/* <KillerFeatures /> */}
               <Footer>
                 <Btn className="btn btn-primary" to={url} target="_blank">
                   Why don't you go experience it?
@@ -94,34 +100,38 @@ const ProjectTemplate = ({
                     }
                   </ProjectsInnerWrapper>
                 </Projects>
-                <Projects>
-                  <h4>More like this</h4>
-                  <ProjectsInnerWrapper>
-                    {
-                      moreLikeThis.length > 0
-                      && moreLikeThis.map(({
-                        node: {
-                          fields: {
-                            slug,
-                          },
-                          frontmatter: {
-                            title,
-                            thumbnail: {
-                              childImageSharp: {
-                                fluid,
-                              }
+                {
+                  moreLikeThis && moreLikeThis.length > 0 && (
+                    <Projects>
+                      <h4>More like this</h4>
+                      <ProjectsInnerWrapper>
+                        {
+                          moreLikeThis.length > 0
+                          && moreLikeThis.map(({
+                            node: {
+                              fields: {
+                                slug,
+                              },
+                              frontmatter: {
+                                title,
+                                thumbnail: {
+                                  childImageSharp: {
+                                    fluid,
+                                  }
+                                }
+                              },
                             }
-                          },
+                          }) => (
+                            <Link to={slug}>
+                              <Img alt={title} fluid={fluid} />
+                              <p>{title}</p>
+                            </Link>
+                          ))
                         }
-                      }) => (
-                        <Link to={slug}>
-                          <Img alt={title} fluid={fluid} />
-                          <p>{title}</p>
-                        </Link>
-                      ))
-                    }
-                  </ProjectsInnerWrapper>
-                </Projects>
+                      </ProjectsInnerWrapper>
+                    </Projects>
+                  )
+                }
               </Footer>
             </div>
           </div>

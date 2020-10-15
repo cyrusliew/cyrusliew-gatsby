@@ -10,16 +10,12 @@ screenshot:
   - image: /img/tour-dates-and-live-availability-moatrek-nz-tours.png
   - image: /img/kakapo-21-day-tour-gallery-moatrek-new-zealand-tours.png
   - image: /img/kakapo-21-day-tour-gallery-moatrek-new-zealand-tours-lightbox.png
-url: http://moatours.co.nz/
+url: https://www.moatours.co.nz/
 completionDate: 2020-06-13T12:00:00.000Z
 featuredimage: /img/hfs.png
 tags:
   - Drupal
   - React
-<<<<<<< HEAD
-url: https://www.moatours.co.nz/
-=======
->>>>>>> master
 date: 2020-06-14T10:20:00.000Z
 onGoing: true
 ---

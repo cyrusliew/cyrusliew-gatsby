@@ -33,6 +33,7 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-helmet": "^6.0.0",
+    "react-image-lightbox": "^5.1.1",
     "react-resize-detector": "^5.2.0",
     "react-scrollmagic": "^2.2.0",
     "react-slick": "^0.27.11",

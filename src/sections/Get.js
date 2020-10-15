@@ -35,13 +35,13 @@ const Get = () => {
     return (
         <Wrapper className="section">
             <SocialLinks>
-                <a href="https://www.linkedin.com/in/cyrusliew/" target="_blank">
+                <a href="https://www.linkedin.com/in/cyrusliew/" target="_blank" rel="noreferrer">
                     <i className="fab fa-linkedin" />
                 </a>
                 {/* <a href="#" target="_blank">
                     <i className="fab fa-behance" />
                 </a> */}
-                <a href="https://www.instagram.com/cyrus_liew/" target="_blank">
+                <a href="https://www.instagram.com/cyrus_liew/" target="_blank" rel="noreferrer">
                     <i className="fab fa-instagram" />
                 </a>
                 <a href="mailto:cyrusliew02@gmail.com">

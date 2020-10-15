@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
-import { withResizeDetector } from 'react-resize-detector';
+// import { withResizeDetector } from 'react-resize-detector';
 import PropTypes from 'prop-types'
 import {  graphql, StaticQuery } from 'gatsby'
 import Project from '../components/Project';
