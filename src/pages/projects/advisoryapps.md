@@ -21,14 +21,14 @@ tags:
 date: 2020-09-14T10:21:07.313Z
 onGoing: true
 ---
-AdvisoryApps is one of the digital company that offers variety of digital solutions, which includes Web/ App development, fully customised system, game development and etc. I was in charge of building their brand new revamped website entirely in WordPress, from the front and back end. It was a great opportunity to adopt and implement one of the powerful drag and drop editor WordPress has released that time - the [Gutenberg Editor](https://wordpress.org/gutenberg/).
+AdvisoryApps is one of the digital companies that offer a variety of digital solutions, which includes Web/ App development, fully customised system, game development, etc. I was in charge of building their brand new revamped website entirely in WordPress, from the front and back end. It was a great opportunity to adopt and implement one of the powerful drag and drop editor WordPress has released that time - the <a href="https://wordpress.org/gutenberg/" target="_blank">Gutenberg Editor</a>.
 
 **Key features**
 
 * Early adoption of WordPress Gutenberg Editor
 * Custom React components 
-* Making call to WordPress built in REST API
+* Making calls to WordPress built-in REST API
 
-**Role and Key repsonsibilities**
+**Role and Key responsibilities**
 
 * Full site build from front to back
