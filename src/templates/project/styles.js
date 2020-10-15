@@ -26,16 +26,16 @@ export const Title = styled.h1`
 `;
 
 export const Btn = styled(Link)`
-    background: #a60e40;
+    background: ${props => props.disabled ? '#f2f2f2' : '#a60e40'};
     border-radius: 5px;
-    color: white !important;
+    color: ${props => props.disabled ? '#ccc' : 'white'} !important;
     display: inline-block;
     font-family: 'Montserrat', sans-serif;
     padding: 1rem 2rem;
     text-transform: uppercase;
 
-    &:hover {
-    background: darken(#a60e40, 10);
+    &:not([disabled]):hover {
+      background: darken(#a60e40, 10);
     }
 `;
 

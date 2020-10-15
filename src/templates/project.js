@@ -143,6 +143,7 @@ query ProjectByID(
       onGoing
       completionDate(formatString: "MMM YYYY")
       url
+      hideUrl
       thumbnail {
         childImageSharp {
           fluid(

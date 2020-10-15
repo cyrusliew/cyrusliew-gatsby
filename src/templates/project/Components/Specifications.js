@@ -68,41 +68,20 @@ const Dates = styled.div`
 const Specifications = ({
     onGoing,
     completionDate,
+    tags,
 }) => {
     return (
         <Wrapper>
             <InnerWrapper>
                 <BuiltStacks>
-                    <BuiltStack>
-                        <i className="fab fa-react" />
-                        <span>
-                            React
-                        </span>
-                    </BuiltStack>
-                    <BuiltStack>
-                        <i className="fab fa-js" />
-                        <span>
-                            jQuery
-                        </span>
-                    </BuiltStack>
-                    <BuiltStack>
-                        <i className="fab fa-sass" />
-                        <span>
-                            SASS
-                        </span>
-                    </BuiltStack>
-                    <BuiltStack>
-                        <i className="fab fa-wordpress" />
-                        <span>
-                            Wordpress
-                        </span>
-                    </BuiltStack>
-                    <BuiltStack>
-                        <i className="fab fa-gutenberg" />
-                        <span>
-                            Gutenberg
-                        </span>
-                    </BuiltStack>
+                    {tags && tags.length && tags.map((tag) => (
+                        <BuiltStack>
+                            <i className={`fab fa-${tag.toLowerCase()}`} />
+                            <span>
+                                {tag}
+                            </span>
+                        </BuiltStack>
+                    ))}
                 </BuiltStacks>
                 <Dates>
                     <tr>

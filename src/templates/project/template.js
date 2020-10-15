@@ -17,7 +17,7 @@ import {
 } from './styles'
 import Specifications from './Components/Specifications';
 import Screenshots from './Components/Screenshots';
-import KillerFeatures from './Components/KillerFeatures';
+// import KillerFeatures from './Components/KillerFeatures';
 
 const ProjectTemplate = ({
   completionDate,
@@ -36,7 +36,7 @@ const ProjectTemplate = ({
     url,
     hideUrl,
   }) => {
-    console.log('Project screenshots', screenshot);
+    console.log('Url', tags);
     const PostContent = contentComponent || Content
   
     return (
@@ -66,6 +66,7 @@ const ProjectTemplate = ({
                 <Specifications
                   completionDate={completionDate}
                   onGoing={onGoing}
+                  tags={tags}
                 />
                 <PostContent content={content} />
               </ContentWrapper>
@@ -76,12 +77,12 @@ const ProjectTemplate = ({
               }
               {/* <KillerFeatures /> */}
               <Footer>
-                <Btn className={`btn btn-${ hideUrl ? 'disabled' : 'primary' }`} to={url} target="_blank" disabled={hideUrl}>
+                <Btn className={`btn btn-${ hideUrl ? 'disabled' : 'primary' }`} to={hideUrl ? '' : url} target="_blank" disabled={hideUrl}>
                   {
                     hideUrl ? 'This site is still in development' : 'Why don\'t you go experience it?'
                   }
                   {' '}
-                  <i className="fas fa-eye" />
+                  <i className={`fas fa-eye${hideUrl ? '-slash' : ''}`} />
                 </Btn>
                 <Projects>
                   <h4>
