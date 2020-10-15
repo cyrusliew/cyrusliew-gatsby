@@ -5,6 +5,10 @@ platform:
   - Drupal
 icon: fab fa-drupal
 thumbnail: /img/zagga.jpg
+screenshot:
+  - image: /img/zagga-zagga.png
+  - image: /img/investing-with-zagga-zagga.png
+  - image: /img/news-zagga.png
 tags:
   - Drupal
 url: https://www.zagga.com.au/
