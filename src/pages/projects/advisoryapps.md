@@ -19,7 +19,7 @@ tags:
   - React
   - Gutenberg
 date: 2020-09-14T10:21:07.313Z
-onGoing: true
+onGoing: false
 ---
 AdvisoryApps is one of the digital companies that offer a variety of digital solutions, which includes Web/ App development, fully customised system, game development, etc. I was in charge of building their brand new revamped website entirely in WordPress, from the front and back end. It was a great opportunity to adopt and implement one of the powerful drag and drop editor WordPress has released that time - the <a href="https://wordpress.org/gutenberg/" target="_blank">Gutenberg Editor</a>.
 
