@@ -22,6 +22,10 @@ const InnerWrapper = styled.div`
     padding: 2rem;
     postiion: sticky;
     top: 2rem;
+    
+    @media (max-width: 767px) {
+        padding: 1rem;
+    }
 `;
 
 const BuiltStack = styled.div`
@@ -40,14 +44,20 @@ const BuiltStack = styled.div`
         display: flex;
         font-size: 20px;
         justify-content: center;
+        margin-bottom: 0.5rem;
         height: 45px;
         width: 45px;
+    }
+
+    @media (max-width: 767px) {
+        flex-basis: 20%;
+        padding: 0.5rem;
     }
 `;
 
 const Dates = styled.div`
     td {
-        padding: 1rem;
+        padding: 0.75rem;
     }
 
     td:first-child {
@@ -55,7 +65,10 @@ const Dates = styled.div`
     }
 `;
 
-const Specifications = () => {
+const Specifications = ({
+    onGoing,
+    completionDate,
+}) => {
     return (
         <Wrapper>
             <InnerWrapper>
@@ -94,11 +107,11 @@ const Specifications = () => {
                 <Dates>
                     <tr>
                         <td>On going</td>
-                        <td><i className="fas fa-check" /></td>
+                        <td>{ onGoing ? <i className="fas fa-check" /> : '-' }</td>
                     </tr>
                     <tr>
                         <td>Completion date</td>
-                        <td>08/12/2020</td>
+                        <td>{ completionDate ? completionDate : '-' }</td>
                     </tr>
                 </Dates>
             </InnerWrapper>

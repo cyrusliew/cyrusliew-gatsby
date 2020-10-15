@@ -20,6 +20,7 @@ import Screenshots from './Components/Screenshots';
 import KillerFeatures from './Components/KillerFeatures';
 
 const ProjectTemplate = ({
+  completionDate,
     content,
     contentComponent,
     description,
@@ -28,6 +29,7 @@ const ProjectTemplate = ({
     helmet,
     fluid,
     moreLikeThis,
+    onGoing,
     screenshot,
     next,
     prev,
@@ -60,7 +62,10 @@ const ProjectTemplate = ({
               <p>{description}</p>
               <Img alt="" fluid={{ ...fluid, aspectRatio: 3 }} />
               <ContentWrapper>
-                <Specifications />
+                <Specifications
+                  completionDate={completionDate}
+                  onGoing={onGoing}
+                />
                 <PostContent content={content} />
               </ContentWrapper>
               {
@@ -88,6 +93,7 @@ const ProjectTemplate = ({
                       prev && (
                         <Link to={prev.fields.slug}>
                           <Img alt={prev.frontmatter.title} fluid={prev.frontmatter.thumbnail.childImageSharp.fluid} />
+                          <p>{prev.frontmatter.title}</p>
                         </Link>
                       )
                     }
@@ -95,6 +101,7 @@ const ProjectTemplate = ({
                       next && (
                         <Link to={next.fields.slug}>
                           <Img alt={next.frontmatter.title} fluid={next.frontmatter.thumbnail.childImageSharp.fluid} />
+                          <p>{next.frontmatter.title}</p>
                         </Link>
                       )
                     }

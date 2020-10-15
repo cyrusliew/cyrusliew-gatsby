@@ -22,7 +22,7 @@ export const Wrapper = styled.section`
 
 export const Title = styled.h1`
     font-size: 3.375rem !important;
-    margin-bottom: 3rem;
+    margin-bottom: 3rem !important;
 `;
 
 export const Btn = styled(Link)`
@@ -52,13 +52,44 @@ export const ContentWrapper = styled.div`
     margin-bottom: 6rem;
 
     > *:first-child {
-    flex-basis: 30%;
-    margin: -3rem -3rem 0;
-    position: relative;
+      flex-basis: 30%;
+      margin: -3rem -3rem 0;
+      position: relative;
     }
 
     > *:last-child {
-    flex-basis: 70%
+      flex-basis: 70%;
+
+      a {
+        color: white;
+        text-decoration: underline;
+      }
+    }
+
+    @media (max-width: 1199px) {
+      flex-wrap: wrap;
+
+      > *:first-child {
+        flex-basis: 45%;
+      }
+
+      > *:last-child {
+        flex-basis: 55%;
+      }
+    }
+
+    @media (max-width: 767px) {
+      flex-wrap: wrap;
+
+      > *:first-child,
+      > *:last-child {
+        flex-basis: 100%;
+        margin: 0;
+
+        &:not(:last-child) {
+          margin-bottom: 2rem;
+        }
+      }
     }
 `;
 
@@ -93,48 +124,48 @@ export const Projects = styled.div`
     margin-top: 4rem;
 
     > h4 {
-    text-align: right;
+      text-align: center;
     }
 `;
 
 export const ProjectsInnerWrapper = styled.div`
-display: flex;
-flex-wrap: wrap;
-justify-content: flex-end;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 
-h4 {
-  text-align: right;
-}
+  h4 {
+    text-align: right;
+  }
 
-> a {
-  color: white;
-  opacity: 0.7;
-  overflow: hidden;
-  transition: all .25s ease;
-  width: 12rem;
-
-  > p {
-    opacity: 0;
+  > a {
+    color: white;
+    opacity: 0.7;
+    overflow: hidden;
     transition: all .25s ease;
-  }
-
-  > .gatsby-image-wrapper {
-    border-radius: 5px;
-    margin-bottom: 0.5rem;
-  }
-
-  &:not(:last-child) {
-    margin-right: 2rem;
-  }
-
-  &:hover {
-    opacity: 1;
+    width: 12rem;
 
     > p {
+      opacity: 0;
+      transition: all .25s ease;
+    }
+
+    > .gatsby-image-wrapper {
+      border-radius: 5px;
+      margin-bottom: 0.5rem;
+    }
+
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+
+    &:hover {
       opacity: 1;
+
+      > p {
+        opacity: 1;
+      }
     }
   }
-}
 `;
 
 export const Header = styled.div`

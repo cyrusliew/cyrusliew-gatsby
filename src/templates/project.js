@@ -27,7 +27,6 @@ const Project = ({ data }) => {
       url,
     }
   } = currentProject;
-  console.log('[Current Project]', currentProject);
 
   const logoSpace = () => window.outerWidth > 540 ? '50px' : '1.5rem';
   const logoBallLeft = () => window.outerWidth > 540 ? '-5%' : '0';
@@ -52,6 +51,7 @@ const Project = ({ data }) => {
         marginLeft: 0,
         marginTop: logoSpace(),
         transform: 'rotate(0deg) scale(1)',
+        zIndex: 1,
       }
     )
 
@@ -84,6 +84,7 @@ const Project = ({ data }) => {
       logo={logo}
       ball={ball}
       logoName={logoName}
+      currentIndex={3}
     >
       <ProjectTemplate
         content={currentProject.html}
@@ -106,6 +107,7 @@ const Project = ({ data }) => {
         moreLikeThis={moreLikeThis.edges}
         next={next}
         prev={prev}
+        {...currentProject.frontmatter}
       />
     </Layout>
   )
@@ -139,7 +141,7 @@ query ProjectByID(
       tags
       platform
       onGoing
-      completionDate
+      completionDate(formatString: "MMM YYYY")
       url
       thumbnail {
         childImageSharp {
@@ -160,7 +162,10 @@ query ProjectByID(
             ) {
               ...GatsbyImageSharpFluid
             }
-            full: fluid {
+            full: fluid(
+              maxWidth: 1920
+              quality: 100
+            ) {
               src
             }
           }

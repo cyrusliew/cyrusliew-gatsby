@@ -32,7 +32,13 @@ const Side = styled.div`
 
 const Btn = styled.div`
     background: transparent;
+    cursor: pointer;
+    transition: all .25s ease;
     width: 100%;
+
+    &:hover {
+        opacity: .7;
+    }
 `;
 
 const Screenshots = ({ data }) => {
