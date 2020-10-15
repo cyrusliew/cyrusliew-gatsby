@@ -34,6 +34,7 @@ const ProjectTemplate = ({
     next,
     prev,
     url,
+    hideUrl,
   }) => {
     console.log('Project screenshots', screenshot);
     const PostContent = contentComponent || Content
@@ -75,8 +76,10 @@ const ProjectTemplate = ({
               }
               {/* <KillerFeatures /> */}
               <Footer>
-                <Btn className="btn btn-primary" to={url} target="_blank">
-                  Why don't you go experience it?
+                <Btn className={`btn btn-${ hideUrl ? 'disabled' : 'primary' }`} to={url} target="_blank" disabled={hideUrl}>
+                  {
+                    hideUrl ? 'This site is still in development' : 'Why don\'t you go experience it?'
+                  }
                   {' '}
                   <i className="fas fa-eye" />
                 </Btn>
@@ -87,7 +90,7 @@ const ProjectTemplate = ({
                     { prev && next && '|' }
                     {' '}
                     { next && 'Next'}
-                    </h4>
+                  </h4>
                   <ProjectsInnerWrapper>
                     {
                       prev && (
