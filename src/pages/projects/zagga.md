@@ -21,4 +21,4 @@ Zagga is a fully-licensed, mortgage-secured marketplace lender holding in Austra
 **Features**
 
 * Information architecture
-* Explore ways to improve marketing strategies
+* Implement React components
