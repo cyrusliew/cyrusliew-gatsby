@@ -6,14 +6,18 @@ platform:
   - Gutenberg
 icon: fab fa-wordpress
 thumbnail: /img/advisoryapps.jpg
+screenshot:
+  - image: /img/we-are-advisory-apps-malaysia-web-mobile-system-developer.png
+  - image: /img/1-new-message.png
+  - image: /img/blog-advisory-apps.png
+url: http://advisoryapps.com/
+completionDate: 2018-10-13T11:00:00.000Z
+featuredimage: /img/hfs.png
 tags:
   - Wordpress
   - React
-url: http://advisoryapps.com/
 date: 2020-09-14T10:21:07.313Z
 onGoing: true
-completionDate: 2018-10-13T11:00:00.000Z
-featuredimage: /img/hfs.png
 ---
 Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.
 
