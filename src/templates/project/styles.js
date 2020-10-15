@@ -53,7 +53,7 @@ export const ContentWrapper = styled.div`
 
     > *:first-child {
       flex-basis: 30%;
-      margin: -3rem -3rem 0;
+      margin: 0 -3rem 0;
       position: relative;
     }
 

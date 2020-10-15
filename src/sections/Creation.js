@@ -9,7 +9,35 @@ import Project from '../components/Project';
 
 const Wrapper = styled.div`
     .slick-list {
-        margin: 0 -20% 0 0;
+        margin: 3rem -20% 0 0;
+    }
+
+    .slick-slider {
+      display: flex;
+
+      > .slick-prev,
+      > .slick-next {
+        height: 5rem;
+        position: relative;
+        width: 5rem;
+
+        &::before {
+          font-size: 5rem;
+        }
+
+        @media (max-width: 767px) {
+          display: none !important;
+        }
+      }
+
+      > .slick-prev {
+        order: 1;
+      }
+
+      > .slick-next {
+        margin-right: 2rem;
+        order: 2;
+      }
     }
 
     .slick-slide {
@@ -60,7 +88,7 @@ const addActiveClass = () => {
 }
 
 const settings = {
-  arrows: false,
+  arrows: true,
   slidesToShow: 4,
   infinite: true,
   afterChange: addActiveClass,
