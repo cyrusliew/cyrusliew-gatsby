@@ -15,7 +15,7 @@ tags:
   - Dev
   - Figma
 url: https://www.horizonfinance.nz
-hideUrl: false
+hideUrl: true
 onGoing: true
 completionDate: 2020-07-06T10:28:15.710Z
 featuredimage: /img/hfs.png
