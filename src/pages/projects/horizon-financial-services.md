@@ -9,6 +9,7 @@ thumbnail: /img/horizon-finance.jpg
 screenshot:
   - image: /img/horizon-finance-home.jpg
   - image: /img/horizon-finance-services.jpg
+  - image: /img/horizon-finance-about.jpg
 url: https://www.horizonfinance.nz
 completionDate: 2020-07-06T10:28:15.710Z
 featuredimage: /img/hfs.png
