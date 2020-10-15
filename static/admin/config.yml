@@ -37,13 +37,18 @@ collections:
       - {label: "Icon", name: "icon", widget: "string"}
       - {label: "Thumbnail", name: "thumbnail", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
-      - label: Screenshots
-        name: screenshots
-        widget: image
-        allow_multiple: true
-        media_library:
-          config:
-            multiple: true
+      - label: Screenshot
+        name: screenshot
+        widget: list
+        collapsed: false
+        fields:
+          - label: Image
+            name: image
+            widget: image
+            allow_multiple: true
+            media_library:
+              config:
+                multiple: true
       - {label: "Tags", name: "tags", widget: "list"}
       - {label: "Url", name: "url", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
