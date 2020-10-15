@@ -10,16 +10,25 @@ screenshot:
   - image: /img/horizon-finance-home.jpg
   - image: /img/horizon-finance-services.jpg
   - image: /img/horizon-finance-about.jpg
-url: https://www.horizonfinance.nz
-completionDate: 2020-07-06T10:28:15.710Z
-featuredimage: /img/hfs.png
 tags:
   - Drupal
   - Dev
   - Figma
-date: 2020-07-06T10:28:15.677Z
+url: https://www.horizonfinance.nz
+hideUrl: true
 onGoing: true
+completionDate: 2020-07-06T10:28:15.710Z
+featuredimage: /img/hfs.png
+date: 2020-07-06T10:28:15.677Z
 ---
-Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.
+Horizon Financial Services offers many different financial services, make ease for people to manage their funds.
 
-Curabitur blandit tempus porttitor. Maecenas sed diam eget risus varius blandit sit amet non magna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo.
+**Features**
+
+* Integration of credit check system
+* Implement vehicle listing and stocks system with Drupal 
+
+**Role & Key responsibilities**
+
+* Complete build from the front and back
+* Design with Figma
