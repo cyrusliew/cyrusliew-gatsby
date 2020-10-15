@@ -32,8 +32,6 @@ exports.createPages = ({ actions, graphql }) => {
     const posts = result.data.allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.templateKey !== 'project')
     const projects = result.data.allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.templateKey === 'project')
 
-    console.log('[Posts]', posts);
-
     posts.forEach((edge, index) => {
       const {
         node: {

@@ -12,9 +12,6 @@ const { Provider } = store;
 
 const StateProvider = ({ children }) => {
     const [ state, dispatch ] = useReducer((state, action) => {
-        console.log('[Current state]', state);
-        console.log('[Passed payloads]', action.payload);
-
         if (!Object.keys(action.payload).every(key => Object.keys(initialState).includes(key))) {
             throw Error('State does not exists');
         }

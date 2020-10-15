@@ -45,8 +45,6 @@ const Screenshots = ({ data }) => {
     const [ isOpen, setIsOpen ] = useState(false);
     const [ currentIndex, setCurrentIndex ] = useState(0)
 
-    console.log('[Data]', data);
-
     function openLightbox(index) {
         setCurrentIndex(index);
         setIsOpen(true);

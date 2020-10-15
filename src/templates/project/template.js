@@ -36,7 +36,6 @@ const ProjectTemplate = ({
     url,
     hideUrl,
   }) => {
-    console.log('Url', tags);
     const PostContent = contentComponent || Content
   
     return (

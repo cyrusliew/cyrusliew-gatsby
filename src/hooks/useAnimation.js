@@ -246,8 +246,6 @@ const useAnimation = (ball, logo, logoName, copyright, name, currentIndex, initi
           const centerLeft = yearSpanLeft - 132.5 + (yearSpanWidth / 2);
           const centerTop = yearSpanTop - 132.5 + (yearSpanHeight / 2);
 
-          console.log(ball.getBoundingClientRect());
-
           gsap.set(
             ball,
             {
