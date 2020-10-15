@@ -16,7 +16,7 @@ tags:
   - React
   - Gutenberg
 url: http://advisoryapps.com/
-hideUrl: true
+hideUrl: false
 onGoing: false
 completionDate: 2018-10-13T11:00:00.000Z
 featuredimage: /img/hfs.png
