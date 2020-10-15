@@ -6,15 +6,19 @@ platform:
   - Credit Sense
 icon: fab fa-drupal
 thumbnail: /img/horizon-finance.jpg
+screenshot:
+  - image: /img/horizon-finance-home.jpg
+  - image: /img/horizon-finance-services.jpg
+  - image: /img/horizon-finance-about.jpg
+url: https://www.horizonfinance.nz
+completionDate: 2020-07-06T10:28:15.710Z
+featuredimage: /img/hfs.png
 tags:
   - Drupal
   - Dev
   - Figma
-url: https://www.horizonfinance.nz
 date: 2020-07-06T10:28:15.677Z
 onGoing: true
-completionDate: 2020-07-06T10:28:15.710Z
-featuredimage: /img/hfs.png
 ---
 Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.
 
