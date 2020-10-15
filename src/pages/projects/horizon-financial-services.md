@@ -10,15 +10,16 @@ screenshot:
   - image: /img/horizon-finance-home.jpg
   - image: /img/horizon-finance-services.jpg
   - image: /img/horizon-finance-about.jpg
-url: https://www.horizonfinance.nz
-completionDate: 2020-07-06T10:28:15.710Z
-featuredimage: /img/hfs.png
 tags:
   - Drupal
   - Dev
   - Figma
-date: 2020-07-06T10:28:15.677Z
+url: https://www.horizonfinance.nz
+hideUrl: true
 onGoing: true
+completionDate: 2020-07-06T10:28:15.710Z
+featuredimage: /img/hfs.png
+date: 2020-07-06T10:28:15.677Z
 ---
 Horizon Financial Services offers many different financial services, make ease for people to manage their funds.
 
