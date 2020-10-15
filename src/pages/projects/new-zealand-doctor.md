@@ -18,6 +18,18 @@ tags:
 date: 2018-08-24T10:51:00.000Z
 onGoing: false
 ---
-Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.
+Orchid Systems is a fun project which allows me to dive more into improving knowledge on Gutenberg Editor. A standard has been set on both the process of creating blocks and theming. At the same time, I had to keep an eye on the quality of code produced by the junior developer, multiple linter is set up to make sure it passes the check.
 
-Curabitur blandit tempus porttitor. Maecenas sed diam eget risus varius blandit sit amet non magna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo.
+**Features**
+
+* Robust Drupal Gutenberg Editor implementation
+* Custom Gutenberg blocks
+* Drastic improvement in search and site directory
+* Improved access control of downloadable items
+
+**Role & Key Responsibilities**
+
+* Monitor progress on front end deliveries
+* Monitor qualify of code produced
+* Mentor and assist on Front End development
+* Building and create Gutenberg custom blocks
