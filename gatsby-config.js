@@ -5,6 +5,7 @@ module.exports = {
       'A self-claimed "Full Stack Developer" based in Auckland, New Zealand. Find out if the claim is true.',
   },
   plugins: [
+    'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
