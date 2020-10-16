@@ -42,6 +42,9 @@
     "styled-components": "^5.2.0",
     "uuid": "^7.0.0"
   },
+  "resolutions": {
+    "gatsby-react-router-scroll": "3.0.3"
+  },
   "keywords": [
     "gatsby"
   ],
