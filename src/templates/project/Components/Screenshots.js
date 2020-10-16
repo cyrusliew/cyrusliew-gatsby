@@ -7,6 +7,10 @@ import 'react-image-lightbox/style.css';
 
 const Wrapper = styled.div`
     margin-bottom: 6rem;
+
+    @media (max-width: 540px) {
+        margin-bottom: 2rem;
+    }
 `;
 
 const ImageWrapper = styled.div`
@@ -76,7 +80,7 @@ const Screenshots = ({ data }) => {
                             }
 
                             return (
-                                <Btn onClick={() => openLightbox(index)}>
+                                <Btn key={`image-${image.id}`} onClick={() => openLightbox(index)}>
                                     <Img
                                         key={image.id}
                                         alt=""

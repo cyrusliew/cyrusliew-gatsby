@@ -1,9 +1,17 @@
 import React from 'react'
+import styled from 'styled-components';
 import { Link } from 'gatsby'
 import github from '../img/github-icon.svg'
 import logo from '../img/logo.svg'
 import LogoName from '../components/LogoName'
 import TopRight from '../components/TopRight'
+
+const Wrapper = styled.div`
+  height: 100vh;
+  overflow: hidden;
+  position: absolute;
+  width: 100vw;
+`;
 
 const Navbar = class extends React.Component {
   constructor(props) {
@@ -38,7 +46,7 @@ const Navbar = class extends React.Component {
     const { ball, currentIndex, logo, logoName, initialized } = this.props;
 
     return (
-      <div>
+      <Wrapper>
         <LogoName
           ball={ball}
           logo={logo}
@@ -47,7 +55,7 @@ const Navbar = class extends React.Component {
           logoName={logoName}
         />
         <TopRight currentIndex={currentIndex} />
-      </div>
+      </Wrapper>
     )
   }
 }

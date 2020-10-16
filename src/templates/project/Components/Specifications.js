@@ -12,6 +12,10 @@ const BuiltStacks = styled.div`
     justify-content: flex-start;
     margin-bottom: 1rem;
     padding-bottom: 1rem;
+
+    @media (max-width: 540px) {
+        justify-content: center;
+    }
 `;
 
 const InnerWrapper = styled.div`
@@ -56,8 +60,11 @@ const BuiltStack = styled.div`
 `;
 
 const Dates = styled.div`
-    td {
-        padding: 0.75rem;
+    table {
+        td {
+            border: 0;
+            padding: 0.75rem;
+        }
     }
 
     td:first-child {
@@ -75,7 +82,7 @@ const Specifications = ({
             <InnerWrapper>
                 <BuiltStacks>
                     {tags && tags.length && tags.map((tag) => (
-                        <BuiltStack>
+                        <BuiltStack key={tag}>
                             <i className={`fab fa-${tag.toLowerCase()}`} />
                             <span>
                                 {tag}
@@ -84,14 +91,18 @@ const Specifications = ({
                     ))}
                 </BuiltStacks>
                 <Dates>
-                    <tr>
-                        <td>On going</td>
-                        <td>{ onGoing ? <i className="fas fa-check" /> : '-' }</td>
-                    </tr>
-                    <tr>
-                        <td>Completion date</td>
-                        <td>{ completionDate ? completionDate : '-' }</td>
-                    </tr>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>On going</td>
+                                <td>{ onGoing ? <i className="fas fa-check" /> : '-' }</td>
+                            </tr>
+                            <tr>
+                                <td>Completion date</td>
+                                <td>{ completionDate ? completionDate : '-' }</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </Dates>
             </InnerWrapper>
         </Wrapper>

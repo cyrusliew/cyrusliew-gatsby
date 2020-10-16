@@ -3,7 +3,6 @@ import { Link } from 'gatsby'
 
 export const Wrapper = styled.section`
     color: white;
-    overflow: hidden;
     padding: 10rem 0;
     position: relative;
 
@@ -15,14 +14,35 @@ export const Wrapper = styled.section`
     }
 
     .gatsby-image-wrapper {
-    max-width: 100%;
-    margin-bottom: 2rem;
+      max-width: 100%;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 540px) {
+      padding: 7rem 0;
     }
 `;
 
 export const Title = styled.h1`
     font-size: 3.375rem !important;
     margin-bottom: 3rem !important;
+
+    @media (max-width: 540px) {
+      font-size: 2.5rem !important;
+    }
+
+    @media (max-width: 320px) {
+      font-size: 2rem !important;
+    }
+`;
+
+export const SiteLink = styled.div`
+    text-align: center;
+    
+    @media (max-width: 540px) {
+      bottom: 0;
+      position: sticky;
+    }
 `;
 
 export const Btn = styled(Link)`
@@ -37,13 +57,34 @@ export const Btn = styled(Link)`
     &:not([disabled]):hover {
       background: darken(#a60e40, 10);
     }
+
+    @media (max-width: 540px) {
+      border-radius: 0;
+      font-size: 0.75rem;
+      margin: 0 -20px;
+      width: calc(100% + 40px);
+    }
 `;
 
-export const Tag = styled(Link)`
-background: white;
-border-radius: 2px;
-color: black;
-padding: 0.5rem 1rem;
+export const TagLi = styled.li`
+  padding: 0 2rem 1rem 0;
+  margin: 0 0 1.5rem;
+
+  @media (max-width: 540px) {
+    padding: 0 1rem 1rem 0;
+  }
+`;
+
+export const Tag = styled.div`
+  background: white;
+  border-radius: 2px;
+  color: black;
+  padding: 0.5rem 1rem;
+
+  @media (max-width: 33.75rem) {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -91,6 +132,10 @@ export const ContentWrapper = styled.div`
         }
       }
     }
+
+    @media (max-width: 540px) {
+      margin-bottom: 4rem;
+    }
 `;
 
 export const Footer = styled.div`
@@ -105,15 +150,16 @@ export const Footer = styled.div`
 
 export const FooterBall = styled.div`
     background: linear-gradient(137.8deg, #4134FD 8.25%, #24077E 90.93%);
-    border-radius: 100%;
+    border-radius: 50vw 50vw 0 0;
     bottom: max(-45vw, -50rem);
+    bottom: 0;
     content: '';
     display: block;
     left: -50%;
     margin: auto;
     position: absolute;
     right: -50%;
-    height: 100vw;
+    height: 50vw;
     max-width: 100rem;
     max-height: 100rem;
     width: 100vw;
@@ -125,6 +171,10 @@ export const Projects = styled.div`
 
     > h4 {
       text-align: center;
+    }
+
+    @media (max-width: 540px) {
+      margin-top: 3rem;
     }
 `;
 
@@ -165,10 +215,23 @@ export const ProjectsInnerWrapper = styled.div`
         opacity: 1;
       }
     }
+
+    @media (max-width: 540px) {
+      width: 10rem;
+    }
+
+    @media (max-width: 320px) {
+      font-size: 0.875rem;
+      width: 7rem;
+    }
   }
 `;
 
 export const Header = styled.div`
     margin-bottom: 3rem;
     text-align: ${props => props.center ? 'center' : 'left'}
+
+    h3 {
+      font-size: 1.5rem;
+    }
 `;

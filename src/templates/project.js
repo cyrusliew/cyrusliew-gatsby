@@ -165,7 +165,7 @@ query ProjectByID(
             }
             full: fluid(
               maxWidth: 1920
-              quality: 100
+              quality: 80
             ) {
               src
             }

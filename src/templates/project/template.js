@@ -11,7 +11,9 @@ import {
     FooterBall,
     Projects,
     ProjectsInnerWrapper,
+    SiteLink,
     Tag,
+    TagLi,
     Title,
     Wrapper,
 } from './styles'
@@ -52,9 +54,9 @@ const ProjectTemplate = ({
                 <div>
                   <ul className="taglist">
                     {tags.map((tag) => (
-                      <li key={tag + `tag`}>
-                        <Tag to={`/tags/${kebabCase(tag)}/`}>{tag}</Tag>
-                      </li>
+                      <TagLi key={tag + `tag`}>
+                        <Tag>{tag}</Tag>
+                      </TagLi>
                     ))}
                   </ul>
                 </div>
@@ -74,8 +76,7 @@ const ProjectTemplate = ({
                   <Screenshots data={screenshot} />
                 )
               }
-              {/* <KillerFeatures /> */}
-              <Footer>
+              <SiteLink>
                 <Btn className={`btn btn-${ hideUrl ? 'disabled' : 'primary' }`} to={hideUrl ? '' : url} target="_blank" disabled={hideUrl}>
                   {
                     hideUrl ? 'This site is still in development' : 'Why don\'t you go experience it?'
@@ -83,6 +84,8 @@ const ProjectTemplate = ({
                   {' '}
                   <i className={`fas fa-eye${hideUrl ? '-slash' : ''}`} />
                 </Btn>
+              </SiteLink>
+              <Footer>
                 <Projects>
                   <h4>
                     { prev && 'Previous'}
@@ -132,7 +135,7 @@ const ProjectTemplate = ({
                               },
                             }
                           }) => (
-                            <Link to={slug}>
+                            <Link key={slug} to={slug}>
                               <Img alt={title} fluid={fluid} />
                               <p>{title}</p>
                             </Link>
