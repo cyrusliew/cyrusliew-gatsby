@@ -2,12 +2,20 @@ module.exports = {
   siteMetadata: {
     title: 'The "Full Stack" | Cyrus Liew',
     description:
-      'A self-claimed "Full Stack Developer" based in Auckland, New Zealand. Find out if the claim is true.',
+      '5 years of Front End, 2 years of Full Stack - Cyrus Liew, a developer based in Auckland, New Zealand.',
+    siteUrl: 'https://www.cyrusliew.com',
   },
   plugins: [
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://www.cyrusliew.com',
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
