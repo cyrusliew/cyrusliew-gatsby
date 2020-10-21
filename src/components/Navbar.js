@@ -8,7 +8,7 @@ import TopRight from '../components/TopRight'
 
 const Wrapper = styled.div`
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
   position: absolute;
   width: 100vw;
 `;

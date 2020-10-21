@@ -161,7 +161,7 @@ export const FooterBall = styled.div`
     right: -50%;
     height: 50vw;
     max-width: 100rem;
-    max-height: 100rem;
+    max-height: 50rem;
     width: 100vw;
     z-index: 0;
 `;

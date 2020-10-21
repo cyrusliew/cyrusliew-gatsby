@@ -50,17 +50,6 @@ const ProjectTemplate = ({
               <Title>
                 {title}
               </Title>
-              {tags && tags.length ? (
-                <div>
-                  <ul className="taglist">
-                    {tags.map((tag) => (
-                      <TagLi key={tag + `tag`}>
-                        <Tag>{tag}</Tag>
-                      </TagLi>
-                    ))}
-                  </ul>
-                </div>
-              ) : null}
               <p>{description}</p>
               <Img alt="" fluid={{ ...fluid, aspectRatio: 3 }} />
               <ContentWrapper>
