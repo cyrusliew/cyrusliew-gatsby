@@ -1,3 +1,13 @@
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = 'https://www.cyrusliew.com',
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV
+} = process.env;
+const isNetlifyProduction = NETLIFY_ENV === 'production';
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
+
+
 module.exports = {
   siteMetadata: {
     title: 'The "Full Stack" | Cyrus Liew',
@@ -12,8 +22,23 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: 'https://www.cyrusliew.com',
-        policy: [{ userAgent: '*', allow: '/' }]
+        resolveEnv: () => NETLIFY_ENV,
+        env: {
+          production: {
+            policy: [{ userAgent: '*', allow: '/' }],
+            host: 'https://www.cyrusliew.com'
+          },
+          'branch-deploy': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null
+          },
+          'deploy-preview': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null
+          }
+        }
       }
     },
     {
