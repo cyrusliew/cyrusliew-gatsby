@@ -13,19 +13,39 @@ const SocialLinks = styled.div`
     margin-bottom: 2rem;
 
     a {
-        border-bottom: 0.25rem solid transparent;
         color: white;
-        padding-bottom: 0.5rem;        
+        padding-bottom: 1rem;   
+        position: relative;     
         transition: all .25s ease;
+
+        &::after {
+            background: white;
+            bottom: 0;
+            content: '';
+            display: block;
+            height: 0.25rem;
+            left: 0;
+            position: absolute;
+            transition: all .25s ease;
+            width: 0;
+        }
 
         &:hover {
             border-color: white;
-            transform: translateY(-0.5rem);
+
+            &::after {
+                width: 100%;
+            }
+
+            i {
+                transform: translateY(-0.5rem);
+            }
         }
     }
 
     i {
         font-size: 36px;
+        transition: all .25s ease;
     }
 
     > a:not(:last-child) {
