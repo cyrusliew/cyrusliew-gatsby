@@ -13,7 +13,15 @@ const SocialLinks = styled.div`
     margin-bottom: 2rem;
 
     a {
+        border-bottom: 0.25rem solid transparent;
         color: white;
+        padding-bottom: 0.5rem;        
+        transition: all .25s ease;
+
+        &:hover {
+            border-color: white;
+            transform: translateY(-0.5rem);
+        }
     }
 
     i {
@@ -38,9 +46,6 @@ const Get = () => {
                 <a href="https://www.linkedin.com/in/cyrusliew/" target="_blank" rel="noreferrer">
                     <i className="fab fa-linkedin" />
                 </a>
-                {/* <a href="#" target="_blank">
-                    <i className="fab fa-behance" />
-                </a> */}
                 <a href="https://www.instagram.com/cyrus_liew/" target="_blank" rel="noreferrer">
                     <i className="fab fa-instagram" />
                 </a>

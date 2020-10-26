@@ -8,7 +8,6 @@ const useScrollWheel = (isSliding, slider) => {
             window.addEventListener('wheel', (e) => {
                 const isScrollLock = document.querySelector('body').classList.contains('scroll-lock');
                 if (isScrollLock && slider.current) {
-                    console.log('scroll lock?', isScrollLock);
                     const direction = Math.sign(e.deltaY) === -1 ? 'up' : 'down';
                 
                     if (!isSliding) {

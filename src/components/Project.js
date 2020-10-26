@@ -61,7 +61,7 @@ const Project = (props) => {
                         const classes = tag.replace(' ', '-').toLowerCase();
 
                         return (
-                            <i className={`fab fa-${classes}`} />
+                            <i key={tag} className={`fab fa-${classes}`} />
                         )
                     })
                 )

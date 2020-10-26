@@ -15,6 +15,7 @@ const TemplateWrapper = forwardRef((
     initialized,
     currentIndex,
     logoName,
+    sections,
   },
   ref
 ) => {
@@ -71,6 +72,7 @@ const TemplateWrapper = forwardRef((
           initialized={initialized}
           currentIndex={currentIndex}
           logoName={logoName}
+          sections={sections}
         />
         <div>{children}</div>
       </div>

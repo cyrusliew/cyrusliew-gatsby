@@ -5,6 +5,7 @@ import github from '../img/github-icon.svg'
 import logo from '../img/logo.svg'
 import LogoName from '../components/LogoName'
 import TopRight from '../components/TopRight'
+import BottomRight from '../components/BottomRight'
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -43,7 +44,7 @@ const Navbar = class extends React.Component {
   }
 
   render() {
-    const { ball, currentIndex, logo, logoName, initialized } = this.props;
+    const { ball, currentIndex, logo, logoName, initialized, sections } = this.props;
 
     return (
       <Wrapper>
@@ -55,6 +56,11 @@ const Navbar = class extends React.Component {
           logoName={logoName}
         />
         <TopRight currentIndex={currentIndex} />
+        {
+          sections && currentIndex < sections.length - 1 && (
+            <BottomRight currentIndex={currentIndex + 1} />
+          )
+        }
       </Wrapper>
     )
   }
