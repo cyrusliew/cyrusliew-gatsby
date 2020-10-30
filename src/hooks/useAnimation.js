@@ -203,6 +203,13 @@ const useAnimation = (ball, logo, logoName, copyright, name, currentIndex, initi
   
       if (currentIndex === 1) {
           gsap.set(
+            logo.current,
+            {
+              zIndex: 0
+            }
+          )
+
+          gsap.set(
             ball.current,
             {
               marginTop: 'auto',
