@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 
-const Wrapper = styled(Link)`
+const Wrapper = styled.a`
     color: white;
     display: block;
     transition: all .25s ease;
@@ -48,9 +47,7 @@ const Project = (props) => {
     return(
     <Wrapper
         className="portfolio"
-        to={slug}
-        // href={url}
-        target="blank"
+        href={slug}
     >
         <Img alt={title} fluid={thumbnail.childImageSharp.fluid} />
         <h4>{title}</h4>
