@@ -14,7 +14,7 @@ screenshot:
 tags:
   - Wordpress
   - React
-  - Gutenberg
+  - G
 url: http://advisoryapps.com/
 hideUrl: false
 onGoing: false
