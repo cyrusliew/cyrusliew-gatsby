@@ -1,11 +1,8 @@
-import React from 'react'
-import styled from 'styled-components';
-import { Link } from 'gatsby'
-import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
-import LogoName from '../components/LogoName'
-import TopRight from '../components/TopRight'
-import BottomRight from '../components/BottomRight'
+import React from "react";
+import styled from "styled-components";
+import LogoName from "../components/LogoName";
+import TopRight from "../components/TopRight";
+import BottomRight from "../components/BottomRight";
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -16,11 +13,11 @@ const Wrapper = styled.div`
 
 const Navbar = class extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       active: false,
-      navBarActiveClass: '',
-    }
+      navBarActiveClass: "",
+    };
   }
 
   toggleHamburger = () => {
@@ -34,17 +31,24 @@ const Navbar = class extends React.Component {
         // set the class in state for the navbar accordingly
         this.state.active
           ? this.setState({
-              navBarActiveClass: 'is-active',
+              navBarActiveClass: "is-active",
             })
           : this.setState({
-              navBarActiveClass: '',
-            })
+              navBarActiveClass: "",
+            });
       }
-    )
-  }
+    );
+  };
 
   render() {
-    const { ball, currentIndex, logo, logoName, initialized, sections } = this.props;
+    const {
+      ball,
+      currentIndex,
+      logo,
+      logoName,
+      initialized,
+      sections,
+    } = this.props;
 
     return (
       <Wrapper>
@@ -56,14 +60,12 @@ const Navbar = class extends React.Component {
           logoName={logoName}
         />
         <TopRight currentIndex={currentIndex} />
-        {
-          sections && currentIndex < sections.length - 1 && (
-            <BottomRight currentIndex={currentIndex + 1} />
-          )
-        }
+        {sections && currentIndex < sections.length - 1 && (
+          <BottomRight currentIndex={currentIndex + 1} />
+        )}
       </Wrapper>
-    )
+    );
   }
-}
+};
 
-export default Navbar
+export default Navbar;

@@ -1,36 +1,47 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const Section = styled.section`
-    align-items: center;
-    color: white;
-    display: flex;
+  align-items: center;
+  color: white;
+  display: flex;
 `;
 
 const AboutContent = styled.div`
-    margin: auto 10%;
-    max-width: 28.75rem;
+  margin: auto 10%;
+  max-width: 28.75rem;
 
-    p:not(:last-child) {
-        margin-bottom: 2rem;
-    }
+  p:not(:last-child) {
+    margin-bottom: 2rem;
+  }
 `;
 
 const Title = styled.h2`
-    font-size: 54px;
-    font-style: italic;
-    margin-bottom: 2rem;
+  font-size: 54px;
+  font-style: italic;
+  margin-bottom: 2rem;
 `;
 
-const About = () => (
+const About = () => {
+  const currentYear = new Date().getFullYear();
+  const experienceInYears = currentYear - 2013;
+  const experience = experienceInYears === 10 ? "decade" : experienceInYears;
+
+  return (
     <Section className="section section--gradient">
-        <AboutContent>
-            <Title>Hello.</Title>
-            <p>This is Cyrus - A full stack developer with a solid 7 years of experience in Web Design & Development.</p>
-            <p>I have been living in New Zealand for 4 years.</p>
-            <p>I am passionate about my life, always have fun in getting the highest satisfaction when delivering quality works.</p>
-        </AboutContent>
+      <AboutContent>
+        <Title>Hello</Title>
+        <p>
+          I'm Cyrus Liew, a full stack developer with a {experience} of
+          experience. I specialize in frontend development, where I bring
+          digital visions to life through engaging user interfaces. Explore my
+          portfolio to see how I turn challenges into opportunities,
+          consistently delivering work that exceeds expectations. Join me on
+          this journey of creativity and quality in digital experiences.
+        </p>
+      </AboutContent>
     </Section>
-)
+  );
+};
 
 export default About;

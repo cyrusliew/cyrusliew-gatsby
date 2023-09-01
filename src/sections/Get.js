@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -64,13 +65,10 @@ const Get = () => {
         <Wrapper className="section">
             <SocialLinks>
                 <a href="https://www.linkedin.com/in/cyrusliew/" target="_blank" rel="noreferrer">
-                    <i className="fab fa-linkedin" />
-                </a>
-                <a href="https://www.instagram.com/cyrus_liew/" target="_blank" rel="noreferrer">
-                    <i className="fab fa-instagram" />
+                    <FontAwesomeIcon icon="fa-brands fa-linkedin" />
                 </a>
                 <a href="mailto:cyrusliew02@gmail.com">
-                    <i className="far fa-envelope" />
+                    <FontAwesomeIcon icon="fa-solid fa-envelope" />
                 </a>
             </SocialLinks>
             <Content>

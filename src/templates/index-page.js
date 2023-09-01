@@ -1,77 +1,79 @@
-import React, { useState, createRef, useEffect } from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import Slider from 'react-slick';
-import styled from 'styled-components';
-import { window } from 'global';
+import React, { useState, createRef, useEffect } from "react";
+import PropTypes from "prop-types";
+import { graphql } from "gatsby";
+import Slider from "react-slick";
+import styled from "styled-components";
+import { window } from "global";
 
-import Layout from '../components/Layout'
+import Layout from "../components/Layout";
 
-import LogoName from '../components/LogoName';
-import useAnimation from '../hooks/useAnimation';
-import useScrollWheel from '../hooks/useScrollWheel';
+import useAnimation from "../hooks/useAnimation";
+import useScrollWheel from "../hooks/useScrollWheel";
 
-import Home from '../sections/Home';
-import About from '../sections/About';
-import PastPresent from '../sections/PastPresent';
-import Creation from '../sections/Creation';
-import Get from '../sections/Get';
+import Home from "../sections/Home";
+import About from "../sections/About";
+import PastPresent from "../sections/PastPresent";
+import Creation from "../sections/Creation";
+import Get from "../sections/Get";
 
-import TopRight from '../components/TopRight';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import BottomRight from '../components/BottomRight';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas, faG } from "@fortawesome/free-solid-svg-icons";
+import { faWordpress, faReact, faLinkedin, faDrupal, faSketch, faDev, faFigma } from "@fortawesome/free-brands-svg-icons";
+
+library.add(fas, faDrupal, faSketch, faLinkedin, faWordpress, faReact, faG, faDev, faFigma);
 
 const Copyright = styled.div`
-    color: white;
-    font-size: 12px;
-    left: -4rem;
-    position: absolute;
-    bottom: -100%;
-    transform: rotate(-90deg);
+  color: white;
+  font-size: 12px;
+  left: -4rem;
+  position: absolute;
+  bottom: -100%;
+  transform: rotate(-90deg);
 
-    @media (max-width: 541px) {
-      display: ${props => !props.display ? 'none;' : 'block' };
-      bottom: 1.5rem !important;
-      left: 1.5rem !important;
-      transform: unset !important;
-    }
+  @media (max-width: 541px) {
+    display: ${(props) => (!props.display ? "none;" : "block")};
+    bottom: 1.5rem !important;
+    left: 1.5rem !important;
+    transform: unset !important;
+  }
 `;
 
 const Slick = styled(Slider)`
-    display: flex;
+  display: flex;
+  height: 100vh;
+  height: -webkit-fill-available;
+
+  > .slick-list {
     height: 100vh;
-    height: -webkit-fill-available;
 
-    > .slick-list {
-      height: 100vh;
+    > .slick-track {
+      > .slick-slide {
+        min-height: 100vh;
+        position: relative;
 
-       > .slick-track {
-         > .slick-slide {
-           min-height: 100vh;
-           position: relative;
+        > div {
+          align-items: center;
+          display: flex;
+          height: 100vh;
+          overflow-y: auto;
 
-           > div {
-             align-items: center;
-             display: flex;
-             height: 100vh;
-             overflow-y: auto;
+          > section,
+          > div {
+            margin: auto;
+            overflow-x: hidden;
+            width: 100%;
 
-             > section,
-             > div {
-               margin: auto;
-               overflow-x: hidden;
-               width: 100%;
-
-               @media (max-width: 541px) {
-                 padding: 6rem 1.5rem;
-               }
-             }
-           }
-         }
-       }
+            @media (max-width: 541px) {
+              padding: 6rem 1.5rem;
+            }
+          }
+        }
+      }
     }
+  }
 `;
 
 export const IndexPageTemplate = ({
@@ -96,13 +98,7 @@ export const IndexPageTemplate = ({
   const [init, setInit] = useState(false);
   const [anchorJump, setAnchorJump] = useState(false);
 
-  const anchors = [
-    'home',
-    'about',
-    'past-present',
-    'creation',
-    'get',
-  ];
+  const anchors = ["home", "about", "past-present", "creation", "get"];
 
   const sections = [
     <Home />,
@@ -112,25 +108,36 @@ export const IndexPageTemplate = ({
     <Get />,
   ];
 
-  useAnimation(ball, logo, logoName, copyright, name, currentIndex, initialized, indexPage);
-  useScrollWheel(
-    isSliding, mainSlider,
+  useAnimation(
+    ball,
+    logo,
+    copyright,
+    name,
+    currentIndex,
+    initialized,
+    indexPage
   );
+  useScrollWheel(isSliding, mainSlider);
 
   useEffect(() => {
     if (init && !anchorJump) {
       const { hash } = window.location;
 
       if (hash) {
-        const targetIndex = anchors.findIndex((anchor) => anchor === hash.split('#')[1]);
+        const targetIndex = anchors.findIndex(
+          (anchor) => anchor === hash.split("#")[1]
+        );
         mainSlider.current.slickGoTo(targetIndex);
         setAnchorJump(true);
       }
     }
-  }, [init]);
+  }, [init, anchorJump, anchors]);
+
+  const year = new Date().getFullYear();
 
   return (
-    <Layout className="scroll-lock"
+    <Layout
+      className="scroll-lock"
       style={{
         background: "black",
       }}
@@ -160,7 +167,7 @@ export const IndexPageTemplate = ({
           }
 
           setCurrentIndex(newIndex);
-          window.history.pushState(null, null, '#' + anchors[newIndex]);
+          window.history.pushState(null, null, "#" + anchors[newIndex]);
         }}
         afterChange={() => {
           setIsSliding(false);
@@ -177,11 +184,11 @@ export const IndexPageTemplate = ({
         ref={copyright}
         display={currentIndex === 4 ? 1 : 0}
       >
-        &copy; 2020 Cyrus Liew. All Rights Reserved.
+        &copy; {year} Cyrus Liew. All Rights Reserved.
       </Copyright>
     </Layout>
-  )
-}
+  );
+};
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
@@ -193,10 +200,10 @@ IndexPageTemplate.propTypes = {
   intro: PropTypes.shape({
     blurbs: PropTypes.array,
   }),
-}
+};
 
 const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+  const { frontmatter } = data.markdownRemark;
 
   return (
     <IndexPageTemplate
@@ -208,8 +215,8 @@ const IndexPage = ({ data }) => {
       description={frontmatter.description}
       intro={frontmatter.intro}
     />
-  )
-}
+  );
+};
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
@@ -217,9 +224,9 @@ IndexPage.propTypes = {
       frontmatter: PropTypes.object,
     }),
   }),
-}
+};
 
-export default IndexPage
+export default IndexPage;
 
 export const pageQuery = graphql`
   query IndexPageTemplate {
@@ -257,4 +264,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
