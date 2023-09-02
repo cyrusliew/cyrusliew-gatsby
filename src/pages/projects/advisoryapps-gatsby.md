@@ -10,10 +10,12 @@ thumbnail: /img/advisoryapps.jpg
 screenshot:
   - image: /img/blog-advisory-apps.png
   - image: /img/1-new-message.png
+  - image: /img/img_0240.jpeg
+  - image: /img/img_0964.jpeg
 tags:
-  - G
+  - Gatsby
   - React
-  - S
+  - Strapi
 url: https://advisoryapps.com/
 hideUrl: false
 date: 2023-09-01T06:27:27.395Z
