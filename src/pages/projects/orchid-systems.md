@@ -19,7 +19,9 @@ completionDate: 2020-08-23T12:00:00.000Z
 featuredimage: /img/hfs.png
 date: 2018-08-24T10:51:00.000Z
 ---
-Orchid Systems is a fun project which allows me to dive more into improving knowledge on Gutenberg Editor. A standard has been set on both the process of creating blocks and theming. At the same time, I had to keep an eye on the quality of code produced by the junior developer, multiple linter is set up to make sure it passes the check.
+Orchid Systems was a delightful project that provided me with an opportunity to dive deep into enhancing my expertise with the Gutenberg Editor. It set a high standard for both block creation and theming, pushing the boundaries of creativity.
+
+Additionally, as a senior developer, I took on the role of mentoring a junior developer, ensuring the quality of our code remained top-notch. We implemented multiple linters to maintain code quality standards and ensure they passed with flying colors.
 
 **Features**
 
