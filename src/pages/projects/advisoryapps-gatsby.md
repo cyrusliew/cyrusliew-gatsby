@@ -8,10 +8,9 @@ platform:
 icon: fab fa-react
 thumbnail: /img/advisoryapps.jpg
 screenshot:
-  - image: /img/blog-advisory-apps.png
-  - image: /img/1-new-message.png
-  - image: /img/img_0240.jpeg
   - image: /img/img_0964.jpeg
+  - image: /img/img_0240.jpeg
+  - image: /img/blog-advisory-apps.png
 tags:
   - Gatsby
   - React
