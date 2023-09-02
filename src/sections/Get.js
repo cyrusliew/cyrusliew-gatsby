@@ -72,8 +72,7 @@ const Get = () => {
                 </a>
             </SocialLinks>
             <Content>
-                Cyrus Liew is currently working in Auckland, New Zealand, as a Drupal Front End Web Developer.
-                <br />Available for freelance project online.
+                Let's Connect and Create Something Awesome Together! Reach out and let the magic begin.
             </Content>
         </Wrapper>
     )
