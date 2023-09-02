@@ -67,7 +67,7 @@ const Get = () => {
                 <a href="https://www.linkedin.com/in/cyrusliew/" target="_blank" rel="noreferrer">
                     <FontAwesomeIcon icon="fa-brands fa-linkedin" />
                 </a>
-                <a href="mailto:cyrusliew02@gmail.com">
+                <a href="mailto:cyrusliewdev@gmail.com">
                     <FontAwesomeIcon icon="fa-solid fa-envelope" />
                 </a>
             </SocialLinks>
