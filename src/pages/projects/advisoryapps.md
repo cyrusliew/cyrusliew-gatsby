@@ -22,9 +22,9 @@ completionDate: 2018-10-13T11:00:00.000Z
 featuredimage: /img/hfs.png
 date: 2020-09-14T10:21:07.313Z
 ---
-AdvisoryApps stands at the forefront of digital innovation, offering a diverse range of solutions, from web and app development to fully customized systems and engaging game development. As part of this dynamic team, I took the helm in creating their brand new website, a complete revamp powered by WordPress, encompassing both frontend and backend development.
+AdvisoryApps leads the charge in digital innovation, offering an array of solutions, spanning web and app development, tailored systems, and captivating game design. As a freelance developer, AdvisoryApps partnered with myself to embark on an exciting journey—rebuilding their website from the ground up, powered by WordPress. This encompassed both frontend and backend development.
 
-For this exciting project, I seized the opportunity to leverage one of WordPress’s latest and most potent tools at the time - the revolutionary <a href="https://wordpress.org/gutenberg/" target="_blank">Gutenberg Editor</a>. With its drag-and-drop capabilities, we transformed AdvisoryApps’ online presence into a seamless and visually striking platform, reflecting their commitment to cutting-edge technology and innovative solutions. Explore our work and witness the fusion of design and functionality that has defined AdvisoryApps in the digital landscape.
+In this collaborative endeavor, I seized the opportunity to harness the cutting-edge Gutenberg Editor, one of WordPress’s latest and most potent tools at the time. Its intuitive drag-and-drop features allowed us to reshape AdvisoryApps’ online presence into a seamless and visually captivating platform. This project reflects their unwavering commitment to embracing the forefront of technology and delivering innovative solutions. Explore this project to witness the seamless fusion of design and functionality that defines AdvisoryApps in the digital landscape.
 
 **Key features**
 
