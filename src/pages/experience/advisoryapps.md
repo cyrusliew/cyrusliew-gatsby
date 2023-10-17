@@ -8,6 +8,4 @@ tags:
 url: http://advisoryapps.com/
 date: 2013-08-15T12:00:00.000Z
 ---
-This is where it all started.
-
-Getting hands dirty on building websites with HTML, jQuery and LESS. Exposed to one of the most popular CMS - Wordpress.
+At AdvisoryApps Sdn. Bhd., I excelled as a Front End Developer, focusing on developing static websites, custom templates for WordPress, and custom JSX JavaScript components for WordPress Gutenberg. My achievements included developing a custom WordPress theme based on provided designs and configuring the LESS compiler for improved development efficiency. My work showcased a commitment to delivering tailored solutions to companies of all sizes.
