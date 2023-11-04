@@ -34,10 +34,6 @@ const Section = styled.div`
     }
 
     .slick-list {
-        // @media (max-width: 541px) {
-        //   padding: 0 !important;
-        // }
-
         @media (min-width: 540px) {
           overflow: visible;
         }

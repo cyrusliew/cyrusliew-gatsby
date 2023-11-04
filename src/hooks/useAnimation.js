@@ -224,6 +224,7 @@ const useAnimation = (
 
     if (currentIndex === 4) {
       ball.current.style.marginTop = "auto";
+      ball.current.style.marginLeft = "auto";
 
       gsap.to(ball.current, {
         background:
