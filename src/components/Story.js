@@ -43,6 +43,10 @@ const Heading = styled.h3`
     > *:not(:last-child) {
         margin-right: 1rem;
     }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 const Wrapper = styled.div`
