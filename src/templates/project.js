@@ -7,13 +7,12 @@ import { HTMLContent } from "../components/Content";
 import Layout from "../components/Layout";
 import window from "global";
 import ProjectTemplate from "./project/template";
-import { getImage } from "gatsby-plugin-image";
 
 const Project = ({ data }) => {
   const { currentProject, moreLikeThis, next, prev } = data;
 
   const {
-    frontmatter: { title, tags, description, thumbnail, screenshot, url },
+    frontmatter: { title, tags, description, screenshot, url },
   } = currentProject;
 
   const logoSpace = () => (window.outerWidth > 540 ? "50px" : "1.5rem");

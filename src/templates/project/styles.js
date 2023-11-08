@@ -45,7 +45,7 @@ export const SiteLink = styled.div`
     }
 `;
 
-export const Btn = styled(Link)`
+export const Btn = styled.a`
     background: ${props => props.disabled ? '#f2f2f2' : '#a60e40'};
     border-radius: 5px;
     color: ${props => props.disabled ? '#ccc' : 'white'} !important;

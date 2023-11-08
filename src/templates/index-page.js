@@ -19,12 +19,6 @@ import Get from "../sections/Get";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas, faG } from "@fortawesome/free-solid-svg-icons";
-import { faWordpress, faReact, faLinkedin, faDrupal, faSketch, faDev, faFigma } from "@fortawesome/free-brands-svg-icons";
-
-library.add(fas, faDrupal, faSketch, faLinkedin, faWordpress, faReact, faG, faDev, faFigma);
-
 const Copyright = styled.div`
   color: white;
   font-size: 12px;

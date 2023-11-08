@@ -6,6 +6,12 @@ import { withPrefix } from 'gatsby'
 import Navbar from '../components/Navbar';
 import { StateProvider } from '../store'
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas, faG } from "@fortawesome/free-solid-svg-icons";
+import { faWordpress, faReact, faLinkedin, faDrupal, faSketch, faDev, faFigma } from "@fortawesome/free-brands-svg-icons";
+
+library.add(fas, faDrupal, faSketch, faLinkedin, faWordpress, faReact, faG, faDev, faFigma);
+
 const TemplateWrapper = forwardRef((
   {
     className,
@@ -51,8 +57,6 @@ const TemplateWrapper = forwardRef((
             href={`${withPrefix('/')}img/safari-pinned-tab.svg`}
             color="#ff4400"
           />
-
-          <script src="https://kit.fontawesome.com/b04f015872.js" crossorigin="anonymous" />
 
           <meta name="theme-color" content="#fff" />
 

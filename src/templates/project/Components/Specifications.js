@@ -1,3 +1,4 @@
+import { faWordpress } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import styled from "styled-components";
@@ -81,8 +82,8 @@ const Specifications = ({ onGoing, completionDate, tags }) => {
             tags.map((tag) => (
               <BuiltStack key={tag}>
                 <div>
-                  <FontAwesomeIcon icon={`fa-brands fa-${tag.toLowerCase()}`} />
-                  <FontAwesomeIcon icon={`fa-solid fa-${tag.toLowerCase()}`} />
+                  <FontAwesomeIcon icon={`fab fa-${tag.replace(" ", "-").toLowerCase()}`} />
+                  <FontAwesomeIcon icon={`fas fa-${tag.replace(" ", "-").toLowerCase()}`} />
                 </div>
                 <span>{tag}</span>
               </BuiltStack>
