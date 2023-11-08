@@ -87,7 +87,7 @@ BlogPost.propTypes = {
 
 export default BlogPost;
 
-graphql`
+export const pageQuery = graphql`
   query ExperienceByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
