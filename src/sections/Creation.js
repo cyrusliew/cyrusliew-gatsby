@@ -152,7 +152,6 @@ const QueriedCration = () => (
           title
           templateKey
           date(formatString: "MMMM DD, YYYY")
-          featuredpost
           tags
           url
           thumbnail {
