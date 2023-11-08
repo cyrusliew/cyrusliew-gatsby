@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Img from "gatsby-image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Wrapper = styled.a`
   color: white;
@@ -40,7 +40,7 @@ const Project = (props) => {
 
   return (
     <Wrapper className="portfolio" href={slug}>
-      <Img alt={title} fluid={thumbnail.childImageSharp.fluid} />
+      <GatsbyImage alt={title} image={getImage(thumbnail)} />
       <h4>{title}</h4>
       <p>
         {tags &&

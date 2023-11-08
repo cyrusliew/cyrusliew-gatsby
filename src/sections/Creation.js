@@ -1,11 +1,9 @@
 import React from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
-// import { withResizeDetector } from 'react-resize-detector';
 import PropTypes from 'prop-types'
-import {  graphql, StaticQuery } from 'gatsby'
+import { graphql, StaticQuery } from 'gatsby'
 import Project from '../components/Project';
-// import ProjectRoll from '../components/ProjectRoll';
 
 const Wrapper = styled.div`
     .slick-list {
@@ -79,12 +77,12 @@ const Wrapper = styled.div`
 `;
 
 const addActiveClass = () => {
-    document.querySelectorAll('.slick-slide').forEach(slide => {
-        slide.className = slide.className.split(' ').filter(c => !c.startsWith('slick-active-')).join(' ').trim();
-    });
-    document.querySelectorAll('.slick-active').forEach((activeSlide, index) => {
-        activeSlide.classList.add(`slick-active-${index + 1}`);
-    });
+  document.querySelectorAll('.slick-slide').forEach(slide => {
+    slide.className = slide.className.split(' ').filter(c => !c.startsWith('slick-active-')).join(' ').trim();
+  });
+  document.querySelectorAll('.slick-active').forEach((activeSlide, index) => {
+    activeSlide.classList.add(`slick-active-${index + 1}`);
+  });
 }
 
 const settings = {
@@ -112,68 +110,63 @@ const settings = {
 };
 
 const Creation = (props) => {
-    const { data } = props
-    const { edges: posts } = data.allMarkdownRemark;
-    
-    return (
-        <Wrapper className="section">
-            {
-                posts && (
-                    <Slider {...settings}>
-                        { posts.map(({ node: post }) => (
-                            <Project key={post.frontmatter.title} {...post} />
-                        )) }
-                    </Slider>  
-                )
-            } 
-        </Wrapper> 
-    )
+  const { data } = props
+  const { edges: posts } = data.allMarkdownRemark;
+
+  return (
+    <Wrapper className="section">
+      {posts && (
+        <Slider {...settings}>
+          {posts.map(({ node: post }) => (
+            <Project key={post.frontmatter.title} {...post} />
+          ))}
+        </Slider>
+      )}
+    </Wrapper>
+  )
 };
 
 Creation.propTypes = {
-    data: PropTypes.shape({
-      allMarkdownRemark: PropTypes.shape({
-        edges: PropTypes.array,
-      }),
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.array,
     }),
-  }
-  
-  export default () => (
-    <StaticQuery
-      query={graphql`
-        query ProjectRollQuery {
-          allMarkdownRemark(
-            sort: { order: DESC, fields: [frontmatter___date] }
-            filter: { frontmatter: { templateKey: { eq: "project" } } }
-          ) {
-            edges {
-              node {
-                excerpt(pruneLength: 400)
-                id
-                fields {
-                  slug
-                }
-                frontmatter {
-                  title
-                  templateKey
-                  date(formatString: "MMMM DD, YYYY")
-                  featuredpost
-                  tags
-                  url
-                  thumbnail {
-                    childImageSharp {
-                      fluid(quality: 100) {
-                        ...GatsbyImageSharpFluid
-                      }
-                    }
-                  }
-                }
-              }
+  }),
+}
+
+const QueriedCration = () => (
+  <StaticQuery
+    query={graphql`query ProjectRollQuery {
+  allMarkdownRemark(
+    sort: {frontmatter: {date: DESC}}
+    filter: {frontmatter: {templateKey: {eq: "project"}}}
+  ) {
+    edges {
+      node {
+        excerpt(pruneLength: 400)
+        id
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          templateKey
+          date(formatString: "MMMM DD, YYYY")
+          featuredpost
+          tags
+          url
+          thumbnail {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH)
             }
           }
         }
-      `}
-      render={(data, count) => <Creation data={data} count={count} />}
-    />
-  )
-  
+      }
+    }
+  }
+}`}
+    render={(data, count) => <Creation data={data} count={count} />}
+  />
+)
+
+export default QueriedCration;

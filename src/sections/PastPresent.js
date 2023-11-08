@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Slider from 'react-slick';
 import PropTypes from 'prop-types'
-import {  graphql, StaticQuery } from 'gatsby'
+import { graphql, StaticQuery } from 'gatsby'
 import Story from '../components/Story';
 
 const Section = styled.div`
@@ -40,64 +40,63 @@ const Section = styled.div`
     }
 `;
 
-const PastPresent = ({data}) => {
-    const { edges: posts } = data.allMarkdownRemark
+const PastPresent = ({ data }) => {
+  const { edges: posts } = data.allMarkdownRemark
 
-    return (
-        <Section id="past-present" className="section">
-            <Slider
-                dots={false}
-                infinite
-                speed={500}
-                slidesToShow={1}
-                slidesToScroll={1}
-                centerMode
-            >
-                {
-                    posts && (
-                        posts.map(({ node: post }) => (
-                            <Story key={post.frontmatter.title} {...post} />
-                        ))
-                    )
-                }
-            </Slider>
-        </Section>
-    );
+  return (
+    <Section id="past-present" className="section">
+      <Slider
+        dots={false}
+        infinite
+        speed={500}
+        slidesToShow={1}
+        slidesToScroll={1}
+        centerMode
+      >
+        {
+          posts && (
+            posts.map(({ node: post }) => (
+              <Story key={post.frontmatter.title} {...post} />
+            ))
+          )
+        }
+      </Slider>
+    </Section>
+  );
 };
 
 PastPresent.propTypes = {
-    data: PropTypes.shape({
-      allMarkdownRemark: PropTypes.shape({
-        edges: PropTypes.array,
-      }),
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.array,
     }),
-  }
-  
-  export default () => (
-    <StaticQuery
-      query={graphql`
-      query ExperienceRollQuery {
-        allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "experience" } } }
-        ) {
-          edges {
-            node {
-              excerpt
-              id
-              rawMarkdownBody
-              frontmatter {
-                title
-                templateKey
-                date(formatString: "YYYY")
-                position
-              }
+  }),
+}
+
+const QueriedPastPresent = () => (
+  <StaticQuery
+    query={graphql`query ExperienceRollQuery {
+      allMarkdownRemark(
+        sort: {frontmatter: {date: DESC}}
+        filter: {frontmatter: {templateKey: {eq: "experience"}}}
+      ) {
+        edges {
+          node {
+            excerpt
+            id
+            rawMarkdownBody
+            frontmatter {
+              title
+              templateKey
+              date(formatString: "YYYY")
+              position
             }
           }
         }
       }
-      `}
-      render={(data, count) => <PastPresent data={data} count={count} />}
-    />
-  )
-  
+    }`}
+    render={(data, count) => <PastPresent data={data} count={count} />}
+  />
+)
+
+export default QueriedPastPresent;

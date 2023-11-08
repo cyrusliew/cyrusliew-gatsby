@@ -7,6 +7,7 @@ import { HTMLContent } from "../components/Content";
 import Layout from "../components/Layout";
 import window from "global";
 import ProjectTemplate from "./project/template";
+import { getImage } from "gatsby-plugin-image";
 
 const Project = ({ data }) => {
   const { currentProject, moreLikeThis, next, prev } = data;
@@ -68,7 +69,6 @@ const Project = ({ data }) => {
         }
         tags={tags}
         title={title}
-        fluid={thumbnail.childImageSharp.fluid}
         screenshot={screenshot}
         url={url}
         moreLikeThis={moreLikeThis.edges}
@@ -91,111 +91,87 @@ Project.propTypes = {
 
 export default Project;
 
-export const pageQuery = graphql`
-  query ProjectByID(
-    $id: String!
-    $tags: [String!]
-    $next: String
-    $prev: String
-  ) {
-    currentProject: markdownRemark(id: { eq: $id }) {
-      id
-      html
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        title
-        description
-        tags
-        platform
-        onGoing
-        completionDate(formatString: "MMM YYYY")
-        url
-        hideUrl
-        thumbnail {
-          childImageSharp {
-            fluid(quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        screenshot {
-          image {
-            id
-            childImageSharp {
-              thumbnail: fluid(maxHeight: 597, maxWidth: 787) {
-                ...GatsbyImageSharpFluid
-              }
-              full: fluid(maxWidth: 1920, quality: 80) {
-                src
-              }
-            }
-          }
+export const pageQuery = graphql`query ProjectByID($id: String!, $tags: [String!], $next: String, $prev: String) {
+  currentProject: markdownRemark(id: {eq: $id}) {
+    id
+    html
+    frontmatter {
+      date(formatString: "MMMM DD, YYYY")
+      title
+      description
+      tags
+      platform
+      onGoing
+      completionDate(formatString: "MMM YYYY")
+      url
+      hideUrl
+      thumbnail {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
-    }
-    moreLikeThis: allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      limit: 4
-      filter: {
-        id: { nin: [$id, $prev, $next] }
-        frontmatter: { templateKey: { eq: "project" }, tags: { in: $tags } }
-      }
-    ) {
-      edges {
-        node {
+      screenshot {
+        image {
           id
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            templateKey
-            date(formatString: "MMMM DD, YYYY")
-            tags
-            thumbnail {
-              childImageSharp {
-                fluid(quality: 100) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
+          childImageSharp {
+            thumbnail: gatsbyImageData(layout: FULL_WIDTH)
+            full: gatsbyImageData(layout: FULL_WIDTH)
           }
         }
       }
     }
-
-    next: markdownRemark(id: { eq: $next }) {
-      id
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-        thumbnail {
-          childImageSharp {
-            fluid(quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
+  }
+  moreLikeThis: allMarkdownRemark(
+    sort: {frontmatter: {date: DESC}}
+    limit: 4
+    filter: {id: {nin: [$id, $prev, $next]}, frontmatter: {templateKey: {eq: "project"}, tags: {in: $tags}}}
+  ) {
+    edges {
+      node {
+        id
+        fields {
+          slug
         }
-      }
-    }
-
-    prev: markdownRemark(id: { eq: $prev }) {
-      id
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-        thumbnail {
-          childImageSharp {
-            fluid(quality: 100) {
-              ...GatsbyImageSharpFluid
+        frontmatter {
+          title
+          templateKey
+          date(formatString: "MMMM DD, YYYY")
+          tags
+          thumbnail {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH)
             }
           }
         }
       }
     }
   }
-`;
+  next: markdownRemark(id: {eq: $next}) {
+    id
+    fields {
+      slug
+    }
+    frontmatter {
+      title
+      thumbnail {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+      }
+    }
+  }
+  prev: markdownRemark(id: {eq: $prev}) {
+    id
+    fields {
+      slug
+    }
+    frontmatter {
+      title
+      thumbnail {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+      }
+    }
+  }
+}`;

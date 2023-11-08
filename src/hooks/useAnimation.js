@@ -180,8 +180,9 @@ const useAnimation = (
         duration: 0.5,
       });
 
+      let timeout;
       clearTimeout(timeout);
-      const timeout = setTimeout(function () {
+      timeout = setTimeout(function () {
         const yearSpan = document.querySelector(
           "#past-present .slick-current .year span"
         );

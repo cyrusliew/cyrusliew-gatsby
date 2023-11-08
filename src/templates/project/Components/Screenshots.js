@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Img from "gatsby-image";
 import Lightbox from "react-image-lightbox";
 import { Header } from "../styles";
 import "react-image-lightbox/style.css";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Wrapper = styled.div`
   margin-bottom: 6rem;
@@ -55,7 +55,7 @@ const Screenshots = ({ data }) => {
   }
 
   const getPhotoSrc = (index) => {
-    return data[index].image.childImageSharp.full.src;
+    return data[index].image.childImageSharp.full.images.fallback.src;
   };
 
   return (
@@ -66,9 +66,9 @@ const Screenshots = ({ data }) => {
       <ImageWrapper>
         <Hero>
           <Btn onClick={() => openLightbox(0)}>
-            <Img
+            <GatsbyImage
               alt=""
-              fluid={{ ...data[0].image.childImageSharp.thumbnail }}
+              image={data[0].image.childImageSharp.full}
             />
           </Btn>
         </Hero>
@@ -83,10 +83,10 @@ const Screenshots = ({ data }) => {
                 key={`image-${image.id}`}
                 onClick={() => openLightbox(index)}
               >
-                <Img
+                <GatsbyImage
                   key={image.id}
                   alt=""
-                  fluid={{ ...image.childImageSharp.thumbnail }}
+                  image={image.childImageSharp.thumbnail}
                 />
               </Btn>
             );

@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import Layout from '../components/Layout';
 import styled from 'styled-components';
 import imgNotFound from '../img/not-found.gif';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const Override = styled(Layout)`
   [class*="Navbar__Wrapper"] {
@@ -39,17 +40,13 @@ const Title = styled.h1`
   margin-top: auto;
 `;
 
-const Img = styled.img`
-  margin-top: auto;
-`;
-
 const NotFoundPage = () => (
   <Override>
     <Wrapper>
       <Title>Aiyaa! This is 404!</Title>
       <p>This page does not exist at all.</p>
       <Btn to="/" primary>Let's go home</Btn>
-      <Img src={imgNotFound} alt="This page does not exsit." />
+      <GatsbyImage src={imgNotFound} alt="This page does not exsit." />
     </Wrapper>
   </Override>
 )

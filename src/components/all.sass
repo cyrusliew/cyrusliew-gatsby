@@ -1,180 +1,215 @@
-@import "~bulma/sass/utilities/initial-variables"
+@import "~bulma/sass/utilities/initial-variables";
 
-// Config vars
-// Kaldi logo brand color: #FD461E
-$kaldi-red: #D64000
-$kaldi-red-invert: #fff
+$kaldi-red: #D64000;
+$kaldi-red-invert: #fff;
 
-$primary: $kaldi-red
-$primary-invert: $kaldi-red-invert
-$body-color: #333
-$black: #2b2523
+$primary: $kaldi-red;
+$primary-invert: $kaldi-red-invert;
+$body-color: #333;
+$black: #2b2523;
 
-body
+body {
   background: black;
   font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
 
 h1,
 h2,
 h3,
 h4,
 h5,
-h6
+h6 {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
 
-.navbar .navbar-menu
-  box-shadow:none !important
+.navbar .navbar-menu {
+  box-shadow:none !important;
+}
 
-.content .taglist
-  list-style: none
-  margin-bottom: 0
-  margin-left: 0
-  margin-right: 1.5rem
-  margin-top: 1.5rem
-  display: flex
-  flex-wrap: wrap
-  justify-content: left
-  align-items: center
+.content .taglist {
+  list-style: none;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 1.5rem;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+}
 
 // Helper Classes
-.full-width-image-container
-  width: 100vw
-  height: 400px
-  position: relative
-  left: 50%
-  right: 50%
-  margin: 2em -50vw
-  background-size: cover
-  background-position: bottom
-  display: flex
-  justify-content: center
-  align-items: center
+.full-width-image-container {
+  width: 100vw;
+  height: 400px;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin: 2em -50vw;
+  background-size: cover;
+  background-position: bottom;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-.full-width-image
-    width: 100vw
-    height: 400px
-    background-size: cover
-    background-position: bottom
-    display: flex
-    justify-content: center
-    align-items: center
+.full-width-image {
+    width: 100vw;
+    height: 400px;
+    background-size: cover;
+    background-position: bottom;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-.btn
-    display: inline-block
-    padding: 12px 16px 10px
-    font-size: 18px
-    font-size: 1rem
-    line-height: 1.25
-    background-color: #fff
-    border-radius: .25rem
-    text-decoration: none
-    font-weight: 700
-    color: #a60e40
-    text-align: center
-    -webkit-box-shadow: inset 0 0 0 2px #a60e40
-    box-shadow: inset 0 0 0 2px #a60e40
-    -webkit-transition: all .15s ease
-    transition: all .15s ease
+.btn {
+    display: inline-block;
+    padding: 12px 16px 10px;
+    font-size: 18px;
+    font-size: 1rem;
+    line-height: 1.25;
+    background-color: #fff;
+    border-radius: .25rem;
+    text-decoration: none;
+    font-weight: 700;
+    color: #a60e40;
+    text-align: center;
+    -webkit-box-shadow: inset 0 0 0 2px #a60e40;
+    box-shadow: inset 0 0 0 2px #a60e40;
+    -webkit-transition: all .15s ease;
+    transition: all .15s ease;
 
-    &:not([disabled]):hover
-      background: #80062f
-      -webkit-box-shadow: inset 0 0 0 2px #80062f
-      box-shadow: inset 0 0 0 2px #80062f
-    
-    &[disabled]
-      pointer-events: none
-      box-shadow: unset
+    &:not([disabled]):hover {
+      background: #80062f;
+      -webkit-box-shadow: inset 0 0 0 2px #80062f;
+      box-shadow: inset 0 0 0 2px #80062f;
+    }
 
-.margin-top-0
-  margin-top: 0 !important
+    &[disabled] {
+      pointer-events: none;
+      box-shadow: unset;
+    }
+}
 
-.navbar-item .icon
-  color: $primary
+.margin-top-0 {
+  margin-top: 0 !important;
+}
+
+.navbar-item .icon {
+  color: $primary;
+}
+
 // Override for use of svg's from https://simpleicons.org/
-.icon svg
-  width: 1.5rem
-  height: 1.5rem
-  fill: currentColor
-.navbar-brand .navbar-item.logo
-  padding: 0 1rem
-footer.footer
-  padding: 3rem 0rem 0rem
-  background-color: transparent
+.icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+}
+.navbar-brand .navbar-item.logo {
+  padding: 0 1rem;
+}
+
+footer.footer {
+  padding: 3rem 0rem 0rem;
+  background-color: transparent;
+}
 
 //Menu overrides
-$menu-item-color: $white-ter
-$menu-item-hover-color: $black !important
-$menu-item-hover-background-color: $black
-$menu-item-active-color: $kaldi-red-invert
-$menu-item-active-background-color:	$kaldi-red-invert
-$menu-list-border-left: 1px solid $kaldi-red-invert
-$menu-label-color: $white-ter
+$menu-item-color: $white-ter;
+$menu-item-hover-color: $black !important;
+$menu-item-hover-background-color: $black;
+$menu-item-active-color: $kaldi-red-invert;
+$menu-item-active-background-color:	$kaldi-red-invert;
+$menu-list-border-left: 1px solid $kaldi-red-invert;
+$menu-label-color: $white-ter;
 
 
-.menu-label
-  font-size: 1em !important
-  text-align: left
-.menu-list
-  list-style: none !important
-  text-align: left
-.social
-  padding: 2em
-.social a
-    padding: .5em .5em .3em .5em
-    border-radius: 1em
-    background-color: $white-ter
-    margin: .5em
-    width: 1em
-    height: 1em
-    vertical-align: middle
-    display: inline
+.menu-label {
+  font-size: 1em !important;
+  text-align: left;
+}
+
+.menu-list {
+  list-style: none !important;
+  text-align: left;
+}
+.social {
+  padding: 2em;
+}
+.social a {
+  padding: .5em .5em .3em .5em;
+  border-radius: 1em;
+  background-color: $white-ter;
+  margin: .5em;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  display: inline;
+}
 
 // blog roll
-.blog-list-item.is-featured
+.blog-list-item.is-featured {
   background-color: #d6400033;
-.blog-list-item header
+}
+.blog-list-item header {
   display: flex;
   margin-bottom: 1em;
-.blog-list-item .featured-thumbnail
+}
+
+.blog-list-item .featured-thumbnail {
   flex-basis: 35%;
   margin: 0 1.5em 0 0;
+}
 
-.fa-gutenberg::before
-    content: url('/img/icon-gutenberg.svg')
-    content: 'abc'
-    display: inline-block
+.fa-gutenberg::before {
+  content: url('/img/icon-gutenberg.svg');
+  content: 'abc';
+  display: inline-block;
+}
 
 
-@import "~bulma"
+@import "~bulma";
 
 html.scroll-lock,
-body.scroll-lock
-  overflow: hidden
+body.scroll-lock {
+  overflow: hidden;
+}
 
-body.scroll-lock
-  height: -webkit-fill-available
+body.scroll-lock {
+  height: -webkit-fill-available;
+}
 
-body
+body {
   background: linear-gradient(180deg, #292768 0%, #040B24 100%);
   font-size: 18px;
   min-height: 100vh;
   letter-spacing: 0.05em;
+}
 
-.slick-slide
-  outline: none !important
+.slick-slide {
+  outline: none !important;
+}
 
-.container
+.container {
   padding: 0 20px;
+}
 
 // responsiveness
-+tablet-only
-  .blog-list-item .featured-thumbnail
+.tablet-only {
+  .blog-list-item .featured-thumbnail {
     flex-basis: 50%;
+  }
+}
 
-+mobile
-  .blog-list-item header
-    display: block
-  .blog-list-item .featured-thumbnail
+.mobile {
+  .blog-list-item header {
+    display: block;
+  }
+
+  .blog-list-item .featured-thumbnail {
     text-align: center;
     max-width: 70%;
     margin: 0 0 1em;
+  }
+}

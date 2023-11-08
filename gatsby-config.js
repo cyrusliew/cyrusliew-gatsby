@@ -15,6 +15,7 @@ module.exports = {
       '5 years of Front End, 2 years of Full Stack - Cyrus Liew, a developer based in Auckland, New Zealand.',
     siteUrl: 'https://www.cyrusliew.com',
   },
+  trailingSlash: 'always',
   plugins: [
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
@@ -63,8 +64,9 @@ module.exports = {
         name: 'images',
       },
     },
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: 'gatsby-transformer-remark',
       options: {

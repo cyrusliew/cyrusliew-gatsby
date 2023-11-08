@@ -6,7 +6,7 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
-export const ExperienceTemplate = ({
+const ExperienceTemplate = ({
   content,
   contentComponent,
   description,
@@ -85,9 +85,9 @@ BlogPost.propTypes = {
   }),
 }
 
-export default BlogPost
+export default BlogPost;
 
-export const pageQuery = graphql`
+graphql`
   query ExperienceByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id

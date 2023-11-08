@@ -61,21 +61,21 @@ const Content = styled.div`
 `;
 
 const Get = () => {
-    return (
-        <Wrapper className="section">
-            <SocialLinks>
-                <a href="https://www.linkedin.com/in/cyrusliew/" target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon icon="fa-brands fa-linkedin" />
-                </a>
-                <a href="mailto:cyrusliewdev@gmail.com">
-                    <FontAwesomeIcon icon="fa-solid fa-envelope" />
-                </a>
-            </SocialLinks>
-            <Content>
-                Let's Connect and Create Something Awesome Together! Reach out and let the magic begin.
-            </Content>
-        </Wrapper>
-    )
+  return (
+    <Wrapper className="section">
+      <SocialLinks>
+        <a role="button" href="https://www.linkedin.com/in/cyrusliew/" target="_blank" rel="noreferrer">
+          <FontAwesomeIcon icon="fa-brands fa-linkedin" />
+        </a>
+        <a role="button" href="mailto:cyrusliewdev@gmail.com">
+          <FontAwesomeIcon icon="fa-solid fa-envelope" />
+        </a>
+      </SocialLinks>
+      <Content>
+        Let's Connect and Create Something Awesome Together! Reach out and let the magic begin.
+      </Content>
+    </Wrapper>
+  )
 }
 
 export default Get;

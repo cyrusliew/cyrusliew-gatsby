@@ -1,13 +1,7 @@
 import { graphql } from 'gatsby';
 
-const pageQuery  = () => graphql`
-query ProjectByID(
-  $id: String!
-  $tags: [String!]
-  $next: String
-  $prev: String
-) {
-  currentProject: markdownRemark(id: { eq: $id }) {
+const pageQuery  = () => graphql`query ProjectByID($id: String!, $tags: [String!], $next: String, $prev: String) {
+  currentProject: markdownRemark(id: {eq: $id}) {
     id
     html
     frontmatter {
@@ -21,31 +15,15 @@ query ProjectByID(
       url
       thumbnail {
         childImageSharp {
-          fluid(
-            quality: 100
-          ) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
     }
   }
   moreLikeThis: allMarkdownRemark(
-    sort: {order: DESC, fields: [frontmatter___date]},
-    limit: 4,
-    filter: {
-      id: {
-        nin: [$id, $prev, $next]
-      }
-      frontmatter: {
-        templateKey: {
-          eq: "project"
-        },
-        tags: {
-          in: $tags
-        }
-      }
-    }
+    sort: {frontmatter: {date: DESC}}
+    limit: 4
+    filter: {id: {nin: [$id, $prev, $next]}, frontmatter: {templateKey: {eq: "project"}, tags: {in: $tags}}}
   ) {
     edges {
       node {
@@ -60,19 +38,14 @@ query ProjectByID(
           tags
           thumbnail {
             childImageSharp {
-              fluid(
-                quality: 100
-              ) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(layout: FULL_WIDTH)
             }
           }
         }
       }
     }
   }
-  
-  next: markdownRemark(id: { eq: $next }) {
+  next: markdownRemark(id: {eq: $next}) {
     id
     fields {
       slug
@@ -81,17 +54,12 @@ query ProjectByID(
       title
       thumbnail {
         childImageSharp {
-          fluid(
-            quality: 100
-          ) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
     }
   }
-  
-  prev: markdownRemark(id: { eq: $prev }) {
+  prev: markdownRemark(id: {eq: $prev}) {
     id
     fields {
       slug
@@ -100,17 +68,11 @@ query ProjectByID(
       title
       thumbnail {
         childImageSharp {
-          fluid(
-            quality: 100
-          ) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
     }
   }
-  
-}
-`
+}`
 
 export default pageQuery;

@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import Content from "../../components/Content";
 import { Link } from "gatsby";
-import Img from "gatsby-image";
 import {
   Btn,
   ContentWrapper,
@@ -16,6 +15,7 @@ import {
 } from "./styles";
 import Specifications from "./Components/Specifications";
 import Screenshots from "./Components/Screenshots";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const ProjectTemplate = ({
   completionDate,
@@ -25,7 +25,7 @@ const ProjectTemplate = ({
   tags,
   title,
   helmet,
-  fluid,
+  thumbnail,
   moreLikeThis,
   onGoing,
   screenshot,
@@ -45,7 +45,7 @@ const ProjectTemplate = ({
           <div className="column is-10 is-offset-1">
             <Title>{title}</Title>
             <p>{description}</p>
-            <Img alt="" fluid={{ ...fluid, aspectRatio: 3 }} />
+            <GatsbyImage alt="" image={getImage(thumbnail)} />
             <ContentWrapper>
               <Specifications
                 completionDate={completionDate}
@@ -76,18 +76,18 @@ const ProjectTemplate = ({
                 <ProjectsInnerWrapper>
                   {prev && (
                     <Link to={prev.fields.slug}>
-                      <Img
+                      <GatsbyImage
                         alt={prev.frontmatter.title}
-                        fluid={prev.frontmatter.thumbnail.childImageSharp.fluid}
+                        image={getImage(prev.frontmatter.thumbnail)}
                       />
                       <p>{prev.frontmatter.title}</p>
                     </Link>
                   )}
                   {next && (
                     <Link to={next.fields.slug}>
-                      <Img
+                      <GatsbyImage
                         alt={next.frontmatter.title}
-                        fluid={next.frontmatter.thumbnail.childImageSharp.fluid}
+                        image={getImage(next.frontmatter.thumbnail)}
                       />
                       <p>{next.frontmatter.title}</p>
                     </Link>
@@ -105,14 +105,12 @@ const ProjectTemplate = ({
                             fields: { slug },
                             frontmatter: {
                               title,
-                              thumbnail: {
-                                childImageSharp: { fluid },
-                              },
+                              thumbnail,
                             },
                           },
                         }) => (
                           <Link key={slug} to={slug}>
-                            <Img alt={title} fluid={fluid} />
+                            <GatsbyImage alt={title} image={getImage(thumbnail)} />
                             <p>{title}</p>
                           </Link>
                         )
