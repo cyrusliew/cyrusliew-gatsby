@@ -58,7 +58,7 @@ const ProjectTemplate = ({
             <SiteLink>
               <Btn
                 className={`btn btn-${hideUrl ? "disabled" : "primary"}`}
-                to={hideUrl ? "" : url}
+                href={hideUrl ? "" : url}
                 target="_blank"
                 disabled={hideUrl}
               >
