@@ -1,4 +1,4 @@
-import React, { useState, createRef, useEffect } from "react";
+import React, { useState, createRef, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Slider from "react-slick";

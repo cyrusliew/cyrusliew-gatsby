@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Lightbox from "react-image-lightbox";
 import { Header } from "../styles";
 import "react-image-lightbox/style.css";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const Wrapper = styled.div`
   margin-bottom: 6rem;

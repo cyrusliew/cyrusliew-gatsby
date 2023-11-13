@@ -1,8 +1,6 @@
 import React from 'react';
 import Logo from '../components/Logo';
 import Ball from '../components/Ball';
-// import { store } from '../store';
-// import Name from '../components/Name';
 
 const LogoName = ({
     ball,
@@ -11,14 +9,6 @@ const LogoName = ({
     currentIndex,
     initialized,
 }) => {
-    // const ball = createRef();
-    // const logo = createRef();
-    // const { dispatch } = useContext(store);
-
-    // useEffect(() => {
-    //     dispatch({ payload: { ball: ball.current, logo: logo.current } })
-    // })
-
     return (
         <div
             className="logo-name"
