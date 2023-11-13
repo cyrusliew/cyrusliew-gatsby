@@ -22,17 +22,23 @@ const Title = styled.h2`
   margin-bottom: 2rem;
 `;
 
-const About = () => {
+const getExperienceYears = () => {
   const currentYear = new Date().getFullYear();
   const experienceInYears = currentYear - 2013;
-  const experience = experienceInYears === 10 ? "decade" : experienceInYears;
+  if (experienceInYears === 10)
+    return "a decade"
+    
+  return `${experienceInYears} years`;
+}
+
+const About = () => {
 
   return (
     <Section className="section section--gradient">
       <AboutContent>
         <Title>Hello</Title>
         <p>
-          I'm Cyrus Liew, a full stack developer with a {experience} of
+          I'm Cyrus Liew, a Full Stack Developer with {getExperienceYears()} of
           experience. I specialize in frontend development, where I bring
           digital visions to life through engaging user interfaces. Explore my
           portfolio to see how I turn challenges into opportunities,

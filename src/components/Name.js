@@ -42,7 +42,7 @@ const Name = ({
 }) => (
     <NameWrapper className="name" ref={name}>
         <h2>Cyrus Liew</h2>
-        <h4>Full Stack developer</h4>
+        <h4>Full Stack Developer</h4>
     </NameWrapper>
 );
 
