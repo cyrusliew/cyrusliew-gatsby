@@ -10,9 +10,9 @@ const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
 
 module.exports = {
   siteMetadata: {
-    title: 'Full Stack | Cyrus Liew',
+    title: 'Cyrus Liew | Web Developer & Multimedia Specialist',
     description:
-      '5 years of Front End, 2 years of Full Stack - Cyrus Liew, a developer based in Auckland, New Zealand.',
+      'Experienced web developer with 11+ years in multimedia and digital solutions. Specializing in Drupal, TailwindCSS, and business-driven projects. Explore my portfolio for innovative web development.',
     siteUrl: 'https://www.cyrusliew.com',
   },
   trailingSlash: 'always',
